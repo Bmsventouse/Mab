@@ -157,9 +157,9 @@ export const ContactForm = () => {
         </h2>
         <p className="text-muted">
           Précisez le contexte de votre organisation, la nature de la mission et, le cas
-          échéant, le cadre contractuel (appel d&apos;offres, marché public, convention),
-          afin que nous puissions évaluer votre demande et vous proposer un dispositif
-          adapté.
+          échéant, le cadre contractuel (appel d&apos;offres privé ou public, marché,
+          convention), afin que nous puissions évaluer votre demande et vous proposer un
+          dispositif adapté.
         </p>
       </div>
 

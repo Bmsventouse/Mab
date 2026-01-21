@@ -6,7 +6,7 @@ import { company, engagements, services } from '../content/company';
 export const metadata: Metadata = {
   title: 'Sécurité privée pour entreprises, collectivités et événements',
   description:
-    "MAB SECURITE, société de sécurité privée basée à Nîmes, accompagne les organisations professionnelles dans la sécurisation de leurs sites, collaborateurs et publics.",
+    "MAB SECURITE, société de sécurité privée basée à Nîmes, accompagne les organisations professionnelles dans la sécurisation de leurs sites, collaborateurs et publics, y compris dans le cadre d'appels d'offres privés et publics.",
 };
 
 export default function HomePage() {
@@ -27,8 +27,8 @@ export default function HomePage() {
                 {company.name} conçoit et pilote des dispositifs de sécurité pour les
                 entreprises privées, les donneurs d&apos;ordre publics et les organisateurs
                 d&apos;événements, avec une approche compatible avec les exigences des
-                marchés publics&nbsp;: traçabilité, fiabilité opérationnelle et conformité
-                au cadre réglementaire.
+                appels d&apos;offres privés et publics&nbsp;: traçabilité, fiabilité
+                opérationnelle et conformité au cadre réglementaire.
               </p>
             </div>
 

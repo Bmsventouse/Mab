@@ -22,7 +22,8 @@ export default function PrestationsPage() {
             contraintes des entreprises privées, des collectivités et des établissements
             publics. Chaque mission est cadrée en amont afin d&apos;assurer un niveau de
             sécurité cohérent avec vos enjeux, vos obligations réglementaires et, le cas
-            échéant, les exigences de vos marchés publics ou cahiers des charges.
+            échéant, les exigences de vos appels d&apos;offres privés ou publics et de vos
+            cahiers des charges.
           </p>
         </header>
 
