@@ -4,9 +4,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: 'Société de gardiennage à Marseille – Sites industriels & portuaires',
+  title: 'Sécurité BTP & gardiennage industriel à Marseille',
   description:
-    'MAB SECURITE sécurise vos sites industriels, portuaires et logistiques à Marseille et dans les Bouches-du-Rhône : gardiennage, surveillance humaine et rondes de sûreté.',
+    'MAB SECURITE sécurise vos chantiers BTP, sites industriels, portuaires et logistiques à Marseille et dans les Bouches-du-Rhône : gardiennage, surveillance humaine et rondes de sûreté.',
 };
 
 export default function SecuritePriveeMarseillePage() {

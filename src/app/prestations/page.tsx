@@ -3,9 +3,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: 'Prestations de sécurité privée',
+  title: 'Prestations de sécurité privée – Gardiennage BTP & sites professionnels',
   description:
-    "Prestations de sécurité MAB SECURITE : dispositifs de sécurité pour les entreprises, collectivités et organisateurs d'événements (sécurité événementielle, gardiennage, rondes, sécurisation de sites).",
+    "Prestations de sécurité MAB SECURITE : gardiennage de chantiers BTP, surveillance humaine, rondes de sûreté, sécurité événementielle et sécurisation de sites pour les entreprises et collectivités à Paris, Marseille, Nîmes et sur la côte sud.",
 };
 
 export default function PrestationsPage() {

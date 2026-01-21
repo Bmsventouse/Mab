@@ -4,9 +4,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: 'Agence de sécurité privée à Nîmes – Gardiennage & chantiers',
+  title: 'Sécurité BTP à Nîmes – Gardiennage de chantiers & sites commerciaux',
   description:
-    "MAB SECURITE, agence de sécurité privée à Nîmes, assure la surveillance de chantiers, sites commerciaux et événements dans le Gard (30) : gardiennage, rondes et SSIAP.",
+    "MAB SECURITE, agence de sécurité privée basée à Nîmes, est spécialisée dans le gardiennage de chantiers BTP, la surveillance de sites commerciaux et la sécurité d’événements dans le Gard (30) : rondes, levées de doute et sécurisation de périmètres.",
 };
 
 export default function SecuritePriveeNimesPage() {
