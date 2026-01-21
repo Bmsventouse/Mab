@@ -4,9 +4,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: 'Sécurité BTP & gardiennage industriel à Marseille',
+  title: 'Société de sécurité privée à Marseille – BTP, sites industriels & événements',
   description:
-    'MAB SECURITE sécurise vos chantiers BTP, sites industriels, portuaires et logistiques à Marseille et dans les Bouches-du-Rhône : gardiennage, surveillance humaine et rondes de sûreté.',
+    'MAB SECURITE sécurise vos chantiers BTP, sites industriels, portuaires, logistiques, commerciaux et événements à Marseille et dans les Bouches-du-Rhône : gardiennage, surveillance humaine, rondes de sûreté et sécurité événementielle.',
 };
 
 export default function SecuritePriveeMarseillePage() {
@@ -22,14 +22,15 @@ export default function SecuritePriveeMarseillePage() {
         <header className="space-y-3">
           <p className="badge">Marseille · Bouches-du-Rhône</p>
           <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Société de gardiennage à Marseille pour sites industriels et logistiques
+            Société de sécurité privée à Marseille pour sites BTP, industriels et événements
           </h1>
           <p className="max-w-2xl text-sm text-muted">
-            {company.name} accompagne les acteurs industriels, logistiques et portuaires de
-            Marseille et de son agglomération. Nos dispositifs de sécurité privée
-            s&apos;adaptent aux contraintes des sites à forte activité&nbsp;: flux de
-            poids lourds, zones de chargement, accès multiples, contraintes horaires et
-            réglementaires renforcées.
+            {company.name} accompagne les acteurs du BTP, les sites industriels et
+            logistiques, les exploitants de sites commerciaux ainsi que les organisateurs
+            d&apos;événements à Marseille et dans les Bouches-du-Rhône. Nos dispositifs de
+            sécurité privée s&apos;adaptent aux contraintes des sites à forte activité&nbsp;:
+            flux de personnes et de véhicules, zones sensibles, accès multiples et
+            exigences réglementaires renforcées.
           </p>
         </header>
 
@@ -75,6 +76,10 @@ export default function SecuritePriveeMarseillePage() {
             <ul className="mt-3 space-y-2">
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+                <span>Gardiennage de chantiers BTP et opérations d&apos;aménagement</span>
+              </li>
+              <li className="flex gap-2">
+                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
                 <span>Gardiennage de sites industriels et de dépôts logistiques</span>
               </li>
               <li className="flex gap-2">
@@ -87,7 +92,7 @@ export default function SecuritePriveeMarseillePage() {
               </li>
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-                <span>Dispositifs pour événements et opérations exceptionnelles</span>
+                <span>Dispositifs de sécurité pour événements professionnels et grand public</span>
               </li>
             </ul>
           </aside>

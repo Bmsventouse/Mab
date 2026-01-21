@@ -4,9 +4,9 @@ import { CheckCircle2, ClipboardList, HardHat, MapPinned } from 'lucide-react';
 import { company } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: 'Gardiennage de chantiers BTP à Paris – Sécurité de nuit & levées de doute',
+  title: 'Gardiennage de chantiers BTP à Paris et en Île-de-France',
   description:
-    "MAB SECURITE est spécialisée dans le gardiennage de chantiers BTP à Paris et en Île-de-France : sécurité de nuit, levées de doute, rondes de sûreté, protection des bases-vie, dépôts de matériaux et périmètres sensibles.",
+    "MAB SECURITE est spécialisée dans le gardiennage de chantiers BTP à Paris et en Île-de-France (75, 92, 93, 94, 95, 77, 78, 91) : sécurité de nuit, levées de doute, rondes de sûreté, protection des bases-vie, dépôts de matériaux et périmètres sensibles.",
 };
 
 export default function GardiennageChantiersBtpParisPage() {

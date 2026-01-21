@@ -27,10 +27,10 @@ export default function SecuritePriveeParisPage() {
           <p className="max-w-2xl text-sm text-muted">
             {company.name} accompagne en priorité les entreprises du BTP, les maîtres
             d&apos;ouvrage et les donneurs d&apos;ordre publics implantés à Paris et en
-            Île-de-France. Nos dispositifs de gardiennage, de surveillance et de rondes de
-            sûreté sont dimensionnés pour les environnements à enjeux&nbsp;: chantiers
-            urbains, bases-vie, bâtiments en construction, mais aussi sièges sociaux,
-            immeubles tertiaires et sites techniques.
+            Île-de-France (75, 92, 93, 94, 95, 77, 78, 91). Nos dispositifs de gardiennage,
+            de surveillance et de rondes de sûreté sont dimensionnés pour les environnements
+            à enjeux&nbsp;: chantiers urbains, bases-vie, bâtiments en construction, mais
+            aussi sièges sociaux, immeubles tertiaires et sites techniques.
           </p>
         </header>
 
