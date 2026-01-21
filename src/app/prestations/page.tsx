@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
@@ -51,16 +52,37 @@ export default function PrestationsPage() {
           ))}
         </div>
 
-        <div className="card-muted p-5 text-xs text-slate-300">
-          <p className="font-medium text-slate-100">
-            Besoin d’une approche globale de la sécurité de vos sites&nbsp;?
-          </p>
-          <p className="mt-2">
-            Nous construisons des dispositifs combinant gardiennage, rondes de sûreté et
-            sécurité événementielle, en articulation avec vos procédures internes (plans
-            de prévention, consignes d&apos;accès, gestion des visiteurs, prestataires et
-            sous-traitants).
-          </p>
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+          <div className="card-muted p-5 text-xs text-slate-300">
+            <p className="font-medium text-slate-100">
+              Besoin d’une approche globale de la sécurité de vos sites&nbsp;?
+            </p>
+            <p className="mt-2">
+              Nous construisons des dispositifs combinant gardiennage, rondes de sûreté et
+              sécurité événementielle, en articulation avec vos procédures internes (plans
+              de prévention, consignes d&apos;accès, gestion des visiteurs, prestataires et
+              sous-traitants).
+            </p>
+          </div>
+          <div className="card p-5 text-xs text-slate-300">
+            <p className="font-medium text-slate-100">
+              Focus : gardiennage de chantiers BTP à Paris
+            </p>
+            <p className="mt-2">
+              Pour les opérations de construction et de réhabilitation en Île-de-France,
+              {` `}{company.name} propose des dispositifs dédiés au gardiennage de chantiers
+              BTP : présence de nuit, rondes de sûreté, levées de doute et protection des
+              bases-vie et dépôts de matériaux.
+            </p>
+            <div className="mt-3">
+              <Link
+                href="/gardiennage-chantiers-btp-paris"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+              >
+                Découvrir notre offre BTP à Paris
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
