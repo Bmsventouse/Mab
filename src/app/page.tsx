@@ -15,20 +15,21 @@ export default function HomePage() {
       {/* Hero */}
       <section className="section pb-8">
         <div className="section-inner grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
-          <div className="space-y-6">
+          <div className="space-y-6 animate-fade-up">
             <span className="badge">
               Sécurité privée · B2B · Nîmes &amp; région
             </span>
             <div className="space-y-4">
               <h1 className="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
-                Une sécurité privée structurée pour vos sites et vos publics.
+                Sécuriser durablement vos sites, vos équipes et vos publics.
               </h1>
               <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-                {company.name} conçoit et pilote des dispositifs de sécurité pour les
-                entreprises privées, les donneurs d&apos;ordre publics et les organisateurs
-                d&apos;événements, avec une approche compatible avec les exigences des
-                appels d&apos;offres privés et publics&nbsp;: traçabilité, fiabilité
-                opérationnelle et conformité au cadre réglementaire.
+                {company.name}, société de sécurité privée basée à Nîmes, conçoit et pilote
+                des dispositifs de sécurité pour les entreprises privées, les donneurs
+                d&apos;ordre publics et les organisateurs d&apos;événements. Notre
+                expérience de terrain et notre connaissance des appels d&apos;offres privés
+                et publics garantissent des interventions traçables, fiables et conformes
+                au cadre réglementaire.
               </p>
             </div>
 
@@ -79,7 +80,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <aside className="card space-y-4 p-6 text-sm">
+          <aside className="card space-y-4 p-6 text-sm animate-fade-up-delayed">
             <div className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
               Coordonnées
             </div>
@@ -115,6 +116,53 @@ export default function HomePage() {
               Zone d’intervention : {company.areaServed}
             </p>
           </aside>
+        </div>
+      </section>
+
+      {/* Pour qui ? */}
+      <section className="section pt-0">
+        <div className="section-inner space-y-5">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-sm font-semibold text-slate-50 sm:text-base">
+                Pour quels types d&apos;organisations ?
+              </h2>
+              <p className="text-xs text-muted sm:text-sm">
+                {company.name} intervient pour des structures privées comme publiques,
+                dans le cadre de relations contractuelles récurrentes ou d&apos;appels
+                d&apos;offres.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-4 text-xs text-slate-300 md:grid-cols-3">
+            <div className="card-muted p-4 animate-fade-in-soft">
+              <div className="text-[13px] font-semibold text-slate-100">
+                Entreprises privées
+              </div>
+              <p className="mt-1.5 text-muted">
+                Sièges sociaux, sites industriels, entrepôts, plateformes logistiques,
+                réseaux d&apos;agences, sites techniques.
+              </p>
+            </div>
+            <div className="card-muted p-4 animate-fade-in-soft">
+              <div className="text-[13px] font-semibold text-slate-100">
+                Collectivités &amp; établissements publics
+              </div>
+              <p className="mt-1.5 text-muted">
+                Mairies, intercommunalités, établissements scolaires et universitaires,
+                équipements culturels et sportifs.
+              </p>
+            </div>
+            <div className="card-muted p-4 animate-fade-in-soft">
+              <div className="text-[13px] font-semibold text-slate-100">
+                Événementiel &amp; production
+              </div>
+              <p className="mt-1.5 text-muted">
+                Organisateurs d&apos;événements, agences, producteurs, sociétés de
+                production audiovisuelle, tournages et plateaux.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
