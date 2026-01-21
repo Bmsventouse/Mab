@@ -51,6 +51,14 @@ export default function SecuritePriveeParisPage() {
               humaine permet de proposer une gestion opérationnelle réactive, en lien
               direct avec un interlocuteur identifié.
             </p>
+            <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4 text-xs text-slate-200">
+              <p className="font-semibold text-slate-50">
+                Responsable sécurité Paris
+              </p>
+              <p className="mt-1">
+                Bena – <a href="tel:+33646005642" className="text-emerald-400 hover:text-emerald-300">+33 6 46 00 56 42</a>
+              </p>
+            </div>
           </div>
 
           <aside className="card p-5 text-xs text-slate-200">
