@@ -4,9 +4,9 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 
 export const metadata: Metadata = {
-  title: "Agence de sécurité privée à Paris – Gardiennage & sites sensibles",
+  title: 'Sécurité BTP à Paris – Gardiennage de chantiers & sites sensibles',
   description:
-    "MAB SECURITE accompagne les entreprises et donneurs d’ordre publics à Paris et en Île-de-France : gardiennage, sécurité de sièges sociaux et protection de sites sensibles.",
+    "MAB SECURITE, agence de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris et en Île-de-France : gardiennage de chantiers, surveillance humaine, rondes de sûreté et protection de sites sensibles.",
 };
 
 export default function SecuritePriveeParisPage() {
@@ -22,14 +22,15 @@ export default function SecuritePriveeParisPage() {
         <header className="space-y-3">
           <p className="badge">Paris · Île-de-France</p>
           <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Agence de sécurité privée à Paris pour sièges sociaux et sites sensibles
+            Sécurité BTP à Paris : gardiennage de chantiers et sites sensibles
           </h1>
           <p className="max-w-2xl text-sm text-muted">
-            {company.name} accompagne les entreprises privées, groupes et donneurs d&apos;ordre
-            publics implantés à Paris et en Île-de-France. Nos dispositifs de gardiennage,
-            de surveillance et de rondes de sûreté sont dimensionnés pour les environnements
-            à enjeux&nbsp;: sièges sociaux, immeubles tertiaires, sites techniques ou zones
-            à accès réglementé.
+            {company.name} accompagne en priorité les entreprises du BTP, les maîtres
+            d&apos;ouvrage et les donneurs d&apos;ordre publics implantés à Paris et en
+            Île-de-France. Nos dispositifs de gardiennage, de surveillance et de rondes de
+            sûreté sont dimensionnés pour les environnements à enjeux&nbsp;: chantiers
+            urbains, bases-vie, bâtiments en construction, mais aussi sièges sociaux,
+            immeubles tertiaires et sites techniques.
           </p>
         </header>
 
@@ -68,19 +69,19 @@ export default function SecuritePriveeParisPage() {
             <ul className="mt-3 space-y-2">
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-                <span>Gardiennage de sièges sociaux et bâtiments tertiaires</span>
+                <span>Gardiennage de chantiers BTP et bases-vie en milieu urbain</span>
               </li>
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-                <span>Surveillance de sites techniques et zones à accès restreint</span>
+                <span>Surveillance de sites techniques, dépôts de matériaux et zones à accès restreint</span>
               </li>
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-                <span>Rondes de sûreté en horaires décalés et levées de doute</span>
+                <span>Rondes de sûreté, levées de doute et contrôles d&apos;accès hors horaires ouvrés</span>
               </li>
               <li className="flex gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-                <span>Dispositifs de sécurité pour événements corporate à Paris</span>
+                <span>Dispositifs de sécurité pour opérations et événements corporate à Paris</span>
               </li>
             </ul>
           </aside>

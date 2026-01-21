@@ -4,9 +4,9 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
 
 export const metadata: Metadata = {
-  title: 'Sécurité privée pour entreprises, collectivités et événements',
+  title: 'MAB SECURITE – Sécurité privée & gardiennage BTP à Paris, Marseille, Nîmes',
   description:
-    "MAB SECURITE, société de sécurité privée basée à Nîmes, accompagne les organisations professionnelles dans la sécurisation de leurs sites, collaborateurs et publics, y compris dans le cadre d'appels d'offres privés et publics.",
+    "MAB SECURITE, société de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris, Marseille, Nîmes et sur la côte sud : gardiennage de chantiers, surveillance humaine, rondes de sûreté et sécurisation de sites.",
 };
 
 export default function HomePage() {
