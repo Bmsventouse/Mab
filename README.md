@@ -2,51 +2,56 @@
 
 Ce dépôt contient le site vitrine institutionnel de **MAB SECURITE**, société de sécurité privée basée à Nîmes (France).
 
-Le site est orienté **sécurité privée B2B**, avec un positionnement clair sur :
+L’application vise un positionnement clair sur la **sécurité privée B2B**, avec un focus particulier sur :
 
 - le **gardiennage de chantiers BTP à Paris et en Île-de-France** ;
-- les missions de sécurité à **Marseille** (BTP, sites industriels, logistiques, commerciaux, événements) ;
-- les missions de proximité sur **Nîmes / Gard et la côte sud**.
+- la sécurisation de sites à **Marseille** (BTP, sites industriels, logistiques, commerciaux, événements) ;
+- les missions de proximité sur **Nîmes / Gard** et plus largement la côte sud.
 
-Il est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScript** et **Tailwind CSS**, et prêt à être déployé en production (Vercel ou autre hébergeur Node.js).
+Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScript** et **Tailwind CSS** et est conçu pour un usage en production (Vercel ou autre hébergeur Node.js).
 
 ---
 
 ## Sommaire
 
-- [1. Présentation du projet](#1-présentation-du-projet)
+- [1. Présentation & périmètre fonctionnel](#1-présentation--périmètre-fonctionnel)
 - [2. Stack technique](#2-stack-technique)
 - [3. Démarrage rapide](#3-démarrage-rapide)
 - [4. Scripts npm disponibles](#4-scripts-npm-disponibles)
 - [5. Architecture du projet](#5-architecture-du-projet)
-- [6. Personnalisation du contenu métier](#6-personnalisation-du-contenu-métier)
-- [7. SEO, métadonnées et structure](#7-seo-métadonnées-et-structure)
-- [8. Formulaire de contact et API](#8-formulaire-de-contact-et-api)
-- [9. Styles, design system et animations](#9-styles-design-system-et-animations)
-- [10. Outils de qualité de code](#10-outils-de-qualité-de-code)
-- [11. Déploiement](#11-déploiement)
-- [12. Images, photos et logo](#12-images-photos-et-logo)
+- [6. Contenu métier & personnalisation](#6-contenu-métier--personnalisation)
+- [7. SEO, métadonnées & conformité](#7-seo-métadonnées--conformité)
+- [8. Formulaire de contact & API](#8-formulaire-de-contact--api)
+- [9. Design system & styles](#9-design-system--styles)
+- [10. Qualité de code & standards](#10-qualité-de-code--standards)
+- [11. Déploiement & exploitation](#11-déploiement--exploitation)
+- [12. Images, photos & logo](#12-images-photos--logo)
 - [13. Checklist de mise en production](#13-checklist-de-mise-en-production)
 - [14. Conventions de contribution & discipline documentaire](#14-conventions-de-contribution--discipline-documentaire)
 
 ---
 
-## 1. Présentation du projet
+## 1. Présentation & périmètre fonctionnel
 
-Le site a pour objectif de présenter l’offre de **MAB SECURITE** auprès de décideurs B2B :
+L’application a pour objectif de présenter l’offre de **MAB SECURITE** auprès d’un public de décideurs B2B :
 
 - entreprises du **BTP** (maîtres d’ouvrage, entreprises générales, sous‑traitants) ;
-- **sites industriels** et **logistiques** ;
+- **sites industriels** et **plateformes logistiques** ;
 - **acteurs publics** (collectivités, établissements publics) ;
 - **organisateurs d’événements** et métiers de la production (tournages, plateaux).
 
-Les contenus sont rédigés dans une logique :
+Le périmètre fonctionnel couvre :
 
-- **institutionnelle** (présentation de la société, mentions légales, politique de confidentialité) ;
-- **business** (prestations, secteurs, localisations Paris / Marseille / Nîmes) ;
-- **SEO** (pages ciblées gardiennage BTP, sécurité privée par zone géographique).
+- un **site vitrine** institutionnel (présentation de la société, légales, confidentialité) ;
+- des pages de **présentation d’offres et de secteurs** (prestations, secteurs d’intervention, zones géographiques ciblées) ;
+- un **formulaire de contact** structuré orienté demande de devis / qualification de besoin ;
+- un socle **SEO** optimisé pour les requêtes liées au gardiennage BTP et à la sécurité privée par zone géographique.
 
----
+Les contenus sont rédigés et structurés pour répondre à des enjeux :
+
+- **institutionnels** (crédibilité, conformité, transparence) ;
+- **business** (compréhension de l’offre, facilité de contact, ciblage géographique) ;
+- **SEO** (pages dédiées par zone et par typologie de besoin).
 
 ## 2. Stack technique
 
