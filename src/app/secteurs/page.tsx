@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Nîmes et dans leurs régions.",
 };
 
-const iconMap = {
+const iconMap: Record<string, typeof Building2> = {
   entreprises: Building2,
   evenementiel: Ticket,
   collectivites: Landmark,
   'tournages-plateaux': Clapperboard,
-} as const;
+};
 
 export default function SecteursPage() {
   return (
