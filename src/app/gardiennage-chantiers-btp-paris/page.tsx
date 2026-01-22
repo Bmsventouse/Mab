@@ -175,7 +175,7 @@ export default function GardiennageChantiersBtpParisPage() {
           <div className="pt-2">
             <Link
               href="/contact#formulaire-devis"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
             >
               Parler de mon chantier avec MAB SECURITE
             </Link>

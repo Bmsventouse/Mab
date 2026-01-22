@@ -135,7 +135,7 @@ export default function SecuritePriveeNimesPage() {
           <div className="mt-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
             >
               Échanger sur un projet à Nîmes ou dans le Gard
             </Link>
