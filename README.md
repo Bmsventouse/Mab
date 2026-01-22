@@ -27,6 +27,7 @@ Il est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScript** 
 - [11. Déploiement](#11-déploiement)
 - [12. Images, photos et logo](#12-images-photos-et-logo)
 - [13. Checklist de mise en production](#13-checklist-de-mise-en-production)
+- [14. Conventions de contribution & discipline documentaire](#14-conventions-de-contribution--discipline-documentaire)
 
 ---
 
@@ -436,3 +437,66 @@ Avant de mettre le site en ligne, vérifier les points suivants :
    - `npm run build` OK.
 
 Une fois ces points validés, le site est prêt à être utilisé comme **vitrine B2B** pour MAB SECURITE, avec un positionnement clair sur le **gardiennage de chantiers BTP à Paris / IDF** et la **sécurité de sites professionnels** à Marseille, Nîmes et sur la côte sud.
+
+---
+
+## 14. Conventions de contribution & discipline documentaire
+
+Cette section est là pour **toi du futur** (et pour toute IA ou dev qui reprendra le projet).  
+Objectif : garder un niveau “pro” à chaque évolution.
+
+### 14.1. Rituel au début de chaque session
+
+Avant de toucher au code :
+
+1. **Lire (ou survoler) ce README**  
+   - vérifier que l’architecture et les conventions décrites ici sont toujours valables ;
+   - repérer les sections impactées par ce que tu vas faire (ex. nouvelle page, modification du formulaire, évolution SEO).
+
+2. **Identifier où brancher la nouvelle logique**  
+   - contenu métier : `src/content/company.ts` (ajout de services, secteurs, engagements, coordonnées) ;
+   - UI / pages : fichiers sous `src/app/...` ;
+   - composants réutilisables : `src/components/...`.
+
+3. **Décider dès le départ si la doc doit bouger**  
+   - si tu ajoutes une nouvelle page clé, un nouveau script, un nouveau flux métier : **prévois la mise à jour du README**.
+
+### 14.2. Rituel à la fin de chaque session
+
+Avant de considérer une feature “terminée” :
+
+1. **Mettre à jour la doc si nécessaire**
+   - ajouter / ajuster les sections pertinentes dans ce README (architecture, scripts, SEO, API, etc.) ;
+   - si une convention change, l’écrire noir sur blanc ici.
+
+2. **Passer les commandes de qualité**
+   - `npm run lint`  
+   - `npm run typecheck`  
+   - `npm run build` (au moins avant un déploiement).
+
+3. **Faire une mini‑revue mentale**
+   - ai‑je respecté les patterns actuels (structure des pages, composants, style Tailwind) ?
+   - ai‑je évité les duplications de logique ou de contenu ?
+   - ai‑je gardé le code compréhensible pour “moi dans 6 mois” ?
+
+### 14.3. Principes à respecter en continu
+
+- **Centraliser le métier**  
+  - tout ce qui relève du contenu “configurable” (texte institutionnel, liste de prestations, secteurs, engagements, coordonnées) doit autant que possible rester dans `src/content/company.ts` ou un fichier de contenu dédié ;
+  - les pages consomment ces données, elles ne les dupliquent pas.
+
+- **Réutiliser le design system**  
+  - utiliser les classes utilitaires globales (`.section`, `.section-inner`, `.card`, `.badge`, etc.) plutôt que réinventer des variantes locales ;
+  - respecter la palette définie dans `tailwind.config.js` (couleurs `brand` et `accent`).
+
+- **Penser SEO & accessibilité**  
+  - toujours définir `metadata` pour les nouvelles pages importantes ;
+  - soigner la hiérarchie de titres (`h1`, `h2`, `h3`…) ;
+  - garder des textes explicites pour les liens, CTA et labels de formulaire.
+
+- **Code propre, sans sur‑ingénierie**  
+  - pas de logique cachée, pas de “magie” difficile à suivre ;
+  - éviter les grosses abstractions inutiles ;
+  - préférer des composants simples et bien nommés.
+
+En appliquant ces quelques règles, chaque nouvelle mise à jour restera alignée avec un niveau “prod” et ce README restera la **source de vérité** à lire en début et fin de session.
