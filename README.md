@@ -19,7 +19,7 @@ Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScri
 - **Type d’application** : site vitrine institutionnel orienté génération de demandes de devis et de contacts qualifiés.
 - **Public cible** : décideurs B2B (directions générales, BTP, immobilier, sûreté, collectivités, événementiel).
 - **Stack principale** : Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Icônes `lucide-react`.
-- **Qualité & CI** : ESLint + TypeScript, workflow GitHub Actions (`.github/workflows/ci.yml`) exécutant `lint`, `typecheck` et `build` sur chaque `push`/`pull_request` vers `main` / `master`.
+- **Qualité & CI** : ESLint + TypeScript, workflow GitHub Actions (`.github/workflows/ci.yml`) exécutant `lint`, `typecheck`, `build`, scan de secrets, lint Markdown, audits accessibilité (Pa11y) et performance/SEO (Lighthouse) sur chaque `push`/`pull_request` vers `main` / `master`.
 - **Point d’entrée fonctionnel** : pages et routes sous `src/app`.
 - **Point d’entrée métier** : contenu structuré dans `src/content/company.ts` (données société, prestations, secteurs, engagements).
 
@@ -291,7 +291,7 @@ Cela permet de travailler des **titres** et **descriptions** optimisés par typo
   - `allow: '/'`,
   - `sitemap` et `host` basés sur `websiteUrl`.
 
-### 7.4. Endpoint dédié aux IA et intégrations (`/ai.llm`)
+### 7.4. Endpoints dédiés aux IA et intégrations (`/ai.llm`, `/llms.txt`)
 
 - `src/app/ai.llm/route.ts`  
   Expose un endpoint JSON structuré à l’URL `/ai.llm` qui décrit :
@@ -302,6 +302,14 @@ Cela permet de travailler des **titres** et **descriptions** optimisés par typo
   Cet endpoint est pensé pour :
   - les agents / LLM qui souhaitent consommer une vue consolidée de l’offre MAB SECURITE,
   - des intégrations externes (RAG, assistants métier, etc.) qui ont besoin d’un format machine‑readable simple.
+
+- `public/llms.txt`  
+  Fichier texte servi à l’URL `/llms.txt` contenant :
+  - un résumé du positionnement de MAB SECURITE (B2B, sécurité privée, zones desservies) ;
+  - la liste des pages clés à explorer ;
+  - un rappel de l’endpoint `/ai.llm` et des prestations principales.  
+
+  Il est destiné aux **LLM et crawlers IA** qui implémentent des conventions de type `llms.txt` et recherchent une synthèse du site orientée “réponse” plutôt que le HTML brut.
 
 Assurez-vous de renseigner **l’URL de production définitive** dans `company.contact.websiteUrl` avant mise en ligne.
 
@@ -404,14 +412,16 @@ L’ensemble vise un rendu **premium / institutionnel** tout en restant facileme
 
 Un workflow GitHub Actions (`.github/workflows/ci.yml`) est configuré pour jouer le rôle de **garde-fou qualité** sur chaque `push` / `pull_request` vers `main` ou `master`.
 
-Il exécute, dans l’ordre :
+#### Job principal `build-and-validate`
+
+Ce job est bloquant. Il exécute, dans l’ordre :
 
 1. **Installation des dépendances**
    - `npm ci` si le `package-lock.json` est en phase avec `package.json` ;
    - sinon, repli sur `npm install` (permet de continuer à travailler même si le lockfile n’est pas encore régénéré).
 
 2. **Scan de secrets (gitleaks)**  
-   - Utilisation de `gitleaks/gitleaks-action@v2` pour détecter d’éventuelles fuites de secrets (tokens, clés d’API, etc.) dans l’historique du dépôt courant.  
+   - Utilisation de `gitleaks/gitleaks-action@v2` pour détecter d’éventuelles fuites de secrets (tokens, clés d’API, etc.) dans le dépôt.  
    - En cas de fuite détectée, le job est marqué en échec.
 
 3. **Lint Markdown**  
@@ -429,10 +439,24 @@ Il exécute, dans l’ordre :
 
 La variable d’environnement `CI=true` est activée pour aligner le comportement des outils avec un contexte d’intégration continue.
 
+#### Jobs complémentaires non bloquants
+
+Deux autres jobs s’exécutent après `build-and-validate` :
+
+- `accessibility-a11y`  
+  - Build de l’application, démarrage du serveur (`npm start`) puis audit accessibilité via **Pa11y** (configuration dans `.pa11yci.json`).  
+  - Le job est configuré en `continue-on-error: true` : les problèmes d’accessibilité sont signalés mais n’empêchent pas le merge.  
+  - Un rapport Pa11y est exporté en artifact.
+
+- `lighthouse-audit`  
+  - Build de l’application, démarrage du serveur (`npm start`) puis audit **Lighthouse** via `@lhci/cli` (configuration dans `lighthouserc.json`).  
+  - Le job est également non bloquant (`continue-on-error: true`) et produit des rapports Lighthouse dans le dossier `.lighthouseci` (exposés en artifacts).
+
 En pratique, une PR ne doit être considérée comme “prête à merger” que si :
 
-- le workflow **CI** est entièrement vert ;
-- et les commandes locales `npm run lint`, `npm run typecheck`, `npm run build` passent également en environnement développeur.
+- le job **`build-and-validate`** est entièrement vert ;
+- et les commandes locales `npm run lint`, `npm run typecheck`, `npm run build` passent également en environnement développeur.  
+Les jobs d’accessibilité (Pa11y) et de performance/SEO (Lighthouse) servent de tableau de bord qualité complémentaire.
 
 ---
 
