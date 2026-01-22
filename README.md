@@ -38,7 +38,7 @@ Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScri
 - [9. Design system & styles](#9-design-system--styles)
 - [10. Qualité de code & standards](#10-qualité-de-code--standards)
 - [11. Déploiement & exploitation](#11-déploiement--exploitation)
-- [12. Images, photos & logo](#12-images-photos--logo)
+- [12. Images, photos et logo](#12-images-photos-et-logo)
 - [13. Checklist de mise en production](#13-checklist-de-mise-en-production)
 - [14. Conventions de contribution et maintenance](#14-conventions-de-contribution-et-maintenance)
 
