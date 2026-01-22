@@ -27,7 +27,7 @@ Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScri
 - [11. Déploiement & exploitation](#11-déploiement--exploitation)
 - [12. Images, photos & logo](#12-images-photos--logo)
 - [13. Checklist de mise en production](#13-checklist-de-mise-en-production)
-- [14. Conventions de contribution & discipline documentaire](#14-conventions-de-contribution--discipline-documentaire)
+- [14. Conventions de contribution et maintenance](#14-conventions-de-contribution-et-maintenance)
 
 ---
 
@@ -445,10 +445,10 @@ Une fois ces points validés, le site est prêt à être utilisé comme **vitrin
 
 ---
 
-## 14. Conventions de contribution & discipline documentaire
+## 14. Conventions de contribution et maintenance
 
-Cette section s’adresse à toute personne (ou outil automatisé) amenée à faire évoluer le projet.  
-L’objectif est de maintenir un niveau de qualité professionnelle et une documentation fiable dans la durée.
+Cette section s’adresse à toute personne amenée à faire évoluer le projet (développeur interne, prestataire, IA outillée, etc.).  
+L’objectif est de maintenir dans le temps un niveau de qualité professionnelle, prévisible et bien documenté.
 
 ### 14.1. Routine en début de session
 
@@ -505,4 +505,5 @@ Avant de considérer un développement comme terminé :
   - limiter l’introduction de nouvelles dépendances à ce qui est strictement nécessaire.
 
 Le présent README doit être considéré comme la **référence documentaire** du projet.  
-Toute évolution structurelle, fonctionnelle ou technique significative doit y être répercutée afin de garantir une prise en main rapide et fiable du code, maintenant et à l’avenir.
+Toute évolution structurelle, fonctionnelle ou technique significative doit y être répercutée afin de garantir une prise en main rapide et fiable du code, maintenant et à l’avenir.  
+L’objectif est qu’un développeur expérimenté puisse comprendre le périmètre, les choix techniques et les attentes de contribution en moins de quelques minutes de lecture.
