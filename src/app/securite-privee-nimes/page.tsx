@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
@@ -28,6 +29,17 @@ export default function SecuritePriveeNimesPage() {
             dispositifs de sécurité utiles, proportionnés et opérationnels.
           </p>
         </header>
+
+        <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
+          <Image
+            src="/images/securite-proximite-nimes.jpg"
+            alt="Agent de sécurité en intervention sur un site à Nîmes"
+            width={1280}
+            height={720}
+            className="h-48 w-full object-cover opacity-90"
+            priority
+          />
+        </div>
 
         <section className="grid gap-6 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <div className="space-y-4 text-sm text-slate-300">

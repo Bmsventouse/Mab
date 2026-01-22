@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2, ClipboardList, HardHat, MapPinned } from 'lucide-react';
 import { company } from '../../content/company';
@@ -26,6 +27,17 @@ export default function GardiennageChantiersBtpParisPage() {
             notamment en horaires de nuit et week-end.
           </p>
         </header>
+
+        <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
+          <Image
+            src="/images/gardiennage-chantiers-btp-paris.jpg"
+            alt="Gardiennage de nuit sur un chantier BTP à Paris"
+            width={1280}
+            height={720}
+            className="h-48 w-full object-cover opacity-90"
+            priority
+          />
+        </div>
 
         <section className="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <article className="space-y-4 text-sm text-slate-300">
