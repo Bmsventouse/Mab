@@ -1,5 +1,7 @@
 # MAB SECURITE – Site vitrine B2B
 
+> Site vitrine Next.js 14 orienté sécurité privée B2B (gardiennage de chantiers BTP, sécurisation de sites professionnels et d’événements) pour MAB SECURITE.
+
 Ce dépôt contient le site vitrine institutionnel de **MAB SECURITE**, société de sécurité privée basée à Nîmes (France).
 
 L’application vise un positionnement clair sur la **sécurité privée B2B**, avec un focus particulier sur :
@@ -12,7 +14,18 @@ Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScri
 
 ---
 
-## Sommaire
+## Vue d’ensemble rapide
+
+- **Type d’application** : site vitrine institutionnel orienté génération de demandes de devis et de contacts qualifiés.
+- **Public cible** : décideurs B2B (directions générales, BTP, immobilier, sûreté, collectivités, événementiel).
+- **Stack principale** : Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Icônes `lucide-react`.
+- **Qualité & CI** : ESLint + TypeScript, workflow GitHub Actions (`.github/workflows/ci.yml`) exécutant `lint`, `typecheck` et `build` sur chaque `push`/`pull_request` vers `main` / `master`.
+- **Point d’entrée fonctionnel** : pages et routes sous `src/app`.
+- **Point d’entrée métier** : contenu structuré dans `src/content/company.ts` (données société, prestations, secteurs, engagements).
+
+---
+
+## Sommaire détaillé
 
 - [1. Présentation & périmètre fonctionnel](#1-présentation--périmètre-fonctionnel)
 - [2. Stack technique](#2-stack-technique)
@@ -166,7 +179,7 @@ Structure principale :
 
 ---
 
-## 6. Personnalisation du contenu métier
+## 6. Contenu métier & personnalisation
 
 La majorité du contenu métier est centralisée dans `src/content/company.ts`.
 
@@ -247,7 +260,7 @@ Veillez à les relire avec votre conseil / juriste si une mise à jour réglemen
 
 ---
 
-## 7. SEO, métadonnées et structure
+## 7. SEO, métadonnées & conformité
 
 ### 7.1. Métadonnées globales
 
@@ -282,7 +295,7 @@ Assurez-vous de renseigner **l’URL de production définitive** avant mise en l
 
 ---
 
-## 8. Formulaire de contact et API
+## 8. Formulaire de contact & API
 
 ### 8.1. Composant `ContactForm`
 
@@ -328,7 +341,7 @@ Pour une utilisation en production, il est recommandé de :
 
 ---
 
-## 9. Styles, design system et animations
+## 9. Design system & styles
 
 ### 9.1. Tailwind & design tokens
 
@@ -359,7 +372,7 @@ L’ensemble vise un rendu **premium / institutionnel** tout en restant facileme
 
 ---
 
-## 10. Outils de qualité de code
+## 10. Qualité de code & standards
 
 - **ESLint** (`eslint.config.js`)  
   - Base `@eslint/js` + `typescript-eslint`.  
@@ -375,7 +388,7 @@ L’ensemble vise un rendu **premium / institutionnel** tout en restant facileme
 
 ---
 
-## 11. Déploiement
+## 11. Déploiement & exploitation
 
 Le projet peut être déployé :
 
