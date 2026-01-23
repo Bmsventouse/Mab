@@ -284,4 +284,4 @@ Chaque bloc renvoie vers les pages solutions détaillées correspondantes.
 Ce document peut servir :
 
 - d’**audit interne** pour montrer au client la qualité technique SEO (données structurées complètes, cohérentes et alignées avec la stratégie),  
-- de base pour tout futur enrichissement (nouvelles solutions, nouveaux schémas si besoin).
+- de base pour tout futur enrichissement (nouvelles solutions, nouveaux schémas si besoin).\n
