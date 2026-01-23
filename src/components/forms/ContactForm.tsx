@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Loader2, Mail, Phone } from 'lucide-react';
 import { company, services } from '../../content/company';
+import { trackEvent } from '../../lib/analytics';
 
 interface ContactFormData {
   companyName: string;
@@ -97,6 +98,13 @@ export const ContactForm = () => {
         throw new Error('Erreur lors de l’envoi du formulaire.');
       }
 
+      trackEvent({
+        event: 'lead_submitted',
+        category: 'contact',
+        action: 'submit_form',
+        label: form.subject || 'contact',
+      });
+
       setHasSubmitted(true);
       setForm({
         companyName: '',
@@ -112,6 +120,11 @@ export const ContactForm = () => {
       setSubmitError(
         "Une erreur est survenue lors de l'envoi de votre demande. Vous pouvez également nous contacter directement par téléphone ou par e-mail.",
       );
+      trackEvent({
+        event: 'lead_submit_error',
+        category: 'contact',
+        action: 'submit_form_error',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -337,6 +350,16 @@ export const ContactForm = () => {
           <a
             href={`tel:${company.contact.phone.value}`}
             className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-slate-100 hover:border-emerald-500"
+            onClick={() =>
+              trackEvent({
+                event: 'cta_click',
+                category: 'contact',
+                action: 'click_phone_contact',
+                label: company.contact.phone.value,
+                location: 'contact_page',
+                destination: 'phone',
+              })
+            }
           >
             <Phone className="h-3 w-3 text-emerald-400" />
             {company.contact.phone.label}
@@ -344,6 +367,16 @@ export const ContactForm = () => {
           <a
             href={`mailto:${company.contact.email}`}
             className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-slate-100 hover:border-emerald-500"
+            onClick={() =>
+              trackEvent({
+                event: 'cta_click',
+                category: 'contact',
+                action: 'click_email_contact',
+                label: company.contact.email,
+                location: 'contact_page',
+                destination: 'email',
+              })
+            }
           >
             <Mail className="h-3 w-3 text-emerald-400" />
             {company.contact.email}

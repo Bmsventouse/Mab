@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { company } from '../../content/company';
 import { MainNav } from '../molecules/MainNav';
 import { Button } from '../atoms/Button';
+import { trackEvent } from '../../lib/analytics';
 
 /**
  * Top-level site header organism.
@@ -68,11 +69,33 @@ export function SiteHeader() {
           <a
             href={`tel:${company.contact.phone.value}`}
             className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-2 text-xs font-medium text-slate-100 transition-colors hover:border-emerald-500 hover:bg-slate-900"
+            onClick={() =>
+              trackEvent({
+                event: 'cta_click',
+                category: 'contact',
+                action: 'click_phone_header',
+                label: company.contact.phone.value,
+                location: 'header_desktop',
+                destination: 'phone',
+              })
+            }
           >
             <Phone className="h-4 w-4 text-emerald-400" aria-hidden="true" />
             <span>{company.contact.phone.label}</span>
           </a>
-          <Link href="/contact#formulaire-devis">
+          <Link
+            href="/contact#formulaire-devis"
+            onClick={() =>
+              trackEvent({
+                event: 'cta_click',
+                category: 'contact',
+                action: 'click_devis_header',
+                label: 'Demander un devis',
+                location: 'header_desktop',
+                destination: 'contact_form',
+              })
+            }
+          >
             <Button className="text-xs">Demander un devis</Button>
           </Link>
         </div>
@@ -82,6 +105,16 @@ export function SiteHeader() {
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1.5 text-xs font-medium text-slate-100"
+            onClick={() =>
+              trackEvent({
+                event: 'cta_click',
+                category: 'contact',
+                action: 'click_devis_header_mobile',
+                label: 'Devis',
+                location: 'header_mobile',
+                destination: 'contact_page',
+              })
+            }
           >
             <Phone className="h-3 w-3 text-emerald-400" aria-hidden="true" />
             Devis
