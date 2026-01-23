@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
+import { SiteHeader } from '../components/organisms/SiteHeader';
+import { SiteFooter } from '../components/organisms/SiteFooter';
+import { ConsentProvider } from '../components/layout/ConsentProvider';
 import { company } from '../content/company';
 
 const inter = Inter({
@@ -83,9 +84,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} bg-slate-950 text-slate-50 antialiased`}
       >
-        <Header />
-        <main className="pt-16 md:pt-20">{children}</main>
-        <Footer />
+        <ConsentProvider>
+          <a href="#contenu-principal" className="skip-link">
+            Aller au contenu principal
+          </a>
+          <SiteHeader />
+          <main id="contenu-principal" className="pt-16 md:pt-20">
+            {children}
+          </main>
+          <SiteFooter />
+        </ConsentProvider>
       </body>
     </html>
   );

@@ -3,14 +3,36 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
+import { buildMetadata } from '../lib/seo';
 
-export const metadata: Metadata = {
-  title: 'MAB SECURITE – Sécurité privée & gardiennage BTP à Paris, Marseille, Nîmes',
+export const metadata: Metadata = buildMetadata({
+  title:
+    'MAB SECURITE – Sécurité privée & gardiennage BTP à Paris, Marseille, Montpellier, Nîmes',
   description:
-    "MAB SECURITE, société de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris, Marseille, Nîmes et sur la côte sud : gardiennage de chantiers, surveillance humaine, rondes de sûreté et sécurisation de sites.",
-};
+    'MAB SECURITE, société de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris, Marseille, Montpellier, Nîmes et sur la côte sud : gardiennage de chantiers, surveillance humaine, rondes de sûreté, vidéosurveillance et sécurisation de sites.',
+  canonicalPath: '/',
+});
 
 export default function HomePage() {
+  const galleryItems = [
+    {
+      label: 'Exemple de dispositif de sécurité déployé sur un chantier BTP',
+      src: '/images/securite-chantier-btp-nuit.png',
+    },
+    {
+      label: 'Exemple de dispositif de sécurité pour un site industriel ou logistique',
+      src: '/images/securite-entrepot-plateforme-logistique.png',
+    },
+    {
+      label: 'Exemple de dispositif de sécurité pour un événement professionnel',
+      src: '/images/securite-evenementiel-salon-professionnel.png',
+    },
+    {
+      label: 'Exemple de dispositif de sécurité pour un site tertiaire ou administratif',
+      src: '/images/securite-siege-social-site-tertiaire.png',
+    },
+  ];
+
   return (
     <div>
       {/* Hero */}
@@ -30,7 +52,12 @@ export default function HomePage() {
                 d&apos;ordre publics et les organisateurs d&apos;événements. Notre
                 expérience de terrain et notre connaissance des appels d&apos;offres privés
                 et publics garantissent des interventions traçables, fiables et conformes
-                au cadre réglementaire.
+                au cadre réglementaire. Nous intervenons notamment pour le{' '}
+                <strong>gardiennage de chantiers BTP en Île-de-France</strong>, la mise à
+                disposition d&apos;
+                <strong>agents de sécurité à Marseille, Montpellier et Nice</strong>, la{' '}
+                <strong>vidéosurveillance d&apos;entreprise à Paris</strong> et la{' '}
+                <strong>sécurité événementielle à Cannes</strong>.
               </p>
             </div>
 
@@ -82,16 +109,6 @@ export default function HomePage() {
           </div>
 
           <aside className="card space-y-4 p-6 text-sm animate-fade-up-delayed">
-            <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
-              <Image
-                src="/images/hero-mab-securite-btp.jpg"
-                alt="Agent de sécurité surveillant un chantier BTP de nuit"
-                width={640}
-                height={400}
-                className="h-40 w-full object-cover opacity-90"
-                priority
-              />
-            </div>
             <div className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
               Coordonnées
             </div>
@@ -187,7 +204,10 @@ export default function HomePage() {
               </h2>
               <p className="text-sm text-muted">
                 Des solutions de sécurité structurées pour vos bâtiments, sites
-                opérationnels, événements et environnements sensibles.
+                opérationnels, événements et environnements sensibles, qu&apos;il s&apos;agisse
+                de <strong>gardiennage en Île-de-France</strong>, de sécurité BTP à Paris,
+                d&apos;<strong>agents de sécurité à Marseille ou Montpellier</strong>, ou de{' '}
+                <strong>sécurité événementielle à Cannes</strong>.
               </p>
             </div>
             <Link
@@ -213,6 +233,125 @@ export default function HomePage() {
                   ))}
                 </ul>
               </article>
+            ))}
+          </div>
+
+          <p className="text-[11px] text-slate-400">
+            Pour des besoins très ciblés, vous pouvez également consulter nos pages
+            dédiées&nbsp;:&nbsp;
+            <Link
+              href="/solutions/securite-incendie/agent-ssiap-igh-paris"
+              className="underline-offset-2 hover:underline"
+            >
+              obligations SSIAP en IGH à Paris
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-electronique/videosurveillance-entreprise-paris"
+              className="underline-offset-2 hover:underline"
+            >
+              vidéosurveillance d&apos;entreprise à Paris
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/expertise-conseil/audit-surete-siege-social-paris"
+              className="underline-offset-2 hover:underline"
+            >
+              audit de sûreté de siège social à Paris
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/gardiennage-ile-de-france"
+              className="underline-offset-2 hover:underline"
+            >
+              gardiennage en Île-de-France
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/securite-entrepots-logistiques"
+              className="underline-offset-2 hover:underline"
+            >
+              sécurité des entrepôts et plateformes logistiques
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/securite-centres-commerciaux"
+              className="underline-offset-2 hover:underline"
+            >
+              sécurité centres commerciaux &amp; retail
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/agent-securite-marseille"
+              className="underline-offset-2 hover:underline"
+            >
+              agents de sécurité à Marseille
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/agent-securite-montpellier"
+              className="underline-offset-2 hover:underline"
+            >
+              agents de sécurité à Montpellier
+            </Link>
+            ,&nbsp;
+            <Link
+              href="/solutions/securite-humaine/agent-securite-nice"
+              className="underline-offset-2 hover:underline"
+            >
+              agents de sécurité à Nice
+            </Link>
+            &nbsp;et&nbsp;
+            <Link
+              href="/solutions/securite-evenementielle/securite-evenementielle-cannes"
+              className="underline-offset-2 hover:underline"
+            >
+              sécurité événementielle à Cannes
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Galerie photo */}
+      <section className="section pt-0">
+        <div className="section-inner space-y-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">
+                Galerie photo
+              </h2>
+              <p className="text-xs text-muted sm:text-sm">
+                Exemples de dispositifs de sécurité déployés sur des chantiers BTP, sites
+                industriels, sites tertiaires et événements sécurisés par {company.name}.
+              </p>
+            </div>
+            <Link
+              href="/galerie"
+              className="mt-2 inline-flex items-center text-[11px] font-medium text-emerald-400 hover:text-emerald-300"
+            >
+              Voir la galerie complète
+              <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {galleryItems.map((item) => (
+              <figure
+                key={item.label}
+                className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/40"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  width={1200}
+                  height={480}
+                  loading="lazy"
+                  className="h-32 w-full object-cover opacity-90"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-slate-950/75 px-2 py-1">
+                  <span className="text-[10px] text-slate-200">{item.label}</span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

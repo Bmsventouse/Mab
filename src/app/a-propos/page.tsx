@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { ShieldCheck } from 'lucide-react';
 import { company } from '../../content/company';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'À propos de MAB SECURITE – Spécialiste sécurité BTP & sites professionnels',
   description:
-    "Présentation de MAB SECURITE, société de sécurité privée basée à Nîmes et présente à Paris et Marseille, spécialisée dans le gardiennage de chantiers BTP, la surveillance de sites professionnels et la sécurisation d'événements pour les entreprises et acteurs publics.",
-};
+    "Présentation de MAB SECURITE, société de sécurité privée basée à Nîmes et présente à Paris, Marseille, Montpellier et dans le Gard, spécialisée dans le gardiennage de chantiers BTP, la surveillance de sites professionnels et la sécurisation d'événements pour les entreprises et acteurs publics.",
+  canonicalPath: '/a-propos',
+});
 
 export default function AProposPage() {
   return (
@@ -23,7 +25,8 @@ export default function AProposPage() {
             service. Les missions sont pilotées de manière structurée et documentée, dans
             une logique de partenariat durable et de réponse aux exigences contractuelles
             et réglementaires, notamment dans le cadre des appels d&apos;offres privés et
-            publics.
+            publics. {company.name} n&apos;intervient pas pour des prestations de sécurité
+            destinées aux particuliers ou aux habitations privées.
           </p>
         </header>
 
@@ -60,6 +63,40 @@ export default function AProposPage() {
               interlocuteur unique accompagne votre dossier, de la qualification du besoin
               jusqu&apos;au retour d&apos;expérience en fin de mission.
             </p>
+
+            <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 text-xs text-slate-200">
+              <p className="text-[13px] font-semibold text-slate-50">
+                Direction générale &amp; organisation France Nord / France Sud
+              </p>
+              <p>
+                Le pilotage national de {company.name} est assuré par{' '}
+                <span className="font-semibold">M. Mohand Ameziane Beddredine</span>,
+                président (CEO) de la société. Il définit la vision, valide les dispositifs
+                de sécurité proposés aux clients et supervise l&apos;ensemble des
+                opérations menées sur le territoire.
+              </p>
+              <p>
+                Pour garantir une proximité opérationnelle, l&apos;activité est structurée
+                en deux zones&nbsp;:
+              </p>
+              <ul className="ml-4 list-disc space-y-1.5">
+                <li>
+                  <span className="font-semibold">France Nord</span> : Paris et
+                  Île-de-France, avec <span className="font-semibold">Béna</span> comme
+                  responsable opérationnel local.
+                </li>
+                <li>
+                  <span className="font-semibold">France Sud</span> : Marseille,
+                  Montpellier, Nîmes / Gard et côte méditerranéenne, sous la responsabilité
+                  opérationnelle de <span className="font-semibold">Sofiane</span>.
+                </li>
+              </ul>
+              <p className="text-slate-400">
+                Les responsables de zone assurent le suivi quotidien des missions en lien
+                étroit avec la direction générale, afin de maintenir un niveau homogène de
+                qualité de service sur l&apos;ensemble des sites.
+              </p>
+            </div>
           </article>
 
           <aside className="card p-6 text-xs text-slate-200">

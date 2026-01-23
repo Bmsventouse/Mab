@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { company } from '../../content/company';
 import { ContactForm } from '../../components/forms/ContactForm';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Contact MAB SECURITE – Devis sécurité BTP & gardiennage de sites',
   description:
-    "Contactez MAB SECURITE pour toute demande de devis ou d'information concernant le gardiennage de chantiers BTP, la surveillance de sites professionnels et la sécurisation d'événements à Paris, Marseille, Nîmes et sur la côte sud.",
-};
+    "Contactez MAB SECURITE pour toute demande de devis ou d'information concernant le gardiennage de chantiers BTP, la surveillance de sites professionnels et la sécurisation d'événements à Paris, Marseille, Montpellier, Nîmes et sur la côte sud.",
+  canonicalPath: '/contact',
+});
 
 export default function ContactPage() {
   return (
@@ -22,9 +24,68 @@ export default function ContactPage() {
             Pour toute question, étude ou demande de devis, complétez le formulaire ci-dessous
             ou contactez-nous directement par téléphone ou par e-mail. Nous analysons chaque
             demande de manière individualisée afin de proposer un dispositif cohérent avec
-            votre contexte et vos priorités.
+            votre contexte et vos priorités, qu&apos;il s&apos;agisse d&apos;un{' '}
+            <strong>devis d&apos;agent de sécurité à Marseille, Montpellier ou Nice</strong>,
+            d&apos;un <strong>dispositif de gardiennage en Île-de-France</strong>, d&apos;un
+            besoin de <strong>sécurité des entrepôts et plateformes logistiques</strong>, de{' '}
+            <strong>sécurité centres commerciaux &amp; retail</strong>, de{' '}
+            <strong>sécurité événementielle à Cannes</strong>, de{' '}
+            <strong>vidéosurveillance d&apos;entreprise à Paris</strong> ou d&apos;un{' '}
+            <strong>audit SSIAP pour IGH</strong>. {company.name} intervient exclusivement
+            pour des clients professionnels et ne propose pas de prestations de sécurité
+            pour des particuliers ou des habitations privées.
           </p>
         </header>
+
+        <section className="grid gap-4 rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-xs text-slate-200 sm:grid-cols-3">
+          <div className="space-y-1.5">
+            <p className="text-[13px] font-semibold text-slate-50">
+              Direction générale
+            </p>
+            <p>
+              <span className="font-semibold">M. Mohand Ameziane Beddredine</span> – président
+              (CEO) de {company.name}.
+            </p>
+            <p className="text-slate-400">
+              Supervision nationale des dispositifs de sécurité et validation des
+              engagements pris auprès des clients.
+            </p>
+          </div>
+          <div className="space-y-1.5">
+            <p className="text-[13px] font-semibold text-slate-50">
+              France Nord – Paris &amp; Île-de-France
+            </p>
+            <p>
+              Responsable opérationnel&nbsp;: <span className="font-semibold">Béna</span>.
+            </p>
+            <p className="text-slate-400">
+              Zone couverte&nbsp;: Paris et Île-de-France (75, 92, 93, 94, 95, 77, 78, 91).
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Les coordonnées directes de la zone Nord sont communiquées aux interlocuteurs
+              en charge de sites situés à Paris et en Île-de-France.
+            </p>
+          </div>
+          <div className="space-y-1.5">
+            <p className="text-[13px] font-semibold text-slate-50">
+              France Sud – Marseille, Montpellier, Nîmes / Gard
+            </p>
+            <p>
+              Responsable opérationnel&nbsp;: <span className="font-semibold">Sofiane</span>.
+            </p>
+            <p className="text-slate-400">
+              Zone couverte&nbsp;: Marseille, Montpellier, Nîmes / Gard et côte
+              méditerranéenne.
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Téléphone direct zone Sud&nbsp;:{' '}
+              <a href="tel:+33759585023" className="hover:text-emerald-300">
+                +33 7 59 58 50 23
+              </a>{' '}
+              (Sofiane).
+            </p>
+          </div>
+        </section>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <section id="formulaire-devis">

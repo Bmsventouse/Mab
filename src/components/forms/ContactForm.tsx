@@ -165,129 +165,91 @@ export const ContactForm = () => {
 
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label
-            htmlFor="companyName"
-            className="block text-xs font-medium uppercase tracking-wide text-slate-400"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
             Société / organisation*
           </label>
           <input
-            id="companyName"
             type="text"
             name="companyName"
             value={form.companyName}
             onChange={handleChange}
-            aria-invalid={errors.companyName ? 'true' : 'false'}
-            aria-describedby={errors.companyName ? 'companyName-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.companyName ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Nom de votre société ou structure"
           />
           {errors.companyName && (
-            <p id="companyName-error" className="mt-1 text-xs text-red-400">
-              {errors.companyName}
-            </p>
+            <p className="mt-1 text-xs text-red-400">{errors.companyName}</p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="contactName"
-            className="block text-xs font-medium uppercase tracking-wide text-slate-400"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
             Nom et prénom du contact*
           </label>
           <input
-            id="contactName"
             type="text"
             name="contactName"
             value={form.contactName}
             onChange={handleChange}
-            aria-invalid={errors.contactName ? 'true' : 'false'}
-            aria-describedby={errors.contactName ? 'contactName-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.contactName ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Nom et prénom"
           />
           {errors.contactName && (
-            <p id="contactName-error" className="mt-1 text-xs text-red-400">
-              {errors.contactName}
-            </p>
+            <p className="mt-1 text-xs text-red-400">{errors.contactName}</p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-xs font-medium uppercase tracking-wide text-slate-400"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
             E-mail professionnel*
           </label>
           <input
-            id="email"
             type="email"
             name="email"
             value={form.email}
             onChange={handleChange}
-            aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby={errors.email ? 'email-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.email ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="prenom.nom@entreprise.fr"
           />
           {errors.email && (
-            <p id="email-error" className="mt-1 text-xs text-red-400">
-              {errors.email}
-            </p>
+            <p className="mt-1 text-xs text-red-400">{errors.email}</p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-xs font-medium uppercase tracking-wide text-slate-400"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
             Téléphone*
           </label>
           <input
-            id="phone"
             type="tel"
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            aria-invalid={errors.phone ? 'true' : 'false'}
-            aria-describedby={errors.phone ? 'phone-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.phone ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Numéro joignable en journée"
           />
           {errors.phone && (
-            <p id="phone-error" className="mt-1 text-xs text-red-400">
-              {errors.phone}
-            </p>
+            <p className="mt-1 text-xs text-red-400">{errors.phone}</p>
           )}
         </div>
       </div>
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div>
-          <label
-            htmlFor="subject"
-            className="block text-xs font-medium uppercase tracking-wide text-slate-400"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
             Type de besoin*
           </label>
           <select
-            id="subject"
             name="subject"
             value={form.subject}
             onChange={handleChange}
-            aria-invalid={errors.subject ? 'true' : 'false'}
-            aria-describedby={errors.subject ? 'subject-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.subject ? 'border-red-500/70' : 'border-slate-700'
             }`}
@@ -301,9 +263,7 @@ export const ContactForm = () => {
             <option value="autre">Autre besoin de sécurité</option>
           </select>
           {errors.subject && (
-            <p id="subject-error" className="mt-1 text-xs text-red-400">
-              {errors.subject}
-            </p>
+            <p className="mt-1 text-xs text-red-400">{errors.subject}</p>
           )}
         </div>
 
@@ -337,15 +297,12 @@ export const ContactForm = () => {
       </div>
 
       <div className="mt-5 space-y-3 text-xs text-slate-400">
-        <label className="flex items-start gap-2" htmlFor="consent">
+        <label className="flex items-start gap-2">
           <input
-            id="consent"
             type="checkbox"
             name="consent"
             checked={form.consent}
             onChange={handleChange}
-            aria-invalid={errors.consent ? 'true' : 'false'}
-            aria-describedby={errors.consent ? 'consent-error' : undefined}
             className="mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500"
           />
           <span>
@@ -356,9 +313,7 @@ export const ContactForm = () => {
           </span>
         </label>
         {errors.consent && (
-          <p id="consent-error" className="text-xs text-red-400">
-            {errors.consent}
-          </p>
+          <p className="text-xs text-red-400">{errors.consent}</p>
         )}
       </div>
 
@@ -372,7 +327,7 @@ export const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-emerald-700 min-h-[44px]"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-emerald-700"
         >
           {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
           Envoyer ma demande

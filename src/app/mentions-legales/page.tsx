@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { company } from '../../content/company';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Mentions légales – MAB SECURITE',
   description:
     'Mentions légales du site de MAB SECURITE : informations relatives à la société éditrice, à son activité de sécurité privée et au cadre juridique applicable.',
-};
+  canonicalPath: '/mentions-legales',
+});
 
 export default function MentionsLegalesPage() {
   return (
