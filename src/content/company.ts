@@ -93,7 +93,7 @@ export const company: Company = {
   },
   branding: {
     baseline: 'Sécurité privée pour entreprises et événements',
-    logoUrl: '/images/logo-mab-securite.svg', // À remplacer si un logo est disponible
+    logoUrl: '', // À renseigner une fois le logo ajouté dans /public/images (ex. '/images/logo-mab-securite.svg')
   },
   areaServed:
     'Paris et Île-de-France (France Nord), Marseille et Bouches-du-Rhône, Montpellier et Hérault (34), Nîmes et Gard (30), ainsi que la côte sud et régions limitrophes.',
