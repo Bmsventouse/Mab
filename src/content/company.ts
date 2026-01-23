@@ -165,7 +165,12 @@ export const sectors: Sector[] = [
     shortDescription: 'Sécurisation des sièges sociaux, bureaux, sites industriels et logistiques.',
     description:
       'Nous accompagnons les PME, ETI et grands comptes dans la protection de leurs collaborateurs, visiteurs et actifs matériels, en cohérence avec leurs procédures internes.',
-    examples: ['Sièges sociaux et bureaux', 'Sites industriels', 'Entrepôts et plateformes logistiques'],
+    examples: [
+      'Sièges sociaux et bureaux',
+      'Sites industriels',
+      'Entrepôts et plateformes logistiques',
+      'Centres commerciaux et galeries marchandes',
+    ],
   },
   {
     slug: 'evenementiel',

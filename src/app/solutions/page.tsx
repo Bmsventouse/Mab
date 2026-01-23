@@ -60,6 +60,12 @@ const solutionSections = [
           'Agents de sécurité, rondes et levées de doute pour vos chantiers, sites tertiaires et entrepôts franciliens.',
       },
       {
+        href: '/solutions/securite-humaine/securite-centres-commerciaux',
+        label: 'Sécurité centres commerciaux & retail',
+        description:
+          'Dispositifs de sécurité pour centres commerciaux, galeries marchandes et enseignes retail.',
+      },
+      {
         href: '/solutions/securite-humaine/agent-securite-marseille',
         label: 'Agents de sécurité à Marseille',
         description:
