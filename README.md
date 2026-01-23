@@ -66,11 +66,13 @@ npm start
   - `api/contact/route.ts` : API interne pour le formulaire de contact  
   - `sitemap.ts` / `robots.ts` : SEO technique (sitemap XML, directives robots)
 
-- `src/components/layout`  
-  Header et footer globaux.
-
-- `src/components/forms`  
-  Formulaire de contact principal.
+- `src/components`  
+  Composants du site organisés de manière modulaire :
+  - `atoms/` : primitives UI de base (boutons, textes, conteneurs…)
+  - `molecules/` : petits ensembles réutilisables (liens de navigation, etc.)
+  - `organisms/` : blocs structurants (header, footer, formulaires…)
+  - `templates/` : gabarits de pages (pages services, pages locales, articles)
+  - `forms/` : formulaires, dont le formulaire de contact principal.
 
 ## Champs à personnaliser en priorité
 
