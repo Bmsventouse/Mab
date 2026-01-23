@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2, ClipboardList, HardHat, MapPinned } from 'lucide-react';
 import { company } from '../../content/company';
@@ -26,6 +27,17 @@ export default function GardiennageChantiersBtpParisPage() {
             notamment en horaires de nuit et week-end.
           </p>
         </header>
+
+        <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
+          <Image
+            src="/images/gardiennage-chantiers-btp-paris.jpg"
+            alt="Gardiennage de nuit sur un chantier BTP à Paris"
+            width={1280}
+            height={720}
+            className="h-48 w-full object-cover opacity-90"
+            priority
+          />
+        </div>
 
         <section className="grid gap-8 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <article className="space-y-4 text-sm text-slate-300">
@@ -163,7 +175,7 @@ export default function GardiennageChantiersBtpParisPage() {
           <div className="pt-2">
             <Link
               href="/contact#formulaire-devis"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
             >
               Parler de mon chantier avec MAB SECURITE
             </Link>

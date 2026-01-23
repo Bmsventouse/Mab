@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "port": 3000,
+    "wait": 1000,
+    "screenCapture": "pa11y-screenshot.png"
+  },
+  "urls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/prestations",
+    "http://localhost:3000/secteurs",
+    "http://localhost:3000/contact",
+    "http://localhost:3000/securite-privee-paris",
+    "http://localhost:3000/securite-privee-marseille",
+    "http://localhost:3000/securite-privee-nimes"
+  ]
+}

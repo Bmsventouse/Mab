@@ -86,14 +86,14 @@ export const Header = () => {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={`tel:${company.contact.phone.value}`}
-            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-2 text-xs font-medium text-slate-100 transition-colors hover:border-emerald-500 hover:bg-slate-900"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-xs font-medium text-slate-100 transition-colors hover:border-emerald-500 hover:bg-slate-900 min-h-[44px]"
           >
             <Phone className="h-4 w-4 text-emerald-400" aria-hidden="true" />
             <span>{company.contact.phone.label}</span>
           </a>
           <Link
             href="/contact#formulaire-devis"
-            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
           >
             Demander un devis
           </Link>
@@ -103,7 +103,7 @@ export const Header = () => {
         <div className="flex items-center gap-2 md:hidden">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1.5 text-xs font-medium text-slate-100"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-3.5 py-2 text-xs font-medium text-slate-100 min-h-[44px]"
           >
             <Phone className="h-3 w-3 text-emerald-400" aria-hidden="true" />
             Devis
@@ -112,7 +112,7 @@ export const Header = () => {
             type="button"
             onClick={() => setIsOpen((open) => !open)}
             aria-label="Ouvrir le menu"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/80 text-slate-100"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/80 text-slate-100"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

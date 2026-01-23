@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
@@ -33,6 +34,17 @@ export default function SecuritePriveeParisPage() {
             aussi sièges sociaux, immeubles tertiaires et sites techniques.
           </p>
         </header>
+
+        <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
+          <Image
+            src="/images/securite-btp-paris.jpg"
+            alt="Agent de sécurité surveillant un chantier BTP à Paris"
+            width={1280}
+            height={720}
+            className="h-48 w-full object-cover opacity-90"
+            priority
+          />
+        </div>
 
         <section className="grid gap-6 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
           <div className="space-y-4 text-sm text-slate-300">
@@ -123,7 +135,7 @@ export default function SecuritePriveeParisPage() {
             <div className="mt-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
               >
                 Échanger sur un projet à Paris
               </Link>
@@ -141,7 +153,7 @@ export default function SecuritePriveeParisPage() {
             <div className="mt-3">
               <Link
                 href="/gardiennage-chantiers-btp-paris"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-5 py-2.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950 min-h-[44px]"
               >
                 Découvrir le gardiennage de chantiers BTP à Paris
               </Link>
