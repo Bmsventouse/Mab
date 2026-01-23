@@ -243,6 +243,17 @@ export default function AuditSureteSiegeSocialParisPage() {
               </Link>
               .
             </p>
+            <p className="text-[11px] text-slate-400">
+              Pour préparer concrètement cette démarche d&apos;audit, vous pouvez également consulter notre
+              guide dédié&nbsp;:&nbsp;
+              <Link
+                href="/guides/preparer-audit-surete-siege-social"
+                className="underline-offset-2 hover:underline"
+              >
+                préparer un audit de sûreté de siège social
+              </Link>
+              .
+            </p>
           </div>
         </section>
 

@@ -200,6 +200,16 @@ export default function GardiennageChantiersBtpParisPage() {
           analyse permet de dimensionner un dispositif réaliste, compatible avec vos
           contraintes budgétaires et opérationnelles.
         </p>
+        <p className="text-[11px] text-slate-400">
+          Pour approfondir ces points côté maîtrise d&apos;ouvrage, vous pouvez également consulter notre guide&nbsp;:&nbsp;
+          <Link
+            href="/guides/securiser-chantier-btp-nuit"
+            className="underline-offset-2 hover:underline"
+          >
+            sécuriser un chantier BTP la nuit
+          </Link>
+          .
+        </p>
         <p>
           {company.name} intervient aussi bien dans le cadre d&apos;appels d&apos;offres
           BTP, de marchés publics que de besoins ponctuels sur des opérations

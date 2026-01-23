@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
@@ -334,9 +335,11 @@ export default function HomePage() {
                 key={item.label}
                 className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/40"
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.label}
+                  width={1200}
+                  height={480}
                   loading="lazy"
                   className="h-32 w-full object-cover opacity-90"
                 />

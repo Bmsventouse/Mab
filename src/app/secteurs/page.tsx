@@ -56,6 +56,78 @@ export default function SecteursPage() {
                         <li key={example}>• {example}</li>
                       ))}
                     </ul>
+                    {sector.slug === 'entreprises' && (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Pour sécuriser vos entrepôts, plateformes logistiques et centres commerciaux,
+                        vous pouvez consulter nos solutions dédiées&nbsp;:&nbsp;
+                        <Link
+                          href="/solutions/securite-humaine/securite-entrepots-logistiques"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          sécurité entrepôts &amp; plateformes logistiques
+                        </Link>
+                        &nbsp;et&nbsp;
+                        <Link
+                          href="/solutions/securite-humaine/securite-centres-commerciaux"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          sécurité centres commerciaux &amp; retail
+                        </Link>
+                        .
+                      </p>
+                    )}
+                    {sector.slug === 'evenementiel' && (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Pour vos événements à forte visibilité, notamment sur la Côte d&apos;Azur,
+                        nos dispositifs de&nbsp;
+                        <Link
+                          href="/solutions/securite-evenementielle/securite-evenementielle-cannes"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          sécurité événementielle à Cannes
+                        </Link>
+                        &nbsp;et nos&nbsp;
+                        <Link
+                          href="/solutions/securite-humaine/agent-securite-nice"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          agents de sécurité à Nice
+                        </Link>
+                        &nbsp;peuvent être adaptés à vos événements professionnels.
+                      </p>
+                    )}
+                    {sector.slug === 'collectivites' && (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Pour les bâtiments administratifs, équipements culturels ou sportifs,
+                        un dispositif structuré de&nbsp;
+                        <Link
+                          href="/solutions/securite-humaine/gardiennage-ile-de-france"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          gardiennage en Île-de-France
+                        </Link>
+                        &nbsp;ou de sécurité humaine dédiée peut être mis en place selon vos sites.
+                      </p>
+                    )}
+                    {sector.slug === 'tournages-plateaux' && (
+                      <p className="mt-2 text-[11px] text-slate-400">
+                        Pour les tournages et plateaux techniques, nos dispositifs de&nbsp;
+                        <Link
+                          href="/solutions/securite-evenementielle/securite-evenementielle-cannes"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          sécurité événementielle
+                        </Link>
+                        &nbsp;et d&apos;
+                        <Link
+                          href="/solutions/securite-humaine/agent-securite-marseille"
+                          className="underline-offset-2 hover:underline"
+                        >
+                          agents de sécurité à Marseille
+                        </Link>
+                        &nbsp;peuvent être adaptés à la configuration de vos sites.
+                      </p>
+                    )}
                   </div>
                 </div>
               </article>

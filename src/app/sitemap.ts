@@ -26,6 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/solutions/securite-humaine/agent-securite-montpellier',
     '/solutions/securite-humaine/agent-securite-nice',
     '/solutions/securite-evenementielle/securite-evenementielle-cannes',
+    '/guides',
+    '/guides/securiser-chantier-btp-nuit',
+    '/guides/preparer-audit-surete-siege-social',
     '/mentions-legales',
     '/politique-de-confidentialite',
   ];
