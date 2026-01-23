@@ -104,3 +104,78 @@ Recommandations :
 3. Mettre à jour `branding.logoUrl` si vous ajoutez un logo dans `public/images/`.
 
 De cette façon, le site reste simple à maintenir, tout en permettant d’ajouter des visuels professionnels en totale adéquation avec le thème de la sécurité privée et du BTP.
+
+## Débogage & vérifications avant livraison
+
+Cette section résume les commandes et les points de contrôle à effectuer avant de livrer le site.
+
+### 1. Vérifications techniques
+
+À exécuter depuis la racine du projet :
+
+```bash
+# Vérifier les types TypeScript
+npm run typecheck
+
+# Vérifier la qualité du code (ESLint)
+npm run lint
+
+# Vérifier que la build de production passe
+npm run build
+```
+
+Si ces trois commandes passent sans erreur, le projet est sain côté code (types, lint, build).
+
+### 2. Vérifications fonctionnelles (en local)
+
+Lancer le serveur de développement :
+
+```bash
+npm run dev
+# http://localhost:3000
+```
+
+Puis vérifier manuellement :
+
+1. **Navigation globale**
+   - Menu principal (desktop) et menu burger (mobile).
+   - Liens vers : Accueil, Prestations, Secteurs, À propos, Contact.
+   - Liens vers les pages locales : Paris, Marseille, Montpellier, Nîmes.
+
+2. **Pages principales**
+   - Accueil : hero, blocs “Pour quels types d’organisations ?”, prestations clés, galerie photo, engagements.
+   - Prestations : liste des prestations et lien vers la page “Gardiennage chantiers BTP Paris”.
+   - Secteurs : toutes les cartes secteurs affichées.
+   - À propos : bloc direction générale + organisation France Nord / France Sud.
+   - Contact : formulaire, blocs Direction / France Nord / France Sud, coordonnées.
+
+3. **Pages locales**
+   - `/securite-privee-paris`
+   - `/securite-privee-marseille`
+   - `/securite-privee-montpellier`
+   - `/securite-privee-nimes`
+   - `/gardiennage-chantiers-btp-paris`
+
+   Pour chaque page locale :
+   - H1 cohérent (ville + activité).
+   - Bloc “zone & responsable opérationnel” correct (Béna pour Nord, Sofiane pour Sud).
+   - Liens internes entre les pages locales fonctionnels.
+
+4. **Formulaire de contact**
+   - Accès au formulaire via `/contact` et via le bouton “Demander un devis” du header.
+   - Soumission avec des données de test : vérifier l’affichage du message de confirmation (statut succès côté UI).
+
+### 3. Vérifications SEO rapides
+
+Toujours en local (ou sur un environnement de préproduction) :
+
+- Sur quelques pages clés (Accueil, Prestations, À propos, une page locale) :
+  - Vérifier le `<title>` et la `<meta name="description">` dans l’onglet “Éléments” / “Inspector” du navigateur.
+  - Vérifier la présence de la balise canonical (`<link rel="canonical" ...>`).
+- Vérifier :
+  - `http://localhost:3000/robots.txt`
+  - `http://localhost:3000/sitemap.xml`
+
+Ils doivent s’afficher sans erreur et lister les principales routes.
+
+Ces vérifications garantissent que le dépôt est prêt pour une livraison propre (technique, fonctionnelle et SEO).
