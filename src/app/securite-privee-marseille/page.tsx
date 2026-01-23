@@ -135,9 +135,15 @@ export default function SecuritePriveeMarseillePage() {
           privés et publics. Nous travaillons en lien avec vos équipes HSE, QSE ou
           sûreté, ainsi qu&apos;avec vos autres prestataires (télésurveillance,
           maintenance, gardiennage interne). Dans la zone Sud, nous assurons également
-          des dispositifs de <strong>sécurité événementielle à Cannes</strong> (festivals,
-          salons, événements professionnels) avec agents de sécurité, contrôle d&apos;accès
-          et gardiennage de salons.
+          des dispositifs de{' '}
+          <Link
+            href="/solutions/securite-evenementielle/securite-evenementielle-cannes"
+            className="underline-offset-2 hover:underline"
+          >
+            sécurité événementielle à Cannes
+          </Link>{' '}
+          (festivals, salons, événements professionnels) avec agents de sécurité, contrôle
+          d&apos;accès et gardiennage de salons.
         </p>
       </section>
 

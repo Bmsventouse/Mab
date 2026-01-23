@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/solutions/securite-humaine/agent-securite-montpellier',
     '/solutions/securite-humaine/agent-securite-nice',
     '/solutions/securite-humaine/gardiennage-ile-de-france',
+    '/solutions/securite-evenementielle/securite-evenementielle-cannes',
     '/mentions-legales',
     '/politique-de-confidentialite',
   ];
