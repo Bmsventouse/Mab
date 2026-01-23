@@ -79,9 +79,9 @@ export const company: Company = {
     country: 'France',
   },
   description:
-    "MAB SECURITE est une société de sécurité privée basée à Nîmes. Elle accompagne en priorité les entreprises du BTP, les maîtres d’ouvrage, les collectivités et les organisateurs d’événements dans la protection de leurs chantiers, sites, collaborateurs et publics, avec une présence structurée à Paris, Marseille et dans le Gard.",
+    "MAB SECURITE est une société de sécurité privée basée à Nîmes. Elle accompagne en priorité les entreprises du BTP, les maîtres d’ouvrage, les collectivités et les organisateurs d’événements dans la protection de leurs chantiers, sites, collaborateurs et publics, avec une présence structurée à Paris (France Nord), Marseille, Montpellier et dans le Gard (France Sud).",
   shortDescription:
-    'Sécurité privée pour le BTP et les sites professionnels : gardiennage de chantiers, rondes de sûreté et sécurisation d’événements à Paris, Marseille, Nîmes et sur la côte sud.',
+    'Sécurité privée pour le BTP et les sites professionnels : gardiennage de chantiers, rondes de sûreté, dispositifs de vidéosurveillance et sécurité incendie à Paris, Marseille, Montpellier, Nîmes et sur la côte sud.',
   contact: {
     // À personnaliser : coordonnées de contact définitives
     phone: {
@@ -96,7 +96,7 @@ export const company: Company = {
     logoUrl: '/images/logo-mab-securite.svg', // À remplacer si un logo est disponible
   },
   areaServed:
-    'Paris et Île-de-France, Marseille et Bouches-du-Rhône, Nîmes et Gard (30), ainsi que la côte sud et régions limitrophes.',
+    'Paris et Île-de-France (France Nord), Marseille et Bouches-du-Rhône, Montpellier et Hérault (34), Nîmes et Gard (30), ainsi que la côte sud et régions limitrophes.',
 };
 
 export const services: Service[] = [
@@ -124,6 +124,8 @@ export const services: Service[] = [
       'Accueil et contrôle des visiteurs et prestataires',
       'Rondes préventives à horaires fixes ou variables',
       'Main courante et reporting réguliers',
+      'Mise en place d’agents de sécurité et de maîtres-chiens sur les sites à risque',
+      'Articulation avec les dispositifs techniques (caméras de surveillance, détecteurs de mouvement, contrôle d’accès)',
     ],
   },
   {
@@ -150,6 +152,8 @@ export const services: Service[] = [
       'Surveillance de chantiers et zones de stockage',
       'Protection des accès et des abords immédiats',
       'Coordination avec les autres acteurs de la sûreté',
+      'Intégration de solutions de vidéosurveillance (caméras de surveillance, détecteurs de mouvement)',
+      'Prise en compte des dispositifs de sécurité incendie (agents SIAP/SSIAP, plans de prévention incendie)',
     ],
   },
 ];

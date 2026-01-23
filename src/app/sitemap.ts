@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/securite-privee-paris',
     '/securite-privee-marseille',
+    '/securite-privee-montpellier',
     '/securite-privee-nimes',
     '/gardiennage-chantiers-btp-paris',
     '/mentions-legales',

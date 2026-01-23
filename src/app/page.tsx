@@ -4,9 +4,9 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
 
 export const metadata: Metadata = {
-  title: 'MAB SECURITE – Sécurité privée & gardiennage BTP à Paris, Marseille, Nîmes',
+  title: 'MAB SECURITE – Sécurité privée & gardiennage BTP à Paris, Marseille, Montpellier, Nîmes',
   description:
-    "MAB SECURITE, société de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris, Marseille, Nîmes et sur la côte sud : gardiennage de chantiers, surveillance humaine, rondes de sûreté et sécurisation de sites.",
+    "MAB SECURITE, société de sécurité privée, accompagne les entreprises du BTP, les maîtres d’ouvrage et les donneurs d’ordre publics à Paris, Marseille, Montpellier, Nîmes et sur la côte sud : gardiennage de chantiers, surveillance humaine, rondes de sûreté, vidéosurveillance et sécurisation de sites.",
 };
 
 export default function HomePage() {
@@ -202,6 +202,36 @@ export default function HomePage() {
                   ))}
                 </ul>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Galerie photo (structure prête) */}
+      <section className="section pt-0">
+        <div className="section-inner space-y-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">
+                Galerie photo (prochainement)
+              </h2>
+              <p className="text-xs text-muted sm:text-sm">
+                Une sélection de photos viendra illustrer, à terme, les chantiers BTP, sites
+                industriels, événements et environnements sécurisés par {company.name}. La
+                structure ci-dessous est prête à accueillir vos visuels.
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[1, 2, 3, 4].map((index) => (
+              <div
+                key={index}
+                className="card-muted flex h-32 items-center justify-center border border-dashed border-slate-700 bg-slate-900/40"
+              >
+                <span className="text-[11px] text-slate-500">
+                  Emplacement visuel – à remplacer par une photo libre de droit
+                </span>
+              </div>
             ))}
           </div>
         </div>

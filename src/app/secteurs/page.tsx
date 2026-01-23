@@ -5,7 +5,7 @@ import { company, sectors } from '../../content/company';
 export const metadata: Metadata = {
   title: 'Secteurs d’intervention – BTP, entreprises et acteurs publics',
   description:
-    "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Nîmes et dans leurs régions.",
+    "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Montpellier, Nîmes et dans leurs régions.",
 };
 
 const iconMap: Record<string, typeof Building2> = {

@@ -5,9 +5,9 @@ Le site est construit avec **Next.js 14 (App Router)**, **TypeScript** et **Tail
 
 L’orientation principale est la **sécurité privée B2B**, avec un focus particulier sur :
 
-- le **gardiennage de chantiers BTP à Paris et en Île-de-France** ;
-- les missions de sécurité à **Marseille** (BTP, sites industriels, logistiques, commerciaux, événements) ;
-- les missions de proximité sur **Nîmes / Gard**.
+- le **gardiennage de chantiers BTP et la mise en sécurité de sites sensibles à Paris et en Île-de-France (France Nord)** ;
+- les missions de sécurité à **Marseille et Montpellier** (BTP, sites industriels, logistiques, commerciaux, événements) au sein de la **zone Sud** ;
+- les missions de proximité sur **Nîmes / Gard** et plus largement la **côte méditerranéenne (France Sud)**.
 
 ## Stack technique
 
@@ -59,6 +59,7 @@ npm start
   - `securite-privee-paris/page.tsx` : page locale Paris / Île-de-France (sécurité BTP & sites sensibles)  
   - `gardiennage-chantiers-btp-paris/page.tsx` : landing dédiée au gardiennage de chantiers BTP à Paris / IDF  
   - `securite-privee-marseille/page.tsx` : page locale Marseille (BTP, sites industriels, commerciaux, événements)  
+  - `securite-privee-montpellier/page.tsx` : page locale Montpellier (BTP, sites tertiaires et événements économiques)  
   - `securite-privee-nimes/page.tsx` : page locale Nîmes / Gard (BTP & proximité)  
   - `mentions-legales/page.tsx` : mentions légales  
   - `politique-de-confidentialite/page.tsx` : politique de confidentialité  
@@ -78,14 +79,16 @@ Dans `src/content/company.ts` :
 - **Téléphone** : `contact.phone.label` et `contact.phone.value`
 - **Email** : `contact.email`
 - **URL du site** : `contact.websiteUrl`
-- **Zone d’intervention** : `areaServed`
+- **Zone d’intervention** : `areaServed` (Paris / IDF, Marseille, Montpellier, Nîmes / Gard, etc.)
 - **Logo** : `branding.logoUrl` (si un logo est disponible)
 
-Une fois ces informations complétées, le site sera prêt à être utilisé comme vitrine B2B pour MAB SECURITE, avec un positionnement clair sur le **gardiennage de chantiers BTP à Paris / IDF** et la **sécurité de sites professionnels** sur Marseille et Nîmes.
+Une fois ces informations complétées, le site sera prêt à être utilisé comme vitrine B2B pour MAB SECURITE, avec un positionnement clair sur le **gardiennage de chantiers BTP à Paris / IDF**, la **sécurité de sites professionnels** sur Marseille, Montpellier et Nîmes, ainsi que la structuration opérationnelle **France Nord / France Sud** (responsables par zone).
 
 ## Images et photos (libres de droit)
 
 Aucune photo n’est embarquée directement dans le dépôt afin d’éviter tout risque lié aux droits d’auteur.  
+Une section de **galerie photo** est déjà prévue sur la page d’accueil (grille de vignettes placeholder) afin de pouvoir intégrer facilement, à terme, des visuels de chantiers, sites et événements sécurisés par MAB SECURITE.
+
 Pour ajouter des visuels en adéquation avec le sujet (sécurité privée, BTP, sites industriels, événements), vous pouvez utiliser des banques d’images **libres de droits** comme :
 
 - [Unsplash](https://unsplash.com/) – collections “construction”, “security”, “industrial” ;

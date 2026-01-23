@@ -6,7 +6,7 @@ import { company, services } from '../../content/company';
 export const metadata: Metadata = {
   title: 'Prestations de sécurité privée – Gardiennage BTP & sites professionnels',
   description:
-    "Prestations de sécurité MAB SECURITE : gardiennage de chantiers BTP, surveillance humaine, rondes de sûreté, sécurité événementielle et sécurisation de sites pour les entreprises et collectivités à Paris, Marseille, Nîmes et sur la côte sud.",
+    "Prestations de sécurité MAB SECURITE : gardiennage de chantiers BTP, surveillance humaine, rondes de sûreté, sécurité événementielle, vidéosurveillance et sécurisation de sites pour les entreprises et collectivités à Paris, Marseille, Montpellier, Nîmes et sur la côte sud.",
 };
 
 export default function PrestationsPage() {

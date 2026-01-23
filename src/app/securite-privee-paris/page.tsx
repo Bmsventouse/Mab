@@ -52,12 +52,19 @@ export default function SecuritePriveeParisPage() {
               humaine permet de proposer une gestion opérationnelle réactive, en lien
               direct avec un interlocuteur identifié.
             </p>
-            <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4 text-xs text-slate-200">
-              <p className="font-semibold text-slate-50">
-                Responsable sécurité Paris
+            <div className=\"mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4 text-xs text-slate-200\">
+              <p className=\"font-semibold text-slate-50\">
+                France Nord – Paris &amp; Île-de-France
               </p>
-              <p className="mt-1">
-                Bena – <a href="tel:+33646005642" className="text-emerald-400 hover:text-emerald-300">+33 6 46 00 56 42</a>
+              <p className=\"mt-1 text-slate-200\">
+                Responsable opérationnel : <span className=\"font-semibold\">Béna</span>
+              </p>
+              <p className=\"mt-1 text-xs text-slate-400\">
+                Téléphone direct zone Nord : à compléter (numéro dédié Paris / Île-de-France).
+              </p>
+              <p className=\"mt-2 text-xs text-muted\">
+                Pour toute première prise de contact, vous pouvez également utiliser le numéro
+                principal indiqué sur le site ou le formulaire de contact.
               </p>
             </div>
           </div>
@@ -106,6 +113,44 @@ export default function SecuritePriveeParisPage() {
                 </ul>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-sm font-semibold text-slate-50 sm:text-base">
+            Expertises locales pour vos sites parisiens
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3 text-xs text-slate-300">
+            <article className="card-muted p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                Caméras de surveillance &amp; détecteurs de mouvement
+              </h3>
+              <p className="mt-1.5 text-muted">
+                Dimensionnement et positionnement de dispositifs de vidéosurveillance (caméras
+                de surveillance, détecteurs de mouvement, contrôle d’accès) adaptés aux
+                contraintes des chantiers et immeubles parisiens.
+              </p>
+            </article>
+            <article className="card-muted p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                Agents de sécurité &amp; maîtres-chiens
+              </h3>
+              <p className="mt-1.5 text-muted">
+                Mobilisation d&apos;agents de sécurité expérimentés et, lorsque le profil de
+                risque l&apos;exige, de maîtres-chiens pour renforcer la dissuasion et la
+                capacité de réaction sur vos chantiers et sites sensibles.
+              </p>
+            </article>
+            <article className="card-muted p-4">
+              <h3 className="text-sm font-semibold text-slate-50">
+                Protection incendie &amp; agents SIAP/SSIAP
+              </h3>
+              <p className="mt-1.5 text-muted">
+                Intégration de la protection incendie aux dispositifs de sécurité : rondes de
+                sécurité incendie, prise en compte des points sensibles et recours à des
+                agents SIAP/SSIAP selon la configuration des bâtiments.
+              </p>
+            </article>
           </div>
         </section>
 

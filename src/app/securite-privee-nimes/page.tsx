@@ -49,16 +49,17 @@ export default function SecuritePriveeNimesPage() {
             </p>
             <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4 text-xs text-slate-200">
               <p className="font-semibold text-slate-50">
-                Responsable sécurité Sud (Nîmes &amp; côte méditerranéenne)
+                France Sud – Nîmes, Gard &amp; côte méditerranéenne
               </p>
-              <p className="mt-1">
-                Beddredine Mohand –{' '}
-                <a
-                  href="tel:+33646005642"
-                  className="text-emerald-400 hover:text-emerald-300"
-                >
-                  +33 6 46 00 56 42
-                </a>
+              <p className="mt-1 text-slate-200">
+                Responsable opérationnel : <span className="font-semibold">Sofiane</span>
+              </p>
+              <p className="mt-1 text-xs text-slate-400">
+                Téléphone direct zone Sud : à compléter (numéro dédié Nîmes / Gard).
+              </p>
+              <p className="mt-2 text-xs text-muted">
+                Pour toute première demande, vous pouvez également utiliser le numéro
+                principal mentionné sur le site ou le formulaire de contact.
               </p>
             </div>
           </div>
