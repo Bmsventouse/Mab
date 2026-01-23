@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Building2, Clapperboard, Landmark, Ticket } from 'lucide-react';
 import { company, sectors } from '../../content/company';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Secteurs d’intervention – BTP, entreprises et acteurs publics',
   description:
     "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Montpellier, Nîmes et dans leurs régions.",
-};
+  canonicalPath: '/secteurs',
+});
 
 const iconMap: Record<string, typeof Building2> = {
   entreprises: Building2,
@@ -33,12 +35,12 @@ export default function SecteursPage() {
           </p>
         </header>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <section className="grid gap-6 md:grid-cols-2">
           {sectors.map((sector) => {
             const Icon = iconMap[sector.slug] ?? Building2;
 
             return (
-              <section key={sector.slug} className="card p-6 text-sm">
+              <article key={sector.slug} className="card p-6 text-sm">
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400">
                     <Icon className="h-5 w-5" />
@@ -55,12 +57,12 @@ export default function SecteursPage() {
                     </ul>
                   </div>
                 </div>
-              </section>
+              </article>
             );
           })}
-        </div>
+        </section>
 
-        <div className="card-muted p-5 text-xs text-slate-300">
+        <section className="card-muted p-5 text-xs text-slate-300">
           <p className="font-medium text-slate-100">
             Vous ne trouvez pas votre secteur dans cette liste&nbsp;?
           </p>
@@ -69,7 +71,7 @@ export default function SecteursPage() {
             spécifiques (santé, enseignement, sites culturels, etc.). N&apos;hésitez pas à
             nous contacter pour étudier la faisabilité d&apos;un dispositif adapté.
           </p>
-        </div>
+        </section>
       </div>
     </div>
   );
