@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { ShieldCheck } from 'lucide-react';
 import { company } from '../../content/company';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'À propos de MAB SECURITE – Spécialiste sécurité BTP & sites professionnels',
   description:
     "Présentation de MAB SECURITE, société de sécurité privée basée à Nîmes et présente à Paris, Marseille, Montpellier et dans le Gard, spécialisée dans le gardiennage de chantiers BTP, la surveillance de sites professionnels et la sécurisation d'événements pour les entreprises et acteurs publics.",
-};
+  canonicalPath: '/a-propos',
+});
 
 export default function AProposPage() {
   return (
