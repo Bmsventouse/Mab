@@ -12,6 +12,45 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/securite-privee-marseille',
 });
 
+function getMarseilleLocalBusinessJsonLd() {
+  const baseUrl = company.contact.websiteUrl || 'https://www.mab-securite.fr';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `${company.name} Marseille`,
+    description:
+      'Services de sécurité privée, gardiennage de chantiers BTP, sécurité industrielle et sécurité événementielle à Marseille et dans les Bouches-du-Rhône.',
+    url: `${baseUrl.replace(/\/$/, '')}/securite-privee-marseille`,
+    telephone: company.contact.phone.value,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress:
+        company.address.line1 +
+        (company.address.line2 ? `, ${company.address.line2}` : ''),
+      addressLocality: 'Marseille',
+      postalCode: '13000',
+      addressCountry: 'FR',
+    },
+    openingHours: 'Mo-Su 00:00-23:59',
+    areaServed: 'Marseille et Bouches-du-Rhône',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services de Sécurité',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Gardiennage de chantier' },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Sécurité Incendie SSIAP' },
+        },
+      ],
+    },
+  };
+}
+
 export default function SecuritePriveeMarseillePage() {
   const keyServices = services.filter((service) =>
     ['gardiennage-surveillance', 'rondes-prevention', 'securisation-sites-perimetres'].includes(
@@ -20,52 +59,57 @@ export default function SecuritePriveeMarseillePage() {
   );
 
   return (
-    <AgencyPageTemplate
-      h1="Société de sécurité privée à Marseille pour sites BTP, industriels et événements"
-      badge="Marseille · Bouches-du-Rhône"
-      intro={`${company.name} accompagne les acteurs du BTP, les sites industriels et logistiques, les exploitants de sites commerciaux ainsi que les organisateurs d'événements à Marseille et dans les Bouches-du-Rhône. Nos dispositifs de sécurité privée s'adaptent aux contraintes des sites à forte activité : flux de personnes et de véhicules, zones sensibles, accès multiples et exigences réglementaires renforcées. MAB SECURITE se positionne comme entreprise de sécurité et de gardiennage à Marseille, en mettant à votre disposition des agents de sécurité pour le gardiennage de nuit, la surveillance de sites et la sécurité événementielle.`}
-      zoneLabel="France Sud – Marseille, Montpellier, Nice, Cannes & côte méditerranéenne"
-      responsable="Sofiane"
-      zonePhoneLabel={
-        <>
-          <p>
-            Téléphone direct zone Sud&nbsp;:{' '}
-            <a href="tel:+33759585023" className="hover:text-emerald-300">
-              +33 7 59 58 50 23
-            </a>{' '}
-            (Sofiane – Marseille, Montpellier, côte méditerranéenne).
-          </p>
-          <p className="mt-2 text-xs text-muted">
-            Pour une première prise de contact, vous pouvez utiliser le numéro principal
-            affiché sur le site ou le formulaire de contact.
-          </p>
-        </>
-      }
-      situationsAside={
-        <ul className="space-y-2">
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Gardiennage de chantiers BTP et opérations d&apos;aménagement</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Gardiennage de sites industriels et de dépôts logistiques</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Surveillance de zones portuaires et périmètres sensibles</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Rondes de sûreté et levées de doute en horaires décalés</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Dispositifs de sécurité pour événements professionnels et grand public</span>
-          </li>
-        </ul>
-      }
-    >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getMarseilleLocalBusinessJsonLd()) }}
+      />
+      <AgencyPageTemplate
+        h1="Société de sécurité privée à Marseille pour sites BTP, industriels et événements"
+        badge="Marseille · Bouches-du-Rhône"
+        intro={`${company.name} accompagne les acteurs du BTP, les sites industriels et logistiques, les exploitants de sites commerciaux ainsi que les organisateurs d'événements à Marseille et dans les Bouches-du-Rhône. Nos dispositifs de sécurité privée s'adaptent aux contraintes des sites à forte activité : flux de personnes et de véhicules, zones sensibles, accès multiples et exigences réglementaires renforcées. MAB SECURITE se positionne comme entreprise de sécurité et de gardiennage à Marseille, en mettant à votre disposition des agents de sécurité pour le gardiennage de nuit, la surveillance de sites et la sécurité événementielle.`}
+        zoneLabel="France Sud – Marseille, Montpellier, Nice, Cannes & côte méditerranéenne"
+        responsable="Sofiane"
+        zonePhoneLabel={
+          <>
+            <p>
+              Téléphone direct zone Sud&nbsp;:{' '}
+              <a href="tel:+33759585023" className="hover:text-emerald-300">
+                +33 7 59 58 50 23
+              </a>{' '}
+              (Sofiane – Marseille, Montpellier, côte méditerranéenne).
+            </p>
+            <p className="mt-2 text-xs text-muted">
+              Pour une première prise de contact, vous pouvez utiliser le numéro principal
+              affiché sur le site ou le formulaire de contact.
+            </p>
+          </>
+        }
+        situationsAside={
+          <ul className="space-y-2">
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Gardiennage de chantiers BTP et opérations d&apos;aménagement</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Gardiennage de sites industriels et de dépôts logistiques</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Surveillance de zones portuaires et périmètres sensibles</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Rondes de sûreté et levées de doute en horaires décalés</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Dispositifs de sécurité pour événements professionnels et grand public</span>
+            </li>
+          </ul>
+        }
+      >
       <section className="space-y-4 text-sm text-slate-300">
         <h2 className="text-base font-semibold text-slate-50">
           Sécurisation de vos sites à Marseille et dans le 13
@@ -189,5 +233,6 @@ export default function SecuritePriveeMarseillePage() {
         </p>
       </section>
     </AgencyPageTemplate>
+    </>
   );
 }

@@ -12,6 +12,45 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/securite-privee-montpellier',
 });
 
+function getMontpellierLocalBusinessJsonLd() {
+  const baseUrl = company.contact.websiteUrl || 'https://www.mab-securite.fr';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `${company.name} Montpellier`,
+    description:
+      "Services de sécurité privée, gardiennage de chantiers BTP, sécurité tertiaire et sécurité événementielle à Montpellier et dans l'Hérault (34).",
+    url: `${baseUrl.replace(/\/$/, '')}/securite-privee-montpellier`,
+    telephone: company.contact.phone.value,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress:
+        company.address.line1 +
+        (company.address.line2 ? `, ${company.address.line2}` : ''),
+      addressLocality: 'Montpellier',
+      postalCode: '34000',
+      addressCountry: 'FR',
+    },
+    openingHours: 'Mo-Su 00:00-23:59',
+    areaServed: "Montpellier et Hérault (34)",
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services de Sécurité',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Gardiennage de chantier' },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Sécurité Incendie SSIAP' },
+        },
+      ],
+    },
+  };
+}
+
 export default function SecuritePriveeMontpellierPage() {
   const keyServices = services.filter((service) =>
     ['gardiennage-surveillance', 'rondes-prevention', 'securisation-sites-perimetres'].includes(
@@ -20,48 +59,53 @@ export default function SecuritePriveeMontpellierPage() {
   );
 
   return (
-    <AgencyPageTemplate
-      h1="Sécurité privée à Montpellier pour chantiers BTP, sites tertiaires et événements"
-      badge="Montpellier · Hérault (34)"
-      intro={`${company.name} accompagne les entreprises du BTP, les propriétaires et gestionnaires d'immeubles tertiaires ainsi que les organisateurs d'événements à Montpellier, dans l'Hérault et sur le littoral méditerranéen. Les dispositifs combinent présence humaine, vidéosurveillance et sécurité incendie pour protéger vos sites, équipes et publics.`}
-      zoneLabel="France Sud – Montpellier & Hérault (34)"
-      responsable="Sofiane"
-      zonePhoneLabel={
-        <>
-          <p>
-            Téléphone direct zone Sud&nbsp;:{' '}
-            <a href="tel:+33759585023" className="hover:text-emerald-300">
-              +33 7 59 58 50 23
-            </a>{' '}
-            (Sofiane – Montpellier &amp; Hérault).
-          </p>
-          <p className="mt-2 text-xs text-muted">
-            Pour toute première prise de contact, vous pouvez utiliser le numéro principal
-            indiqué sur le site ou le formulaire de contact.
-          </p>
-        </>
-      }
-      situationsAside={
-        <ul className="space-y-2">
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Gardiennage de chantiers BTP et opérations immobilières</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Surveillance de sites tertiaires et parcs d&apos;activités</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Protection de dépôts, zones de stockage et locaux techniques</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Dispositifs de sécurité pour événements professionnels et institutionnels</span>
-          </li>
-        </ul>
-      }
-    >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getMontpellierLocalBusinessJsonLd()) }}
+      />
+      <AgencyPageTemplate
+        h1="Sécurité privée à Montpellier pour chantiers BTP, sites tertiaires et événements"
+        badge="Montpellier · Hérault (34)"
+        intro={`${company.name} accompagne les entreprises du BTP, les propriétaires et gestionnaires d'immeubles tertiaires ainsi que les organisateurs d'événements à Montpellier, dans l'Hérault et sur le littoral méditerranéen. Les dispositifs combinent présence humaine, vidéosurveillance et sécurité incendie pour protéger vos sites, équipes et publics.`}
+        zoneLabel="France Sud – Montpellier & Hérault (34)"
+        responsable="Sofiane"
+        zonePhoneLabel={
+          <>
+            <p>
+              Téléphone direct zone Sud&nbsp;:{' '}
+              <a href="tel:+33759585023" className="hover:text-emerald-300">
+                +33 7 59 58 50 23
+              </a>{' '}
+              (Sofiane – Montpellier &amp; Hérault).
+            </p>
+            <p className="mt-2 text-xs text-muted">
+              Pour toute première prise de contact, vous pouvez utiliser le numéro principal
+              indiqué sur le site ou le formulaire de contact.
+            </p>
+          </>
+        }
+        situationsAside={
+          <ul className="space-y-2">
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Gardiennage de chantiers BTP et opérations immobilières</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Surveillance de sites tertiaires et parcs d&apos;activités</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Protection de dépôts, zones de stockage et locaux techniques</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Dispositifs de sécurité pour événements professionnels et institutionnels</span>
+            </li>
+          </ul>
+        }
+      >
       <section className="space-y-4 text-sm text-slate-300">
         <h2 className="text-base font-semibold text-slate-50">
           Une approche adaptée aux sites montpelliérains
@@ -183,5 +227,6 @@ export default function SecuritePriveeMontpellierPage() {
         </p>
       </section>
     </AgencyPageTemplate>
+    </>
   );
 }

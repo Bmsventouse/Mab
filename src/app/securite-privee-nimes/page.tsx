@@ -12,52 +12,96 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/securite-privee-nimes',
 });
 
+function getNimesLocalBusinessJsonLd() {
+  const baseUrl = company.contact.websiteUrl || 'https://www.mab-securite.fr';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `${company.name} Nîmes`,
+    description:
+      'Services de sécurité privée, gardiennage de chantiers BTP, sécurité de sites commerciaux et sécurité événementielle à Nîmes et dans le Gard (30).',
+    url: `${baseUrl.replace(/\/$/, '')}/securite-privee-nimes`,
+    telephone: company.contact.phone.value,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress:
+        company.address.line1 +
+        (company.address.line2 ? `, ${company.address.line2}` : ''),
+      addressLocality: 'Nîmes',
+      postalCode: '30000',
+      addressCountry: 'FR',
+    },
+    openingHours: 'Mo-Su 00:00-23:59',
+    areaServed: 'Nîmes et Gard (30)',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services de Sécurité',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Gardiennage de chantier' },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: 'Sécurité Incendie SSIAP' },
+        },
+      ],
+    },
+  };
+}
+
 export default function SecuritePriveeNimesPage() {
   const keyServices = services;
 
   return (
-    <AgencyPageTemplate
-      h1="Agence de sécurité privée à Nîmes et dans le Gard (30)"
-      badge="Nîmes · Gard (30)"
-      intro={`Basée à Nîmes, ${company.name} accompagne les entreprises locales, les collectivités et les organisateurs d'événements dans la protection de leurs chantiers, sites commerciaux, bâtiments et publics. Notre connaissance du territoire gardois et de ses spécificités est un atout pour construire des dispositifs de sécurité utiles, proportionnés et opérationnels.`}
-      zoneLabel="France Sud – Nîmes, Gard & côte méditerranéenne"
-      responsable="Sofiane"
-      zonePhoneLabel={
-        <>
-          <p>
-            Téléphone direct zone Sud&nbsp;:{' '}
-            <a href="tel:+33759585023" className="hover:text-emerald-300">
-              +33 7 59 58 50 23
-            </a>{' '}
-            (Sofiane – Nîmes, Gard, côte méditerranéenne).
-          </p>
-          <p className="mt-2 text-xs text-muted">
-            Pour toute première demande, vous pouvez utiliser le numéro principal mentionné
-            sur le site ou le formulaire de contact.
-          </p>
-        </>
-      }
-      situationsAside={
-        <ul className="space-y-2">
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Surveillance de chantiers BTP et opérations immobilières</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Gardiennage de sites commerciaux et zones artisanales</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Rondes de sûreté sur sites fermés et levées de doute</span>
-          </li>
-          <li className="flex gap-2">
-            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
-            <span>Dispositifs pour événements locaux et manifestations</span>
-          </li>
-        </ul>
-      }
-    >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getNimesLocalBusinessJsonLd()) }}
+      />
+      <AgencyPageTemplate
+        h1="Agence de sécurité privée à Nîmes et dans le Gard (30)"
+        badge="Nîmes · Gard (30)"
+        intro={`Basée à Nîmes, ${company.name} accompagne les entreprises locales, les collectivités et les organisateurs d'événements dans la protection de leurs chantiers, sites commerciaux, bâtiments et publics. Notre connaissance du territoire gardois et de ses spécificités est un atout pour construire des dispositifs de sécurité utiles, proportionnés et opérationnels.`}
+        zoneLabel="France Sud – Nîmes, Gard & côte méditerranéenne"
+        responsable="Sofiane"
+        zonePhoneLabel={
+          <>
+            <p>
+              Téléphone direct zone Sud&nbsp;:{' '}
+              <a href="tel:+33759585023" className="hover:text-emerald-300">
+                +33 7 59 58 50 23
+              </a>{' '}
+              (Sofiane – Nîmes, Gard, côte méditerranéenne).
+            </p>
+            <p className="mt-2 text-xs text-muted">
+              Pour toute première demande, vous pouvez utiliser le numéro principal mentionné
+              sur le site ou le formulaire de contact.
+            </p>
+          </>
+        }
+        situationsAside={
+          <ul className="space-y-2">
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Surveillance de chantiers BTP et opérations immobilières</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Gardiennage de sites commerciaux et zones artisanales</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Rondes de sûreté sur sites fermés et levées de doute</span>
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-emerald-400" />
+              <span>Dispositifs pour événements locaux et manifestations</span>
+            </li>
+          </ul>
+        }
+      >
       <section className="space-y-4 text-sm text-slate-300">
         <h2 className="text-base font-semibold text-slate-50">
           Sécurité privée de proximité à Nîmes et alentours
@@ -119,5 +163,6 @@ export default function SecuritePriveeNimesPage() {
         </div>
       </section>
     </AgencyPageTemplate>
+    </>
   );
 }
