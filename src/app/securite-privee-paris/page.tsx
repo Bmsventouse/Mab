@@ -31,7 +31,7 @@ const parisLocalBusinessJsonLd = (() => {
     name: `${company.name} Paris`,
     description:
       'Services de sécurité privée, gardiennage de chantiers BTP et sécurité incendie à Paris et en Île-de-France.',
-    url: `${baseUrl.replace(/\/$/, '')}/securite-privee-paris`,: `${baseUrl.replace(/\\/$/, '')}/securite-privee-paris`,
+    url: `${baseUrl.replace(/\/$/, '')}/securite-privee-paris`,: `${baseUrl.replace(/\/$/, '')}/securite-privee-paris`,: `${baseUrl.replace(/\\/$/, '')}/securite-privee-paris`,
     telephone: company.contact.phone.value,
     address: {
       '@type': 'PostalAddress',
