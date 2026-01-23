@@ -8,16 +8,16 @@ Ce document résume, pour chaque page stratégique du site, les types de donnée
 
 ## 1. Pages globales
 
-| Page                              | URL        | Types Schema.org                   | Détails principaux                                                                 |
-|----------------------------------|------------|------------------------------------|------------------------------------------------------------------------------------|
-| Layout global (toutes pages)     | (global)   | `LocalBusiness`, `SecurityService` | Dans `layout.tsx` : JSON-LD global pour MAB SECURITE (siège Nîmes), zone servie, coordonnées, identifiants légaux. |
-| Accueil                          | `/`        | (hérite du global)                 | H1 unique, sections BTP / solutions, liens vers Prestations, Secteurs, Solutions, locales, solutions détaillées. |
-| Prestations                      | `/prestations` | (hérite du global)              | Présente les prestations BTP, lien vers `/gardiennage-chantiers-btp-paris` et plusieurs pages solutions. |
-| Secteurs                         | `/secteurs` | (hérite du global)                | Secteurs BTP, entreprises, acteurs publics, retail, événementiel ; maillage vers solutions. |
-| À propos                         | `/a-propos` | (hérite du global)               | Positionne la direction générale, structure Nord/Sud, mention explicite B2B-only. |
-| Contact                          | `/contact` | (hérite du global)                | Texte orienté B2B, rappel que MAB n’intervient pas pour particuliers ; formulaire. |
-| Mentions légales                 | `/mentions-legales` | (hérite du global)          | Contenu légal classique.                                                           |
-| Politique de confidentialité     | `/politique-de-confidentialite` | (hérite du global) | Explication RGPD / traitement des données.                                         |
+| Page | URL | Types Schema.org | Détails principaux |
+| --- | --- | --- | --- |
+| Layout global (toutes pages) | (global) | `LocalBusiness`, `SecurityService` | Dans `layout.tsx` : JSON-LD global pour MAB SECURITE (siège Nîmes), zone servie, coordonnées, identifiants légaux. |
+| Accueil | `/` | (hérite du global) | H1 unique, sections BTP / solutions, liens vers Prestations, Secteurs, Solutions, locales, solutions détaillées. |
+| Prestations | `/prestations` | (hérite du global) | Présente les prestations BTP, lien vers `/gardiennage-chantiers-btp-paris` et plusieurs pages solutions. |
+| Secteurs | `/secteurs` | (hérite du global) | Secteurs BTP, entreprises, acteurs publics, retail, événementiel ; maillage vers solutions. |
+| À propos | `/a-propos` | (hérite du global) | Positionne la direction générale, structure Nord/Sud, mention explicite B2B-only. |
+| Contact | `/contact` | (hérite du global) | Texte orienté B2B, rappel que MAB n’intervient pas pour particuliers ; formulaire. |
+| Mentions légales | `/mentions-legales` | (hérite du global) | Contenu légal classique. |
+| Politique de confidentialité | `/politique-de-confidentialite` | (hérite du global) | Explication RGPD / traitement des données. |
 
 ---
 
