@@ -64,7 +64,7 @@ export interface Company {
 export const company: Company = {
   name: 'MAB SECURITE',
   legalName: 'MAB SECURITE',
-  legalForm: 'SAS',
+  legalForm: 'SASU',
   nafApe: '80.10Z',
   siren: '951 084 078',
   siret: '951 084 078 00017',
@@ -89,7 +89,7 @@ export const company: Company = {
       value: '+33400000000',
     },
     email: 'contact@mab-securite.fr',
-    websiteUrl: 'https://www.mab-securite.fr',
+    websiteUrl: 'https://mab-securite.fr',
   },
   branding: {
     baseline: 'Sécurité privée pour entreprises et événements',

@@ -77,7 +77,7 @@ export default function PrestationsPage() {
             <div className="mt-3">
               <Link
                 href="/gardiennage-chantiers-btp-paris"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 min-h-[44px]"
               >
                 Découvrir notre offre BTP à Paris
               </Link>

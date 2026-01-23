@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
@@ -81,6 +82,16 @@ export default function HomePage() {
           </div>
 
           <aside className="card space-y-4 p-6 text-sm animate-fade-up-delayed">
+            <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60">
+              <Image
+                src="/images/hero-mab-securite-btp.jpg"
+                alt="Agent de sécurité surveillant un chantier BTP de nuit"
+                width={640}
+                height={400}
+                className="h-40 w-full object-cover opacity-90"
+                priority
+              />
+            </div>
             <div className="text-xs font-semibold uppercase tracking-wide text-emerald-400">
               Coordonnées
             </div>

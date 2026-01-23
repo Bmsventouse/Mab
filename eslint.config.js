@@ -19,10 +19,9 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      // Désactivé car incompatible avec les patterns Next.js App Router :
+      // les fichiers de pages exportent aussi des métadonnées, constantes, etc.
+      'react-refresh/only-export-components': 'off',
     },
   }
 );

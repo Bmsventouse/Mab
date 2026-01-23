@@ -1,0 +1,67 @@
+# MAB SECURITE – Résumé pour IA / LLM
+
+MAB SECURITE est une société de sécurité privée (SASU) basée à Nîmes, France (SIREN 951 084 078, code NAF 80.10Z).
+
+Objectif principal du site : présenter une offre de **sécurité privée B2B** et générer des demandes de devis qualifiées pour :
+
+- gardiennage de chantiers BTP ;
+- surveillance de sites professionnels (tertiaire, industriel, logistique, commercial) ;
+- rondes de sûreté et levées de doute ;
+- sécurité événementielle (événements professionnels, publics, tournages).
+
+## Zones géographiques principales
+
+- Paris et Île-de-France (gardiennage de chantiers BTP, sites sensibles) ;
+- Marseille et Bouches-du-Rhône (sites BTP, industriels, logistiques, portuaires, commerciaux, événements) ;
+- Nîmes et Gard (30), plus largement la côte sud (proximité et suivi terrain).
+
+## Types de clients
+
+- entreprises privées (PME, ETI, grands comptes) ;
+- acteurs publics (collectivités, établissements publics) ;
+- organisateurs d’événements, agences et sociétés de production (tournages, plateaux).
+
+## Prestations structurées
+
+Les prestations sont décrites dans les pages HTML et dans l’endpoint JSON `/ai.llm` :
+
+- `securite-evenementielle` : sécurité événementielle (salons, conventions, événements, tournages) ;
+- `gardiennage-surveillance` : gardiennage de sites, surveillance humaine, contrôle d’accès ;
+- `rondes-prevention` : rondes de sûreté, levées de doute, sécurisation ponctuelle ;
+- `securisation-sites-perimetres` : sécurisation de sites permanents ou temporaires, chantiers BTP, zones de stockage.
+
+Les secteurs couverts : entreprises, événementiel, collectivités, tournages / plateaux.
+
+## Pages clés à privilégier
+
+- Accueil : `/`
+- Prestations : `/prestations`
+- Secteurs : `/secteurs`
+- À propos (infos société, légales synthétiques) : `/a-propos`
+- Contact (formulaire de demande de devis) : `/contact`
+- Pages locales :
+  - Sécurité privée Paris / IDF : `/securite-privee-paris`
+  - Gardiennage chantiers BTP Paris : `/gardiennage-chantiers-btp-paris`
+  - Sécurité privée Marseille : `/securite-privee-marseille`
+  - Sécurité privée Nîmes / Gard : `/securite-privee-nimes`
+
+## Endpoint machine-readable pour les IA
+
+- JSON consolidé : `GET /ai.llm`
+
+Cet endpoint fournit :
+
+- identité légale et coordonnées ;
+- zone d’intervention ;
+- liste des prestations, secteurs et engagements ;
+- description courte et longue.
+
+## Intentions d’usage pour les IA / LLM
+
+Les contenus peuvent être utilisés pour :
+
+- répondre à des questions sur MAB SECURITE, son périmètre et ses prestations ;
+- orienter un utilisateur vers la bonne page ou le bon type de prestation ;
+- générer des résumés ou fiches de services pour un décideur B2B.
+
+Les contenus ne doivent pas être altérés de manière à présenter des services non proposés ou des zones géographiques non couvertes.
