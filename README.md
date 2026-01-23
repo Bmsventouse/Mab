@@ -49,6 +49,8 @@ npm start
 
 - `src/content/company.ts`  
   Informations centrales sur l’entreprise (identité, coordonnées, baseline, zone desservie, prestations, secteurs).
+- `src/content/intentions.ts`  
+  Base de données structurée des principales **intentions de devis** (50 scénarios SEO scorés) servant de socle au plan de contenu et à l’architecture SEO.
 
 - `src/app`  
   - `page.tsx` : page d’accueil  
