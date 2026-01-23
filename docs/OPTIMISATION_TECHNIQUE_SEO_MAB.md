@@ -86,12 +86,12 @@ Le netlinking consiste à obtenir des liens depuis d'autres sites vers le vôtre
 
 ### 2.1. Typologie des Sources de Liens (Backlinks)
 
-| Type de Source         | Pertinence pour MAB | Tactique d'Acquisition                                                                 |
-|------------------------|---------------------|-----------------------------------------------------------------------------------------|
-| **Annuaires Spécialisés** | Haute               | Inscription sur les annuaires de sécurité (CNAPS, annuaires BTP).                       |
-| **Presse Locale**         | Très Haute          | Communiqués de presse lors de l'ouverture d'une agence ou d'un contrat majeur.         |
-| **Blogs Partenaires**     | Haute               | Articles invités sur des blogs de Facility Management, Logistique ou BTP.              |
-| **Sites Institutionnels** | Maximale            | Liens depuis des sites de mairies, CCI ou fédérations professionnelles.                |
+| Type de Source | Pertinence pour MAB | Tactique d'Acquisition |
+| --- | --- | --- |
+| **Annuaires Spécialisés** | Haute | Inscription sur les annuaires de sécurité (CNAPS, annuaires BTP). |
+| **Presse Locale** | Très Haute | Communiqués de presse lors de l'ouverture d'une agence ou d'un contrat majeur. |
+| **Blogs Partenaires** | Haute | Articles invités sur des blogs de Facility Management, Logistique ou BTP. |
+| **Sites Institutionnels** | Maximale | Liens depuis des sites de mairies, CCI ou fédérations professionnelles. |
 
 ### 2.2. Plan d'Action Netlinking (6 mois)
 

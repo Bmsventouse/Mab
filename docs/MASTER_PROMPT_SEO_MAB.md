@@ -33,17 +33,17 @@ Veuillez générer le contenu complet de la page web suivante en respectant les 
 
 *Exemple pour le Quick Win 1 :*
 
-- H2 : Qu'est-ce qu'un IGH et pourquoi la réglementation est-elle si stricte ?
-  - H3 : Définition légale d'un Immeuble de Grande Hauteur
-  - H3 : Les risques spécifiques aux IGH
-- H2 : Vos obligations en agents SSIAP : Combien, quand et quel niveau ?
-  - H3 : Le calcul du nombre d'agents SSIAP
-  - H3 : Tableau récapitulatif : Type d'IGH vs Effectif SSIAP requis
-- H2 : MAB Sécurité : Votre partenaire conformité SSIAP à Paris et en IDF
-  - H3 : Audit de conformité SSIAP de votre IGH
-  - H3 : Mise à disposition d'agents SSIAP qualifiés
-- H2 : Quelles sont les sanctions en cas de non-conformité ?
-- H2 : FAQ - Questions fréquentes sur la sécurité incendie en IGH
+* H2 : Qu'est-ce qu'un IGH et pourquoi la réglementation est-elle si stricte ?
+  * H3 : Définition légale d'un Immeuble de Grande Hauteur
+  * H3 : Les risques spécifiques aux IGH
+* H2 : Vos obligations en agents SSIAP : Combien, quand et quel niveau ?
+  * H3 : Le calcul du nombre d'agents SSIAP
+  * H3 : Tableau récapitulatif : Type d'IGH vs Effectif SSIAP requis
+* H2 : MAB Sécurité : Votre partenaire conformité SSIAP à Paris et en IDF
+  * H3 : Audit de conformité SSIAP de votre IGH
+  * H3 : Mise à disposition d'agents SSIAP qualifiés
+* H2 : Quelles sont les sanctions en cas de non-conformité ?
+* H2 : FAQ - Questions fréquentes sur la sécurité incendie en IGH
 
 ### 3. CHAMP SÉMANTIQUE (Mots-Clés à Intégrer Naturellement)
 
@@ -53,7 +53,7 @@ Veuillez générer le contenu complet de la page web suivante en respectant les 
 * **Mots-Clés Secondaires/Longue Traîne** : [Ex: chef d'équipe SSIAP 2, nombre agents SSIAP, audit de sûreté, protection 24/7, gardiennage, télésurveillance, sécurité entreprise, plan de gestion de crise, expertise conseil.]  
 * **Mots-Clés Géo-localisés** : [Ex: Île-de-France, Nice, Marseille, Montpellier, zone Sud, BTP, logistique, retail.]
 
-### 4. ÉLÉMENTS DE CONVERSION ET DIFFÉRENCIATION
+### 4. ÉLÉMENTS DE CONVERSION ET DIFFÉRENCIATION (Template)
 
 * **Différenciation MAB** : Mettre en avant l'approche de MAB Sécurité comme une **solution globale** (Sécurité Humaine + Électronique + Incendie + Conseil). Insister sur l'**expertise réglementaire** et la **proximité** (connaissance du terrain).  
 * **Appel à l'Action (CTA)** : Intégrer au moins 3 CTA clairs dans le corps du texte et un CTA final. Les CTA doivent être : **"Demandez votre audit de sûreté gratuit"**, **"Obtenez un devis personnalisé en 24h"**, ou **"Contactez notre expert SSIAP à Paris"**.  
@@ -67,28 +67,28 @@ Veuillez générer le contenu complet de la page web suivante en respectant les 
 
 Veuillez générer le contenu complet de la page web suivante en respectant les consignes ci-dessous.
 
-### 1. CONTEXTE DE LA PAGE
+### 1. CONTEXTE DE LA PAGE (Exemple)
 
 * **Titre de la Page (H1)** : Obligations SSIAP en IGH à Paris : Le Guide Complet 2026  
 * **URL Cible** : `/solutions/securite-incendie/agent-ssiap-igh-paris`  
 * **Intention de Recherche** : Transactionnelle (besoin d'un prestataire pour la conformité)  
 * **Objectif Spécifique** : Établir MAB comme l'expert de la conformité SSIAP en IGH à Paris et générer des demandes d'audit.
 
-### 2. STRUCTURE ET HIÉRARCHIE (H2/H3)
+### 2. STRUCTURE ET HIÉRARCHIE (H2/H3) (Exemple)
 
-- H2 : Qu'est-ce qu'un IGH et pourquoi la réglementation est-elle si stricte ?
-  - H3 : Définition légale d'un Immeuble de Grande Hauteur
-  - H3 : Les risques spécifiques aux IGH
-- H2 : Vos obligations en agents SSIAP : Combien, quand et quel niveau ?
-  - H3 : Le calcul du nombre d'agents SSIAP
-  - H3 : Tableau récapitulatif : Type d'IGH vs Effectif SSIAP requis
-- H2 : MAB Sécurité : Votre partenaire conformité SSIAP à Paris et en IDF
-  - H3 : Audit de conformité SSIAP de votre IGH
-  - H3 : Mise à disposition d'agents SSIAP qualifiés
-- H2 : Quelles sont les sanctions en cas de non-conformité ?
-- H2 : FAQ - Questions fréquentes sur la sécurité incendie en IGH
+* H2 : Qu'est-ce qu'un IGH et pourquoi la réglementation est-elle si stricte ?
+  * H3 : Définition légale d'un Immeuble de Grande Hauteur
+  * H3 : Les risques spécifiques aux IGH
+* H2 : Vos obligations en agents SSIAP : Combien, quand et quel niveau ?
+  * H3 : Le calcul du nombre d'agents SSIAP
+  * H3 : Tableau récapitulatif : Type d'IGH vs Effectif SSIAP requis
+* H2 : MAB Sécurité : Votre partenaire conformité SSIAP à Paris et en IDF
+  * H3 : Audit de conformité SSIAP de votre IGH
+  * H3 : Mise à disposition d'agents SSIAP qualifiés
+* H2 : Quelles sont les sanctions en cas de non-conformité ?
+* H2 : FAQ - Questions fréquentes sur la sécurité incendie en IGH
 
-### 3. CHAMP SÉMANTIQUE (Mots-Clés à Intégrer Naturellement)
+### 3. CHAMP SÉMANTIQUE (Mots-Clés à Intégrer Naturellement) (Exemple)
 
 * **Mots-Clés Primaires** : agent SSIAP, IGH, réglementation, conformité, sécurité incendie, Paris, chef d'équipe SSIAP 2, nombre agents SSIAP.  
 * **Mots-Clés Secondaires/Longue Traîne** : audit de sûreté, protection 24/7, gardiennage, télésurveillance, sécurité entreprise, plan de gestion de crise, expertise conseil, SSIAP 1, SSIAP 3.  

@@ -67,6 +67,11 @@ export function ConsentProvider({ children }: ConsentProviderProps) {
  * Loads Google Tag Manager only si l'utilisateur a donné son consentement.
  * Le conteneur GTM est fourni via NEXT_PUBLIC_GTM_ID.
  */
+interface MabWindow extends Window {
+  mabGtmLoaded?: boolean;
+  dataLayer?: Array<Record<string, unknown>>;
+}
+
 function GtmLoader() {
   const { status } = useConsent();
 
@@ -80,16 +85,22 @@ function GtmLoader() {
       return;
     }
 
-    // Ne charger qu'une seule fois
-    if (typeof window === 'undefined' || (window as any).mabGtmLoaded) {
+    if (typeof window === 'undefined') {
       return;
     }
 
-    (window as any).mabGtmLoaded = true;
+    const win = window as MabWindow;
+
+    // Ne charger qu'une seule fois
+    if (win.mabGtmLoaded) {
+      return;
+    }
+
+    win.mabGtmLoaded = true;
 
     // Initialiser dataLayer
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push({
+    win.dataLayer = win.dataLayer || [];
+    win.dataLayer.push({
       event: 'consent_granted',
       analytics_storage: 'granted',
     });
