@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { company } from '../../content/company';
+import { buildMetadata } from '../../lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Politique de confidentialité – MAB SECURITE',
   description:
-    "Politique de confidentialité de MAB SECURITE concernant les données personnelles collectées via le site et le formulaire de contact.",
-};
+    'Politique de confidentialité de MAB SECURITE concernant les données personnelles collectées via le site et le formulaire de contact.',
+  canonicalPath: '/politique-de-confidentialite',
+});
 
 export default function PolitiqueConfidentialitePage() {
   return (

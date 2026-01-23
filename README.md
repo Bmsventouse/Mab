@@ -1,594 +1,174 @@
-# MAB SECURITE – Site vitrine B2B
+# MAB SECURITE – Site vitrine
 
-> Site vitrine Next.js 14 orienté sécurité privée B2B (gardiennage de chantiers BTP, sécurisation de sites professionnels et d’événements) pour MAB SECURITE.
+Ce dépôt contient le site vitrine de **MAB SECURITE**, société de sécurité privée basée à Nîmes (France).  
+Le site est construit avec **Next.js 14 (App Router)**, **TypeScript** et **Tailwind CSS**.
 
-Ce dépôt contient le site vitrine institutionnel de **MAB SECURITE**, société de sécurité privée basée à Nîmes (France).
+L’orientation principale est la **sécurité privée B2B**, avec un focus particulier sur :
 
-L’application vise un positionnement clair sur la **sécurité privée B2B**, avec un focus particulier sur :
+- le **gardiennage de chantiers BTP et la mise en sécurité de sites sensibles à Paris et en Île-de-France (France Nord)** ;
+- les missions de sécurité à **Marseille et Montpellier** (BTP, sites industriels, logistiques, commerciaux, événements) au sein de la **zone Sud** ;
+- les missions de proximité sur **Nîmes / Gard** et plus largement la **côte méditerranéenne (France Sud)**.
 
-- le **gardiennage de chantiers BTP à Paris et en Île-de-France** ;
-- la sécurisation de sites à **Marseille** (BTP, sites industriels, logistiques, commerciaux, événements) ;
-- les missions de proximité sur **Nîmes / Gard** et plus largement la côte sud.
+## Stack technique
 
-Le site est construit avec **Next.js 14 (App Router)**, **React 18**, **TypeScript** et **Tailwind CSS** et est conçu pour un usage en production (Vercel ou autre hébergeur Node.js).
+- Next.js 14 – App Router
+- React 18
+- TypeScript
+- Tailwind CSS
+- Icons : lucide-react
 
----
-
-## Vue d’ensemble rapide
-
-- **Type d’application** : site vitrine institutionnel orienté génération de demandes de devis et de contacts qualifiés.
-- **Public cible** : décideurs B2B (directions générales, BTP, immobilier, sûreté, collectivités, événementiel).
-- **Stack principale** : Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Icônes `lucide-react`.
-- **Qualité & CI** : ESLint + TypeScript, workflow GitHub Actions (`.github/workflows/ci.yml`) exécutant `lint`, `typecheck`, `build`, scan de secrets, lint Markdown, audits accessibilité (Pa11y) et performance/SEO (Lighthouse) sur chaque `push`/`pull_request` vers `main` / `master`.
-- **Point d’entrée fonctionnel** : pages et routes sous `src/app`.
-- **Point d’entrée métier** : contenu structuré dans `src/content/company.ts` (données société, prestations, secteurs, engagements).
-
----
-
-## Sommaire détaillé
-
-- [1. Présentation & périmètre fonctionnel](#1-présentation--périmètre-fonctionnel)
-- [2. Stack technique](#2-stack-technique)
-- [3. Démarrage rapide](#3-démarrage-rapide)
-- [4. Scripts npm disponibles](#4-scripts-npm-disponibles)
-- [5. Architecture du projet](#5-architecture-du-projet)
-- [6. Contenu métier & personnalisation](#6-contenu-métier--personnalisation)
-- [7. SEO, métadonnées & conformité](#7-seo-métadonnées--conformité)
-- [8. Formulaire de contact & API](#8-formulaire-de-contact--api)
-- [9. Design system & styles](#9-design-system--styles)
-- [10. Qualité de code & standards](#10-qualité-de-code--standards)
-- [11. Déploiement & exploitation](#11-déploiement--exploitation)
-- [12. Images, photos et logo](#12-images-photos-et-logo)
-- [13. Checklist de mise en production](#13-checklist-de-mise-en-production)
-- [14. Conventions de contribution et maintenance](#14-conventions-de-contribution-et-maintenance)
-
----
-
-## 1. Présentation & périmètre fonctionnel
-
-L’application a pour objectif de présenter l’offre de **MAB SECURITE** auprès d’un public de décideurs B2B :
-
-- entreprises du **BTP** (maîtres d’ouvrage, entreprises générales, sous‑traitants) ;
-- **sites industriels** et **plateformes logistiques** ;
-- **acteurs publics** (collectivités, établissements publics) ;
-- **organisateurs d’événements** et métiers de la production (tournages, plateaux).
-
-Le périmètre fonctionnel couvre :
-
-- un **site vitrine** institutionnel (présentation de la société, légales, confidentialité) ;
-- des pages de **présentation d’offres et de secteurs** (prestations, secteurs d’intervention, zones géographiques ciblées) ;
-- un **formulaire de contact** structuré orienté demande de devis / qualification de besoin ;
-- un socle **SEO** optimisé pour les requêtes liées au gardiennage BTP et à la sécurité privée par zone géographique.
-
-Les contenus sont rédigés et structurés pour répondre à des enjeux :
-
-- **institutionnels** (crédibilité, conformité, transparence) ;
-- **business** (compréhension de l’offre, facilité de contact, ciblage géographique) ;
-- **SEO** (pages dédiées par zone et par typologie de besoin).
-
-## 2. Stack technique
-
-- **Framework** : Next.js **14** (App Router)
-- **Langage** : TypeScript
-- **UI** :
-  - React 18
-  - Tailwind CSS 3
-  - Icônes : `lucide-react`
-- **Police** : `Inter` (Google Fonts, chargée via `next/font`)
-- **Linting & qualité** :
-  - ESLint 9 + `typescript-eslint`
-  - TypeScript `tsc` pour la vérification de types
-
----
-
-## 3. Démarrage rapide
+## Démarrage du projet
 
 ### Prérequis
 
-- Node.js **18+** (recommandé)
-- `npm` (ou un gestionnaire compatible type `pnpm` / `yarn`)
+- Node.js 18+ recommandé
+- npm (ou un autre gestionnaire de paquets compatible)
 
-### Installation des dépendances
+### Installation
 
 ```bash
 npm install
 ```
 
-### Lancement en développement
+### Développement
 
 ```bash
 npm run dev
 ```
 
-Le site sera accessible sur `http://localhost:3000` (port configurable via la variable d’environnement `PORT` si nécessaire).
+Le site est accessible sur `http://localhost:3000`.
 
-### Build et exécution en production
+### Build de production
 
 ```bash
 npm run build
 npm start
 ```
 
-Le build génère un dossier `.next` optimisé pour la production.
-
----
-
-## 4. Scripts npm disponibles
-
-Depuis la racine du projet :
-
-- `npm run dev`  
-  Lance le serveur de développement Next.js.
-
-- `npm run build`  
-  Compile l’application pour la production.
-
-- `npm start`  
-  Démarre le serveur Next.js sur le build de production.
-
-- `npm run lint`  
-  Exécute ESLint sur le projet (`ts`, `tsx`).
-
-- `npm run typecheck`  
-  Exécute la vérification de types TypeScript sans émettre de fichiers.
-
----
-
-## 5. Architecture du projet
-
-Structure principale :
-
-- `src/app`  
-  - `page.tsx` : page d’accueil.  
-  - `prestations/page.tsx` : détail des prestations (gardiennage BTP & sites professionnels).  
-  - `secteurs/page.tsx` : secteurs d’intervention (entreprises, collectivités, événementiel, tournages).  
-  - `a-propos/page.tsx` : présentation de l’entreprise (positionnement, informations légales synthétiques).  
-  - `contact/page.tsx` : page de contact + formulaire de demande de devis.  
-  - `securite-privee-paris/page.tsx` : page locale Paris / Île-de-France.  
-  - `gardiennage-chantiers-btp-paris/page.tsx` : landing dédiée au gardiennage de chantiers BTP à Paris / IDF.  
-  - `securite-privee-marseille/page.tsx` : page locale Marseille / Bouches‑du‑Rhône.  
-  - `securite-privee-nimes/page.tsx` : page locale Nîmes / Gard.  
-  - `mentions-legales/page.tsx` : mentions légales du site.  
-  - `politique-de-confidentialite/page.tsx` : politique de confidentialité.  
-  - `api/contact/route.ts` : endpoint API pour le formulaire de contact.  
-  - `layout.tsx` : layout root, header/footer globaux, métadonnées, JSON‑LD.  
-  - `globals.css` : styles globaux, design system, animations.  
-  - `sitemap.ts` / `robots.ts` : SEO technique (sitemap XML, directives robots).
-
-- `src/components`  
-  - `layout/Header.tsx` : en‑tête global (navigation principale, CTA devis, téléphone).  
-  - `layout/Footer.tsx` : pied de page global (coordonnées, légales, navigation).  
-  - `forms/ContactForm.tsx` : formulaire de contact (client‑side) connecté à l’API `/api/contact`.
+## Structure principale
 
 - `src/content/company.ts`  
-  Fichier centralisant toutes les **données société** et le contenu structurant :
-  - identité juridique et coordonnées,
-  - description courte/longue,
-  - prestations (`services`),
-  - secteurs (`sectors`),
-  - engagements (`engagements`).
+  Informations centrales sur l’entreprise (identité, coordonnées, baseline, zone desservie, prestations, secteurs).
+- `src/content/intentions.ts`  
+  Base de données structurée des principales **intentions de devis** (50 scénarios SEO scorés) servant de socle au plan de contenu et à l’architecture SEO.
 
-- `public/` (à créer si nécessaire)  
-  Répertoire recommandé pour le logo (`/images/logo-mab-securite.svg`) et les visuels.
+- `src/app`  \n  - `page.tsx` : page d’accueil  \n  - `prestations/page.tsx` : détail des prestations (gardiennage BTP & sites professionnels)  \n  - `secteurs/page.tsx` : secteurs d’intervention (BTP, entreprises, acteurs publics, événementiel)  \n  - `a-propos/page.tsx` : présentation de l’entreprise  \n  - `contact/page.tsx` : contact & demande de devis (clients exclusivement professionnels)  \n  - `securite-privee-paris/page.tsx` : page locale Paris / Île-de-France (sécurité BTP & sites sensibles)  \n  - `gardiennage-chantiers-btp-paris/page.tsx` : landing dédiée au gardiennage de chantiers BTP à Paris / IDF  \n  - `securite-privee-marseille/page.tsx` : page locale Marseille (BTP, sites industriels, logistiques, commerciaux, événements)  \n  - `securite-privee-montpellier/page.tsx` : page locale Montpellier (BTP, sites tertiaires et événements économiques)  \n  - `securite-privee-nimes/page.tsx` : page locale Nîmes / Gard (BTP & proximité)  \n  - `solutions/page.tsx` : hub des solutions (sécurité incendie SSIAP IGH, vidéosurveillance entreprise, audits de sûreté, gardiennage IDF, sécurité entrepôts & plateformes logistiques, sécurité centres commerciaux & retail, agents de sécurité par ville, sécurité événementielle à Cannes)  \n  - `solutions/securite-incendie/agent-ssiap-igh-paris/page.tsx` : solution sécurité incendie & agents SSIAP pour IGH à Paris  \n  - `solutions/securite-electronique/videosurveillance-entreprise-paris/page.tsx` : solution vidéosurveillance d’entreprise à Paris  \n  - `solutions/expertise-conseil/audit-surete-siege-social-paris/page.tsx` : solution audit de sûreté de siège social à Paris  \n  - `solutions/securite-humaine/gardiennage-ile-de-france/page.tsx` : solution gardiennage en Île-de-France (chantiers, sites tertiaires, entrepôts)  \n  - `solutions/securite-humaine/securite-entrepots-logistiques/page.tsx` : solution sécurité entrepôts & plateformes logistiques  \n  - `solutions/securite-humaine/securite-centres-commerciaux/page.tsx` : solution sécurité centres commerciaux & retail (prévention des vols et démarque inconnue)  \n  - `solutions/securite-humaine/agent-securite-marseille/page.tsx` : solution agents de sécurité à Marseille  \n  - `solutions/securite-humaine/agent-securite-montpellier/page.tsx` : solution agents de sécurité à Montpellier  \n  - `solutions/securite-humaine/agent-securite-nice/page.tsx` : solution agents de sécurité à Nice  \n  - `solutions/securite-evenementielle/securite-evenementielle-cannes/page.tsx` : solution sécurité événementielle à Cannes (festivals, salons, événements corporate)  \n  - `mentions-legales/page.tsx` : mentions légales  \n  - `politique-de-confidentialite/page.tsx` : politique de confidentialité  \n  - `api/contact/route.ts` : API interne pour le formulaire de contact  \n  - `sitemap.ts` / `robots.ts` : SEO technique (sitemap XML, directives robots)\npp`  
+  - `page.tsx` : page d’accueil  
+  - `prestations/page.tsx` : détail des prestations (gardiennage BTP & sites professionnels)  
+  - `secteurs/page.tsx` : secteurs d’intervention (BTP, entreprises, acteurs publics, événementiel)  
+  - `a-propos/page.tsx` : présentation de l’entreprise  
+  - `contact/page.tsx` : contact & demande de devis  
+  - `securite-privee-paris/page.tsx` : page locale Paris / Île-de-France (sécurité BTP & sites sensibles)  
+  - `gardiennage-chantiers-btp-paris/page.tsx` : landing dédiée au gardiennage de chantiers BTP à Paris / IDF  
+  - `securite-privee-marseille/page.tsx` : page locale Marseille (BTP, sites industriels, commerciaux, événements)  
+  - `securite-privee-montpellier/page.tsx` : page locale Montpellier (BTP, sites tertiaires et événements économiques)  
+  - `securite-privee-nimes/page.tsx` : page locale Nîmes / Gard (BTP & proximité)  
+  - `mentions-legales/page.tsx` : mentions légales  
+  - `politique-de-confidentialite/page.tsx` : politique de confidentialité  
+  - `api/contact/route.ts` : API interne pour le formulaire de contact  
+  - `sitemap.ts` / `robots.ts` : SEO technique (sitemap XML, directives robots)
 
-- Fichiers de configuration à la racine :  
-  - `next.config.mjs` : configuration Next (strict mode, suppression des `console` en production).  
-  - `tailwind.config.js` : configuration Tailwind (tokens de couleur, fonts, ombres).  
-  - `eslint.config.js` : configuration ESLint.  
-  - `tsconfig*.json` : configuration TypeScript.  
+- `src/components`  
+  Composants du site organisés de manière modulaire :
+  - `atoms/` : primitives UI de base (boutons, textes, conteneurs…)
+  - `molecules/` : petits ensembles réutilisables (liens de navigation, etc.)
+  - `organisms/` : blocs structurants (header, footer, formulaires…)
+  - `templates/` : gabarits de pages (pages services, pages locales, articles)
+  - `forms/` : formulaires, dont le formulaire de contact principal.
 
----
+## Champs à personnaliser en priorité
 
-## 6. Contenu métier & personnalisation
+Dans `src/content/company.ts` :
 
-La majorité du contenu métier est centralisée dans `src/content/company.ts`.
+- **Téléphone** : `contact.phone.label` et `contact.phone.value`
+- **Email** : `contact.email`
+- **URL du site** : `contact.websiteUrl`
+- **Zone d’intervention** : `areaServed` (Paris / IDF, Marseille, Montpellier, Nîmes / Gard, etc.)
+- **Logo** : `branding.logoUrl` (si un logo est disponible)
 
-### 6.1. Données société (`company`)
+Une fois ces informations complétées, le site sera prêt à être utilisé comme vitrine B2B pour MAB SECURITE, avec un positionnement clair sur le **gardiennage de chantiers BTP à Paris / IDF**, la **sécurité de sites professionnels** sur Marseille, Montpellier et Nîmes, ainsi que la structuration opérationnelle **France Nord / France Sud** (responsables par zone).
 
-Les champs suivants sont à adapter en priorité :
+## Images et photos
 
-- **Identité juridique**
-  - `name`, `legalName`, `legalForm`
-  - `nafApe`, `siren`, `siret`, `vatNumber`
-  - `shareCapital`, `creationDate`
+Les photos utilisées sur le site sont stockées dans `public/images/` et intégrées via le composant `next/image` de Next.js.
 
-- **Adresse du siège**
-  - `address.line1`, `address.line2` (optionnel),
-  - `address.postalCode`, `address.city`, `address.country`.
+- La **page d’accueil** affiche une mini-galerie de 4 visuels illustrant les principaux contextes d’intervention (chantier BTP, entrepôt / logistique, événement professionnel, site tertiaire / siège social).  
+- Une page dédiée **`/galerie`** présente l’ensemble des visuels disponibles, avec des noms de fichiers et des textes alternatifs descriptifs en français (ex. `securite-chantier-btp-nuit.png`, `securite-entrepot-plateforme-logistique.png`, `securite-evenementiel-salon-professionnel.png`, etc.).
+- Le **logo** est stocké dans `public/images/logo-mab-securite.svg` et référencé via `company.branding.logoUrl`.
 
-- **Description**
-  - `description` : texte long utilisé sur plusieurs pages (À propos, SEO, JSON‑LD).  
-  - `shortDescription` : résumé utilisé notamment en footer et métadonnées.
+Les visuels peuvent être remplacés par des photos propres à MAB SECURITE (chantiers, sites clients, événements), en conservant les mêmes noms de fichiers ou en adaptant les chemins dans le code. Il reste possible d’utiliser des banques d’images **libres de droits** pour compléter la galerie si nécessaire (Unsplash, Pexels, Pixabay), en respectant les licences associées.
 
-- **Contact**
-  - `contact.phone.label` : format lisible pour les humains (`+33 (0)4 …`).  
-  - `contact.phone.value` : format “machine” utilisé pour les liens `tel:` (`+334…`).  
-  - `contact.email` : adresse de contact principale.  
-  - `contact.websiteUrl` : **URL finale du site en production** (ex. `https://mab-securite.fr`).
+## Débogage & vérifications avant livraison
 
-  Ce champ `websiteUrl` est utilisé pour :
-  - `metadataBase` et les URLs canoniques,
-  - le sitemap (`/sitemap.xml`),
-  - le fichier `robots.txt`.
+Cette section résume les commandes et les points de contrôle à effectuer avant de livrer le site.
 
-- **Branding**
-  - `branding.baseline` : baseline affichée dans le header.  
-  - `branding.logoUrl` : chemin vers le logo (ex. `/images/logo-mab-securite.svg`).
+### 1. Vérifications techniques
 
-- **Zone d’intervention**
-  - `areaServed` : texte affiché sur plusieurs pages (homepage, footer, contact…).
+À exécuter depuis la racine du projet :
 
-### 6.2. Prestations, secteurs et engagements
+```bash
+# Vérifier les types TypeScript
+npm run typecheck
 
-Toujours dans `src/content/company.ts` :
+# Vérifier la qualité du code (ESLint)
+npm run lint
 
-- `services: Service[]`  
-  Décrit les grandes catégories de prestations :
-  - `slug` (identifiant),
-  - `name` (titre),
-  - `shortDescription` (accroche courte),
-  - `description` (texte long, détaillé),
-  - `highlights` (points clés listés sur les pages).
-
-  Utilisé sur :
-  - la **page d’accueil** (section “Prestations clés”),
-  - la page **`/prestations`**,
-  - les pages locales Paris / Marseille / Nîmes (filtres par `slug`).
-
-- `sectors: Sector[]`  
-  Liste des secteurs d’intervention (entreprises, événementiel, collectivités, tournages).  
-  Utilisé dans **`/secteurs`**, avec mappage d’icônes.
-
-- `engagements: Engagement[]`  
-  Liste des engagements mis en avant sur la homepage (“Nos engagements”).
-
-> Pour ajouter, modifier ou retirer des prestations ou secteurs, il suffit d’ajuster ces tableaux ; les pages consomment ces données dynamiquement.
-
-### 6.3. Pages locales et contenus SEO
-
-Les pages suivantes contiennent du contenu textuel spécifique à chaque zone :
-
-- `src/app/securite-privee-paris/page.tsx`
-- `src/app/gardiennage-chantiers-btp-paris/page.tsx`
-- `src/app/securite-privee-marseille/page.tsx`
-- `src/app/securite-privee-nimes/page.tsx`
-
-Pour adapter le positionnement (zones desservies, interlocuteurs, numéros directs, exemples de situations), modifier les textes dans ces composants.
-
-Les pages **mentions légales** et **politique de confidentialité** s’appuient également sur `company` pour réinjecter les informations juridiques (dénomination, SIREN, adresse…).  
-Veillez à les relire avec votre conseil / juriste si une mise à jour réglementaire est nécessaire.
-
----
-
-## 7. SEO, métadonnées & conformité
-
-### 7.1. Métadonnées globales
-
-Dans `src/app/layout.tsx` :
-
-- `metadata.metadataBase`, `title`, `description`, `openGraph`…  
-  sont initialisés à partir de `company` et de `company.contact.websiteUrl`.
-
-- Un objet **JSON‑LD** (schema.org `LocalBusiness` + `SecurityService`) est injecté dans le `<head>` pour améliorer la compréhension par les moteurs de recherche (données légales, adresse, zone desservie, SIREN/SIRET…).
-
-### 7.2. Métadonnées par page
-
-Chaque page importante définit son propre :
-
-- `export const metadata: Metadata = { title, description }`
-
-Cela permet de travailler des **titres** et **descriptions** optimisés par typologie de requêtes (prestations, secteurs, localisations).
-
-### 7.3. Sitemap et robots
-
-- `src/app/sitemap.ts`  
-  Génére automatiquement un `sitemap.xml` à partir d’une liste de routes clés.  
-  L’URL de base est dérivée de `company.contact.websiteUrl`.
-
-- `src/app/robots.ts`  
-  Génère le `robots.txt` :
-  - `userAgent: '*'`,
-  - `allow: '/'`,
-  - `sitemap` et `host` basés sur `websiteUrl`.
-
-### 7.4. Endpoints dédiés aux IA et intégrations (`/ai.llm`, `/llms.txt`)
-
-- `src/app/ai.llm/route.ts`  
-  Expose un endpoint JSON structuré à l’URL `/ai.llm` qui décrit :
-  - les informations légales et de contact de MAB SECURITE,
-  - les prestations (`services`), secteurs (`sectors`) et engagements (`engagements`),
-  - la zone d’intervention.  
-
-  Cet endpoint est pensé pour :
-  - les agents / LLM qui souhaitent consommer une vue consolidée de l’offre MAB SECURITE,
-  - des intégrations externes (RAG, assistants métier, etc.) qui ont besoin d’un format machine‑readable simple.
-
-- `public/llms.txt`  
-  Fichier texte servi à l’URL `/llms.txt` contenant :
-  - un résumé du positionnement de MAB SECURITE (B2B, sécurité privée, zones desservies) ;
-  - la liste des pages clés à explorer ;
-  - un rappel de l’endpoint `/ai.llm` et des prestations principales.  
-
-  Il est destiné aux **LLM et crawlers IA** qui implémentent des conventions de type `llms.txt` et recherchent une synthèse du site orientée “réponse” plutôt que le HTML brut.
-
-Assurez-vous de renseigner **l’URL de production définitive** dans `company.contact.websiteUrl` avant mise en ligne.
-
----
-
-## 8. Formulaire de contact & API
-
-### 8.1. Composant `ContactForm`
-
-Fichier : `src/components/forms/ContactForm.tsx`
-
-- Composant client (`'use client'`).
-- Gère :
-  - les champs de formulaire (raison sociale, contact, email, téléphone, type de besoin, message, période) ;
-  - les validations côté client ;
-  - l’envoi des données sur `/api/contact` (POST JSON).
-
-En cas de succès, un message de confirmation est affiché et les coordonnées générales (téléphone / e‑mail) sont proposées en complément.
-
-### 8.2. Endpoint `/api/contact`
-
-Fichier : `src/app/api/contact/route.ts`
-
-- Vérifie le format de la requête (`JSON`) et les champs obligatoires.
-- Loggue actuellement la demande côté serveur via `console.info`.
-- Retourne un JSON success/failure simple.
-
-```ts
-// Extrait simplifié
-if (!companyName || !contactName || !email || !phone) {
-  return NextResponse.json(
-    { success: false, message: 'Certains champs obligatoires sont manquants.' },
-    { status: 400 },
-  );
-}
-
-// TODO métier : branchement vers un CRM, un outil de ticketing, un service d'email, etc.
-console.info('[contact] Nouvelle demande reçue', { ... });
-return NextResponse.json({ success: true });
+# Vérifier que la build de production passe
+npm run build
 ```
 
-Pour une utilisation en production, il est recommandé de :
+Si ces trois commandes passent sans erreur, le projet est sain côté code (types, lint, build).
 
-- connecter ce endpoint à :
-  - un service d’envoi d’e-mails (SendGrid, Postmark, etc.),
-  - et/ou un CRM / outil de ticketing ;
-- sécuriser la configuration via des **variables d’environnement** (`process.env.*`) ;
-- tracer les demandes dans un système persistant (base de données, pipeline CRM).
+### 2. Vérifications fonctionnelles (en local)
 
----
+Lancer le serveur de développement :
 
-## 9. Design system & styles
+```bash
+npm run dev
+# http://localhost:3000
+```
 
-### 9.1. Tailwind & design tokens
+Puis vérifier manuellement :
 
-Fichier : `tailwind.config.js`
+1. **Navigation globale**
+   - Menu principal (desktop) et menu burger (mobile).
+   - Liens vers : Accueil, Prestations, Secteurs, À propos, Contact.
+   - Liens vers les pages locales : Paris, Marseille, Montpellier, Nîmes.
 
-- `content` couvre `src/app`, `src/components`, `src/content`.
-- Thème étendu :
-  - `fontFamily.sans` basé sur la variable CSS `--font-inter`.
-  - Palette `brand` (nuances de gris) et `accent` (vert) pour la couleur principale.
-  - Ombre personnalisée `shadow.soft` utilisée pour certains éléments (boutons, cartes).
+2. **Pages principales**
+   - Accueil : hero, blocs “Pour quels types d’organisations ?”, prestations clés, galerie photo, engagements.
+   - Prestations : liste des prestations et lien vers la page “Gardiennage chantiers BTP Paris”.
+   - Secteurs : toutes les cartes secteurs affichées.
+   - À propos : bloc direction générale + organisation France Nord / France Sud.
+   - Contact : formulaire, blocs Direction / France Nord / France Sud, coordonnées.
 
-### 9.2. Styles globaux (`globals.css`)
+3. **Pages locales**
+   - `/securite-privee-paris`
+   - `/securite-privee-marseille`
+   - `/securite-privee-montpellier`
+   - `/securite-privee-nimes`
+   - `/gardiennage-chantiers-btp-paris`
 
-Définit :
+   Pour chaque page locale :
+   - H1 cohérent (ville + activité).
+   - Bloc “zone & responsable opérationnel” correct (Béna pour Nord, Sofiane pour Sud).
+   - Liens internes entre les pages locales fonctionnels.
 
-- le background global (dégradés radiaux + fond sombre),
-- les helpers de layout :
-  - `.section` : marges verticales standard,
-  - `.section-inner` : conteneur centré, largeur max, padding horizontal,
-- les composants UI génériques :
-  - `.card`, `.card-muted` : surfaces et cartes,
-  - `.badge` : puce utilisée pour les contextes (secteur, localisation),
-  - `.text-muted` : texte secondaire,
-- des **focus states** accessibles sur les boutons, liens, champs de formulaire,
-- micro‑animations (`fade-up`, `fade-in`) et utilitaires `.animate-*`.
+4. **Formulaire de contact**
+   - Accès au formulaire via `/contact` et via le bouton “Demander un devis” du header.
+   - Soumission avec des données de test : vérifier l’affichage du message de confirmation (statut succès côté UI).
 
-L’ensemble vise un rendu **premium / institutionnel** tout en restant facilement extensible.
+### 3. Vérifications SEO rapides
 
----
+Toujours en local (ou sur un environnement de préproduction) :
 
-## 10. Qualité de code & standards
+- Sur quelques pages clés (Accueil, Prestations, À propos, une page locale) :
+  - Vérifier le `<title>` et la `<meta name="description">` dans l’onglet “Éléments” / “Inspector” du navigateur.
+  - Vérifier la présence de la balise canonical (`<link rel="canonical" ...>`).
+- Vérifier :
+  - `http://localhost:3000/robots.txt`
+  - `http://localhost:3000/sitemap.xml`
 
-### 10.1. Outils locaux
+Ils doivent s’afficher sans erreur et lister les principales routes.
 
-- **ESLint** (`eslint.config.js`)  
-  - Base `@eslint/js` + `typescript-eslint`.  
-  - Plugins :
-    - `react-hooks` (bonnes pratiques hooks),
-    - `react-refresh` (développement).
-
-- **TypeScript**  
-  - `tsconfig.app.json` pour l’app Next.  
-  - `npm run typecheck` pour détecter les erreurs de types.
-
-> Recommandation : lancer `npm run lint && npm run typecheck` avant tout déploiement ou mise en production.
-
-### 10.2. Intégration continue (GitHub Actions)
-
-Un workflow GitHub Actions (`.github/workflows/ci.yml`) est configuré pour jouer le rôle de **garde-fou qualité** sur chaque `push` / `pull_request` vers `main` ou `master`.
-
-#### Job principal `build-and-validate`
-
-Ce job est bloquant. Il exécute, dans l’ordre :
-
-1. **Installation des dépendances**
-   - `npm ci` si le `package-lock.json` est en phase avec `package.json` ;
-   - sinon, repli sur `npm install` (permet de continuer à travailler même si le lockfile n’est pas encore régénéré).
-
-2. **Scan de secrets (gitleaks)**  
-   - Utilisation de `gitleaks/gitleaks-action@v2` pour détecter d’éventuelles fuites de secrets (tokens, clés d’API, etc.) dans le dépôt.  
-   - En cas de fuite détectée, le job est marqué en échec.
-
-3. **Lint Markdown**  
-   - `npx markdownlint-cli "**/*.md" --ignore node_modules` avec configuration dans `.markdownlint.json`.  
-   - Permet de garder des fichiers Markdown propres et homogènes (README, futures docs).
-
-4. **ESLint**  
-   - `npm run lint` sur l’ensemble du projet.
-
-5. **TypeScript (type checking)**  
-   - `npm run typecheck` pour s’assurer de l’absence d’erreurs de types dans le code applicatif.
-
-6. **Build Next.js**  
-   - `npm run build` pour vérifier que l’application se build correctement dans l’environnement CI.
-
-La variable d’environnement `CI=true` est activée pour aligner le comportement des outils avec un contexte d’intégration continue.
-
-#### Jobs complémentaires non bloquants
-
-Deux autres jobs s’exécutent après `build-and-validate` :
-
-- `accessibility-a11y`  
-  - Build de l’application, démarrage du serveur (`npm start`) puis audit accessibilité via **Pa11y** (configuration dans `.pa11yci.json`).  
-  - Le job est configuré en `continue-on-error: true` : les problèmes d’accessibilité sont signalés mais n’empêchent pas le merge.  
-  - Un rapport Pa11y est exporté en artifact.
-
-- `lighthouse-audit`  
-  - Build de l’application, démarrage du serveur (`npm start`) puis audit **Lighthouse** via `@lhci/cli` (configuration dans `lighthouserc.json`).  
-  - Le job est également non bloquant (`continue-on-error: true`) et produit des rapports Lighthouse dans le dossier `.lighthouseci` (exposés en artifacts).
-
-En pratique, une PR ne doit être considérée comme “prête à merger” que si :
-
-- le job **`build-and-validate`** est entièrement vert ;
-- et les commandes locales `npm run lint`, `npm run typecheck`, `npm run build` passent également en environnement développeur.  
-Les jobs d’accessibilité (Pa11y) et de performance/SEO (Lighthouse) servent de tableau de bord qualité complémentaire.
-
----
-
-## 11. Déploiement & exploitation
-
-Le projet peut être déployé :
-
-- **Sur Vercel** (recommandé pour Next.js) :  
-  - connecter le dépôt,
-  - définir les variables d’environnement éventuelles (API de mail, CRM…),
-  - laisser Vercel détecter Next.js automatiquement.
-
-- **Sur un autre hébergeur Node.js** :
-  1. Builder l’application : `npm run build`.
-  2. Démarrer le serveur : `npm start`.
-  3. Configurer le reverse proxy (Nginx / Traefik) pour exposer le port du serveur Next.
-
-Avant le déploiement, veiller à :
-
-- renseigner `company.contact.websiteUrl` avec l’URL de production,
-- vérifier que l’URL est cohérente avec les fichiers `sitemap` & `robots`.
-
----
-
-## 12. Images, photos et logo
-
-Aucune photo n’est embarquée directement dans le dépôt afin d’éviter tout risque lié aux droits d’auteur.
-
-Pour ajouter des visuels en adéquation avec le sujet (sécurité privée, BTP, sites industriels, événements), privilégier des banques d’images **libres de droits** :
-
-- [Unsplash](https://unsplash.com/) – collections “construction”, “security”, “industrial” ;
-- [Pexels](https://www.pexels.com/fr-fr/) – mots‑clés “chantier BTP”, “gardiennage”, “security guard” ;
-- [Pixabay](https://pixabay.com/fr/) – photos et illustrations libres de droit.
-
-Recommandations :
-
-1. Placer les images dans `public/images/` (par exemple `public/images/chantier-btp-paris.jpg`).  
-2. Utiliser ces images dans les pages via le composant `next/image` ou des balises `<img />` classiques.  
-3. Mettre à jour `branding.logoUrl` dans `company.ts` si vous ajoutez un logo dans `public/images/`.
-
----
-
-## 13. Checklist de mise en production
-
-Avant de mettre le site en ligne, vérifier les points suivants :
-
-1. **Données société à jour**
-   - `company.*` (raison sociale, SIREN/SIRET, TVA, adresse, capital, date de création).
-   - Coordonnées : téléphone, e‑mail, zone d’intervention.
-
-2. **URL de production**
-   - `company.contact.websiteUrl` pointe vers le domaine définitif (HTTPS).
-
-3. **Contenus métiers**
-   - Textes des pages locales Paris / Marseille / Nîmes revus et validés.
-   - Liste des prestations / secteurs cohérente avec l’offre réelle.
-
-4. **Pages légales**
-   - Mentions légales et politique de confidentialité relues et validées.
-
-5. **Formulaire de contact**
-   - Endpoint `/api/contact` connecté à votre système (email / CRM / ticketing).
-   - Tests de bout en bout (soumission, réception de la demande, réponse).
-
-6. **Qualité et performance**
-   - `npm run lint` sans erreur bloquante.
-   - `npm run typecheck` sans erreur.
-   - `npm run build` OK.
-
-Une fois ces points validés, le site est prêt à être utilisé comme **vitrine B2B** pour MAB SECURITE, avec un positionnement clair sur le **gardiennage de chantiers BTP à Paris / IDF** et la **sécurité de sites professionnels** à Marseille, Nîmes et sur la côte sud.
-
----
-
-## 14. Conventions de contribution et maintenance
-
-Cette section s’adresse à toute personne amenée à faire évoluer le projet (développeur interne, prestataire, IA outillée, etc.).  
-L’objectif est de maintenir dans le temps un niveau de qualité professionnelle, prévisible et bien documenté.
-
-### 14.1. Routine en début de session
-
-Avant toute modification significative :
-
-1. **Consulter le présent README**  
-   - vérifier que l’architecture et les conventions décrites sont cohérentes avec l’état du code ;
-   - identifier les sections potentiellement impactées (architecture, contenu métier, SEO, API, scripts…).
-
-2. **Identifier le point d’ancrage de la modification**  
-   - contenu métier : `src/content/company.ts` (ajout/modification de services, secteurs, engagements, coordonnées) ;
-   - UI / pages : fichiers sous `src/app/...` ;
-   - composants réutilisables : `src/components/...`.
-
-3. **Déterminer les impacts sur la documentation**  
-   - toute création ou évolution d’une page clé, d’un script ou d’un flux métier doit, le cas échéant, s’accompagner d’une mise à jour de ce README.
-
-### 14.2. Routine en fin de session
-
-Avant de considérer un développement comme terminé :
-
-1. **Mettre à jour la documentation**
-   - ajouter ou ajuster les sections pertinentes dans ce README (architecture, scripts, SEO, API, conventions, etc.) ;
-   - documenter explicitement toute nouvelle convention ou tout changement de comportement global.
-
-2. **Exécuter les commandes de contrôle**
-   - `npm run lint`  
-   - `npm run typecheck`  
-   - `npm run build` (au minimum avant un déploiement).
-
-3. **Vérifier la cohérence globale**
-   - confirmer le respect des patterns existants (structure des pages, organisation des composants, style Tailwind, conventions de typage) ;
-   - s’assurer que la logique métier reste centralisée dans les fichiers prévus à cet effet (notamment `src/content`) ;
-   - évaluer la lisibilité du code pour un développeur ou un outil qui reprendrait le projet ultérieurement.
-
-### 14.3. Principes à respecter en continu
-
-- **Centralisation du contenu métier**  
-  - les éléments configurables (texte institutionnel, listes de prestations et de secteurs, engagements, coordonnées) doivent, autant que possible, rester dans `src/content/company.ts` ou dans des fichiers de contenu dédiés ;
-  - les pages consomment ces données, elles ne les dupliquent pas.
-
-- **Respect du design system existant**  
-  - utiliser en priorité les primitives définies dans `globals.css` (`.section`, `.section-inner`, `.card`, `.card-muted`, `.badge`, `.text-muted`, etc.) plutôt que créer de nouvelles variantes locales ;
-  - s’appuyer sur la palette définie dans `tailwind.config.js` (`brand`, `accent`) pour les couleurs principales et les états.
-
-- **SEO et accessibilité**  
-  - définir systématiquement des métadonnées (`metadata`) pour toute nouvelle page de contenu stratégique ;
-  - respecter une hiérarchie de titres logique (`h1`, `h2`, `h3`, …) ;
-  - utiliser des libellés explicites pour les liens, boutons d’appel à l’action et champs de formulaire.
-
-- **Qualité de code**  
-  - privilégier des composants simples, clairement nommés et facilement testables ;
-  - éviter les abstractions excessives et les comportements implicites difficiles à suivre ;
-  - limiter l’introduction de nouvelles dépendances à ce qui est strictement nécessaire.
-
-Le présent README doit être considéré comme la **référence documentaire** du projet.  
-Toute évolution structurelle, fonctionnelle ou technique significative doit y être répercutée afin de garantir une prise en main rapide et fiable du code, maintenant et à l’avenir.  
-L’objectif est qu’un développeur expérimenté puisse comprendre le périmètre, les choix techniques et les attentes de contribution en moins de quelques minutes de lecture.
+Ces vérifications garantissent que le dépôt est prêt pour une livraison propre (technique, fonctionnelle et SEO).

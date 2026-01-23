@@ -64,7 +64,7 @@ export interface Company {
 export const company: Company = {
   name: 'MAB SECURITE',
   legalName: 'MAB SECURITE',
-  legalForm: 'SASU',
+  legalForm: 'SAS',
   nafApe: '80.10Z',
   siren: '951 084 078',
   siret: '951 084 078 00017',
@@ -79,9 +79,9 @@ export const company: Company = {
     country: 'France',
   },
   description:
-    "MAB SECURITE est une société de sécurité privée basée à Nîmes. Elle accompagne en priorité les entreprises du BTP, les maîtres d’ouvrage, les collectivités et les organisateurs d’événements dans la protection de leurs chantiers, sites, collaborateurs et publics, avec une présence structurée à Paris, Marseille et dans le Gard.",
+    "MAB SECURITE est une société de sécurité privée basée à Nîmes. Elle accompagne en priorité les entreprises du BTP, les maîtres d’ouvrage, les collectivités et les organisateurs d’événements dans la protection de leurs chantiers, sites, collaborateurs et publics, avec une présence structurée à Paris (France Nord), Marseille, Montpellier et dans le Gard (France Sud).",
   shortDescription:
-    'Sécurité privée pour le BTP et les sites professionnels : gardiennage de chantiers, rondes de sûreté et sécurisation d’événements à Paris, Marseille, Nîmes et sur la côte sud.',
+    'Sécurité privée pour le BTP et les sites professionnels : gardiennage de chantiers, rondes de sûreté, dispositifs de vidéosurveillance et sécurité incendie à Paris, Marseille, Montpellier, Nîmes et sur la côte sud.',
   contact: {
     // À personnaliser : coordonnées de contact définitives
     phone: {
@@ -89,14 +89,14 @@ export const company: Company = {
       value: '+33400000000',
     },
     email: 'contact@mab-securite.fr',
-    websiteUrl: 'https://mab-securite.fr',
+    websiteUrl: 'https://www.mab-securite.fr',
   },
   branding: {
     baseline: 'Sécurité privée pour entreprises et événements',
     logoUrl: '/images/logo-mab-securite.svg', // À remplacer si un logo est disponible
   },
   areaServed:
-    'Paris et Île-de-France, Marseille et Bouches-du-Rhône, Nîmes et Gard (30), ainsi que la côte sud et régions limitrophes.',
+    'Paris et Île-de-France (France Nord), Marseille et Bouches-du-Rhône, Montpellier et Hérault (34), Nîmes et Gard (30), ainsi que la côte sud et régions limitrophes.',
 };
 
 export const services: Service[] = [
@@ -124,6 +124,8 @@ export const services: Service[] = [
       'Accueil et contrôle des visiteurs et prestataires',
       'Rondes préventives à horaires fixes ou variables',
       'Main courante et reporting réguliers',
+      'Mise en place d’agents de sécurité et de maîtres-chiens sur les sites à risque',
+      'Articulation avec les dispositifs techniques (caméras de surveillance, détecteurs de mouvement, contrôle d’accès)',
     ],
   },
   {
@@ -150,6 +152,8 @@ export const services: Service[] = [
       'Surveillance de chantiers et zones de stockage',
       'Protection des accès et des abords immédiats',
       'Coordination avec les autres acteurs de la sûreté',
+      'Intégration de solutions de vidéosurveillance (caméras de surveillance, détecteurs de mouvement) en coordination avec vos prestataires spécialisés',
+      'Prise en compte des dispositifs de sécurité incendie (agents SSIAP, plans de prévention incendie) dans le dispositif global de sûreté',
     ],
   },
 ];
@@ -161,7 +165,12 @@ export const sectors: Sector[] = [
     shortDescription: 'Sécurisation des sièges sociaux, bureaux, sites industriels et logistiques.',
     description:
       'Nous accompagnons les PME, ETI et grands comptes dans la protection de leurs collaborateurs, visiteurs et actifs matériels, en cohérence avec leurs procédures internes.',
-    examples: ['Sièges sociaux et bureaux', 'Sites industriels', 'Entrepôts et plateformes logistiques'],
+    examples: [
+      'Sièges sociaux et bureaux',
+      'Sites industriels',
+      'Entrepôts et plateformes logistiques',
+      'Centres commerciaux et galeries marchandes',
+    ],
   },
   {
     slug: 'evenementiel',

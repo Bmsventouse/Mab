@@ -102,3 +102,12 @@ select {
 .animate-fade-in-soft {
   animation: fade-in 420ms ease-out both;
 }
+
+/* Skip link for keyboard users */
+.skip-link {
+  @apply fixed left-4 top-[-999px] z-50 rounded-full bg-emerald-500 px-3 py-2 text-xs font-semibold text-slate-950 shadow-soft;
+}
+
+.skip-link:focus-visible {
+  @apply top-4;
+}
