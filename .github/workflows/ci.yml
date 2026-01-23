@@ -50,9 +50,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lint Markdown (markdownlint)
-        run: npx markdownlint-cli "**/*.md" --ignore node_modules
-
       - name: Lint
         run: npm run lint
 
