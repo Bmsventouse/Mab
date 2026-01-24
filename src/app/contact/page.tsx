@@ -43,12 +43,13 @@ export default function ContactPage() {
               Direction générale
             </p>
             <p>
-              <span className="font-semibold">M. Mohand Ameziane Beddredine</span> – président
-              (CEO) de {company.name}.
+              La direction générale de {company.name} supervise l&apos;ensemble des
+              dispositifs de sécurité déployés et valide les engagements pris auprès des
+              clients.
             </p>
             <p className="text-slate-400">
-              Supervision nationale des dispositifs de sécurité et validation des
-              engagements pris auprès des clients.
+              Les interlocuteurs opérationnels sont ensuite désignés par zone
+              géographique pour assurer un suivi de proximité des missions.
             </p>
           </div>
           <div className="space-y-1.5">

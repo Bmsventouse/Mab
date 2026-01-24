@@ -1,62 +1,64 @@
 'use client';
 
 import { useState } from 'react';
-import { Loader2, Mail, Phone } from 'lucide-react';
-import { company, services } from '../../content/company';
+import { Loader2 } from 'lucide-react';
+import { company } from '../../content/company';
 
-interface ContactFormData {
-  companyName: string;
-  contactName: string;
-  email: string;
+interface AgentApplicationData {
+  fullName: string;
   phone: string;
-  subject: string;
-  message: string;
-  date: string;
+  email: string;
+  city: string;
+  zone: string;
+  hasCnaps: boolean;
+  ssiapLevel: string;
+  experience: string;
   consent: boolean;
   website: string; // champ honeypot anti-spam (non affiché)
 }
 
-interface FormErrors {
-  companyName?: string;
-  contactName?: string;
-  email?: string;
+interface AgentFormErrors {
+  fullName?: string;
   phone?: string;
-  subject?: string;
+  email?: string;
+  city?: string;
   consent?: string;
 }
 
-export const ContactForm = () => {
-  const [form, setForm] = useState<ContactFormData>({
-    companyName: '',
-    contactName: '',
-    email: '',
+export const AgentApplicationForm = () => {
+  const [form, setForm] = useState<AgentApplicationData>({
+    fullName: '',
     phone: '',
-    subject: '',
-    message: '',
-    date: '',
+    email: '',
+    city: '',
+    zone: '',
+    hasCnaps: false,
+    ssiapLevel: '',
+    experience: '',
     consent: false,
     website: '',
   });
-  const [errors, setErrors] = useState<FormErrors>({});
+
+  const [errors, setErrors] = useState<AgentFormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (): boolean => {
-    const newErrors: FormErrors = {};
+    const newErrors: AgentFormErrors = {};
 
-    if (!form.companyName.trim()) newErrors.companyName = 'Raison sociale requise.';
-    if (!form.contactName.trim()) newErrors.contactName = 'Nom et prénom requis.';
+    if (!form.fullName.trim()) newErrors.fullName = 'Nom et prénom requis.';
     if (!form.phone.trim()) newErrors.phone = 'Téléphone requis.';
     if (!form.email.trim()) {
       newErrors.email = 'Adresse e-mail requise.';
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
       newErrors.email = 'Adresse e-mail invalide.';
     }
-    if (!form.subject) newErrors.subject = 'Veuillez sélectionner un type de besoin.';
-    if (!form.consent)
+    if (!form.city.trim()) newErrors.city = 'Ville ou zone géographique requise.';
+    if (!form.consent) {
       newErrors.consent =
         'Vous devez accepter le traitement de vos données pour pouvoir envoyer ce formulaire.';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -67,13 +69,11 @@ export const ContactForm = () => {
   ) => {
     const { name, type } = event.target;
     const value =
-      type === 'checkbox'
-        ? (event.target as HTMLInputElement).checked
-        : event.target.value;
+      type === 'checkbox' ? (event.target as HTMLInputElement).checked : event.target.value;
 
     setForm((current) => ({ ...current, [name]: value }));
 
-    if (errors[name as keyof FormErrors]) {
+    if (errors[name as keyof AgentFormErrors]) {
       setErrors((current) => ({ ...current, [name]: undefined }));
     }
   };
@@ -89,7 +89,7 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/agents', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -101,19 +101,20 @@ export const ContactForm = () => {
 
       setHasSubmitted(true);
       setForm({
-        companyName: '',
-        contactName: '',
-        email: '',
+        fullName: '',
         phone: '',
-        subject: '',
-        message: '',
-        date: '',
+        email: '',
+        city: '',
+        zone: '',
+        hasCnaps: false,
+        ssiapLevel: '',
+        experience: '',
         consent: false,
         website: '',
       });
     } catch {
       setSubmitError(
-        "Une erreur est survenue lors de l'envoi de votre demande. Vous pouvez également nous contacter directement par téléphone ou par e-mail.",
+        "Une erreur est survenue lors de l'envoi de votre candidature. Vous pouvez également nous contacter directement par téléphone ou par e-mail.",
       );
     } finally {
       setIsSubmitting(false);
@@ -124,30 +125,13 @@ export const ContactForm = () => {
     return (
       <div className="card p-8 text-sm md:p-10">
         <h2 className="text-lg font-semibold text-slate-50 md:text-xl">
-          Votre demande a bien été envoyée
+          Votre candidature a bien été envoyée
         </h2>
         <p className="mt-3 text-muted">
-          Nous accusons réception de votre message. Un interlocuteur MAB SECURITE vous
-          recontactera dans les meilleurs délais pour qualifier votre besoin et vous
-          proposer un devis.
+          Nous accusons réception de votre message. {company.name} conserve vos coordonnées
+          dans un vivier d&apos;agents de sécurité et pourra vous recontacter pour des missions
+          correspondant à votre profil et à votre zone géographique.
         </p>
-        <div className="mt-6 space-y-2 text-sm text-slate-200">
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4 text-emerald-400" />
-            <a href={`tel:${company.contact.phone.value}`} className="hover:text-emerald-300">
-              {company.contact.phone.label}
-            </a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mail className="h-4 w-4 text-emerald-400" />
-            <a
-              href={`mailto:${company.contact.email}`}
-              className="hover:text-emerald-300"
-            >
-              {company.contact.email}
-            </a>
-          </div>
-        </div>
       </div>
     );
   }
@@ -156,13 +140,13 @@ export const ContactForm = () => {
     <form onSubmit={handleSubmit} className="card p-6 text-sm md:p-8" noValidate>
       <div className="mb-6 space-y-1">
         <h2 className="text-lg font-semibold text-slate-50 md:text-xl">
-          Demande de devis ou d&apos;analyse de besoin
+          Candidature agent de sécurité
         </h2>
         <p className="text-muted">
-          Précisez le contexte de votre organisation, la nature de la mission et, le cas
-          échéant, le cadre contractuel (appel d&apos;offres privé ou public, marché,
-          convention), afin que nous puissions évaluer votre demande et vous proposer un
-          dispositif adapté.
+          Ce formulaire est destiné aux agents de sécurité et profils SSIAP qui souhaitent
+          être recontactés pour des missions ponctuelles ou récurrentes sur les zones
+          d&apos;intervention de {company.name}. Les champs marqués d&apos;une astérisque sont
+          obligatoires.
         </p>
 
         {/* Champ honeypot anti-spam (non visible pour les utilisateurs légitimes) */}
@@ -183,58 +167,20 @@ export const ContactForm = () => {
       <div className="grid gap-4 md:grid-cols-2">
         <div>
           <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-            Société / organisation*
+            Nom et prénom*
           </label>
           <input
             type="text"
-            name="companyName"
-            value={form.companyName}
+            name="fullName"
+            value={form.fullName}
             onChange={handleChange}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
-              errors.companyName ? 'border-red-500/70' : 'border-slate-700'
-            }`}
-            placeholder="Nom de votre société ou structure"
-          />
-          {errors.companyName && (
-            <p className="mt-1 text-xs text-red-400">{errors.companyName}</p>
-          )}
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-            Nom et prénom du contact*
-          </label>
-          <input
-            type="text"
-            name="contactName"
-            value={form.contactName}
-            onChange={handleChange}
-            className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
-              errors.contactName ? 'border-red-500/70' : 'border-slate-700'
+              errors.fullName ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Nom et prénom"
           />
-          {errors.contactName && (
-            <p className="mt-1 text-xs text-red-400">{errors.contactName}</p>
-          )}
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-            E-mail professionnel*
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
-              errors.email ? 'border-red-500/70' : 'border-slate-700'
-            }`}
-            placeholder="prenom.nom@entreprise.fr"
-          />
-          {errors.email && (
-            <p className="mt-1 text-xs text-red-400">{errors.email}</p>
+          {errors.fullName && (
+            <p className="mt-1 text-xs text-red-400">{errors.fullName}</p>
           )}
         </div>
 
@@ -250,10 +196,48 @@ export const ContactForm = () => {
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.phone ? 'border-red-500/70' : 'border-slate-700'
             }`}
-            placeholder="Numéro joignable en journée"
+            placeholder="Numéro joignable"
           />
           {errors.phone && (
             <p className="mt-1 text-xs text-red-400">{errors.phone}</p>
+          )}
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
+            E-mail*
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
+              errors.email ? 'border-red-500/70' : 'border-slate-700'
+            }`}
+            placeholder="prenom.nom@email.fr"
+          />
+          {errors.email && (
+            <p className="mt-1 text-xs text-red-400">{errors.email}</p>
+          )}
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
+            Ville / zone géographique*
+          </label>
+          <input
+            type="text"
+            name="city"
+            value={form.city}
+            onChange={handleChange}
+            className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
+              errors.city ? 'border-red-500/70' : 'border-slate-700'
+            }`}
+            placeholder="Ex. : Marseille, Montpellier, Paris, Nîmes / Gard…"
+          />
+          {errors.city && (
+            <p className="mt-1 text-xs text-red-400">{errors.city}</p>
           )}
         </div>
       </div>
@@ -261,55 +245,70 @@ export const ContactForm = () => {
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div>
           <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-            Type de besoin*
+            Zone préférentielle
           </label>
           <select
-            name="subject"
-            value={form.subject}
+            name="zone"
+            value={form.zone}
             onChange={handleChange}
-            className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
-              errors.subject ? 'border-red-500/70' : 'border-slate-700'
-            }`}
+            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           >
-            <option value="">Sélectionnez une prestation</option>
-            {services.map((service) => (
-              <option key={service.slug} value={service.slug}>
-                {service.name}
-              </option>
-            ))}
-            <option value="autre">Autre besoin de sécurité</option>
+            <option value="">Sélectionnez une zone (optionnel)</option>
+            <option value="france-nord">France Nord – Paris &amp; Île-de-France</option>
+            <option value="france-sud">
+              France Sud – Marseille, Montpellier, Nîmes / Gard, Côte méditerranéenne
+            </option>
           </select>
-          {errors.subject && (
-            <p className="mt-1 text-xs text-red-400">{errors.subject}</p>
-          )}
         </div>
 
-        <div>
-          <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-            Période ou date souhaitée
-          </label>
-          <input
-            type="text"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-            placeholder="Ex. : soirée du 15/06, mission 3 mois, etc."
-          />
+        <div className="grid gap-2 md:grid-cols-2">
+          <div>
+            <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
+              Carte professionnelle (CNAPS)
+            </label>
+            <div className="mt-1 flex items-center gap-2 text-xs text-slate-300">
+              <label className="inline-flex items-center gap-1">
+                <input
+                  type="checkbox"
+                  name="hasCnaps"
+                  checked={form.hasCnaps}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500"
+                />
+                <span>Je dispose d&apos;une carte professionnelle en cours de validité</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
+              Niveau SSIAP
+            </label>
+            <select
+              name="ssiapLevel"
+              value={form.ssiapLevel}
+              onChange={handleChange}
+              className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            >
+              <option value="">Aucun / non applicable</option>
+              <option value="1">SSIAP 1</option>
+              <option value="2">SSIAP 2</option>
+              <option value="3">SSIAP 3</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <div className="mt-4">
         <label className="block text-xs font-medium uppercase tracking-wide text-slate-400">
-          Contexte et informations utiles
+          Expérience et disponibilités (optionnel)
         </label>
         <textarea
-          name="message"
-          value={form.message}
+          name="experience"
+          value={form.experience}
           onChange={handleChange}
           rows={5}
           className="mt-1 w-full resize-y rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-          placeholder="Type de site ou d’événement, volumes de public attendus, contraintes horaires ou géographiques, etc."
+          placeholder="Ex. : expériences BTP, tertiaire, logistique, événements ; disponibilités (jour/nuit, semaine/week-end)…"
         />
       </div>
 
@@ -324,7 +323,8 @@ export const ContactForm = () => {
           />
           <span>
             J’accepte que les informations saisies soient utilisées par {company.name} pour
-            analyser ma demande et me recontacter. Conformément à la réglementation en
+            étudier ma candidature, me recontacter et, le cas échéant, me proposer des
+            missions correspondant à mon profil. Conformément à la réglementation en
             vigueur, vous pouvez exercer vos droits d’accès, de rectification et
             d’opposition en nous contactant aux coordonnées indiquées sur ce site.
           </span>
@@ -340,32 +340,19 @@ export const ContactForm = () => {
         </p>
       )}
 
-      <div className="mt-6 flex flex-col gap-3 border-t border-slate-800 pt-4 md:flex-row md:items-center md:justify-between">
+      <div className="mt-6 flex items-center justify-between border-t border-slate-800 pt-4 text-xs text-slate-400">
         <button
           type="submit"
           disabled={isSubmitting}
           className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-emerald-700"
         >
           {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
-          Envoyer ma demande
+          Envoyer ma candidature
         </button>
-        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400">
-          <span>Ou contactez-nous directement :</span>
-          <a
-            href={`tel:${company.contact.phone.value}`}
-            className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-slate-100 hover:border-emerald-500"
-          >
-            <Phone className="h-3 w-3 text-emerald-400" />
-            {company.contact.phone.label}
-          </a>
-          <a
-            href={`mailto:${company.contact.email}`}
-            className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-slate-100 hover:border-emerald-500"
-          >
-            <Mail className="h-3 w-3 text-emerald-400" />
-            {company.contact.email}
-          </a>
-        </div>
+        <p className="hidden text-[11px] text-slate-500 md:block">
+          Les informations transmises ne sont pas partagées avec des tiers à des fins
+          commerciales.
+        </p>
       </div>
     </form>
   );
