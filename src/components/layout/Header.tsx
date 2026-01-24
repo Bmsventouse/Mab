@@ -9,6 +9,8 @@ import { company } from '../../content/company';
 const navItems = [
   { href: '/', label: 'Accueil' },
   { href: '/prestations', label: 'Prestations' },
+  { href: '/secteurs', label: 'Secteurs' },
+  { href: '/references', label: 'Références' },
   { href: '/securite-privee-paris', label: 'Paris / IDF' },
   { href: '/securite-privee-marseille', label: 'Marseille' },
   { href: '/securite-privee-nimes', label: 'Nîmes / Gard' },

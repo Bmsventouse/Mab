@@ -64,7 +64,7 @@ export interface Company {
 export const company: Company = {
   name: 'MAB SECURITE',
   legalName: 'MAB SECURITE',
-  legalForm: 'SAS',
+  legalForm: 'SASU, société par actions simplifiée unipersonnelle',
   nafApe: '80.10Z',
   siren: '951 084 078',
   siret: '951 084 078 00017',

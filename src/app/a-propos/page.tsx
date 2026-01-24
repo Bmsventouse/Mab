@@ -24,9 +24,9 @@ export default function AProposPage() {
             des acteurs publics une structure à taille humaine, réactive et orientée
             service. Les missions sont pilotées de manière structurée et documentée, dans
             une logique de partenariat durable et de réponse aux exigences contractuelles
-            et réglementaires, notamment dans le cadre des appels d&apos;offres privés et
-            publics. {company.name} n&apos;intervient pas pour des prestations de sécurité
-            destinées aux particuliers ou aux habitations privées.
+            et réglementaires de leurs donneurs d&apos;ordre. {company.name} n&apos;intervient
+            pas pour des prestations de sécurité destinées aux particuliers ou aux
+            habitations privées.
           </p>
         </header>
 
@@ -69,11 +69,10 @@ export default function AProposPage() {
                 Direction générale &amp; organisation France Nord / France Sud
               </p>
               <p>
-                Le pilotage national de {company.name} est assuré par{' '}
-                <span className="font-semibold">M. Mohand Ameziane Beddredine</span>,
-                président (CEO) de la société. Il définit la vision, valide les dispositifs
-                de sécurité proposés aux clients et supervise l&apos;ensemble des
-                opérations menées sur le territoire.
+                Le pilotage national de {company.name} est assuré par une direction
+                générale dédiée, qui définit la vision, valide les dispositifs de sécurité
+                proposés aux clients et supervise l&apos;ensemble des opérations menées sur
+                le territoire.
               </p>
               <p>
                 Pour garantir une proximité opérationnelle, l&apos;activité est structurée
