@@ -117,6 +117,7 @@ Le netlinking consiste à obtenir des liens depuis d'autres sites vers le vôtre
 - [ ] **Mobile-First Design** : Navigation fluide sur smartphone (testée sur différents terminaux).  
 - [ ] **Sitemap XML &amp; Robots.txt** : Configurés et soumis à la Google Search Console.  
 - [ ] **Balisage Hn** : Respect strict de la hiérarchie (un seul H1 par page).  
+- [ ] **Accessibilité (WCAG 2.1 niveau AA)** : navigation clavier, contrastes suffisants, labels de formulaires et messages d’erreur accessibles.  
 - [ ] **Attributs Alt** : Toutes les images doivent avoir une description textuelle optimisée.  
 - [ ] **Maillage Interne** : Minimum 3 liens internes vers chaque page stratégique.
 
