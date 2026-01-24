@@ -83,6 +83,9 @@ export const Footer = () => {
                 <Link href="/contact" className="hover:text-emerald-300">
                   Contact
                 </Link>
+                <Link href="/rejoindre-mab" className="hover:text-emerald-300">
+                  Rejoindre MAB
+                </Link>
               </div>
             </div>
             <div>
