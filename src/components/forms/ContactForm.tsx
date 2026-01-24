@@ -13,6 +13,7 @@ interface ContactFormData {
   message: string;
   date: string;
   consent: boolean;
+  website: string; // champ honeypot anti-spam (non affiché)
 }
 
 interface FormErrors {
@@ -34,6 +35,7 @@ export const ContactForm = () => {
     message: '',
     date: '',
     consent: false,
+    website: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -107,6 +109,7 @@ export const ContactForm = () => {
         message: '',
         date: '',
         consent: false,
+        website: '',
       });
     } catch {
       setSubmitError(
@@ -161,6 +164,20 @@ export const ContactForm = () => {
           convention), afin que nous puissions évaluer votre demande et vous proposer un
           dispositif adapté.
         </p>
+
+        {/* Champ honeypot anti-spam (non visible pour les utilisateurs légitimes) */}
+        <div className="hidden">
+          <label>
+            Ne pas remplir ce champ (protection anti-spam)
+            <input
+              type="text"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </label>
+        </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

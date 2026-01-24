@@ -14,6 +14,7 @@ interface AgentApplicationData {
   ssiapLevel: string;
   experience: string;
   consent: boolean;
+  website: string; // champ honeypot anti-spam (non affiché)
 }
 
 interface AgentFormErrors {
@@ -35,6 +36,7 @@ export const AgentApplicationForm = () => {
     ssiapLevel: '',
     experience: '',
     consent: false,
+    website: '',
   });
 
   const [errors, setErrors] = useState<AgentFormErrors>({});
@@ -108,6 +110,7 @@ export const AgentApplicationForm = () => {
         ssiapLevel: '',
         experience: '',
         consent: false,
+        website: '',
       });
     } catch {
       setSubmitError(
@@ -145,6 +148,20 @@ export const AgentApplicationForm = () => {
           d&apos;intervention de {company.name}. Les champs marqués d&apos;une astérisque sont
           obligatoires.
         </p>
+
+        {/* Champ honeypot anti-spam (non visible pour les utilisateurs légitimes) */}
+        <div className="hidden">
+          <label>
+            Ne pas remplir ce champ (protection anti-spam)
+            <input
+              type="text"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+          </label>
+        </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

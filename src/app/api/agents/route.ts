@@ -20,7 +20,17 @@ export async function POST(request: Request) {
     );
   }
 
-  const { fullName, phone, email, city, zone, hasCnaps, ssiapLevel, experience } = data as {
+  const {
+    fullName,
+    phone,
+    email,
+    city,
+    zone,
+    hasCnaps,
+    ssiapLevel,
+    experience,
+    website,
+  } = data as {
     fullName?: string;
     phone?: string;
     email?: string;
@@ -29,7 +39,13 @@ export async function POST(request: Request) {
     hasCnaps?: boolean;
     ssiapLevel?: string;
     experience?: string;
+    website?: string;
   };
+
+  // Champ honeypot rempli -> on considère qu'il s'agit d'un bot, on répond OK sans rien faire.
+  if (website && website.trim().length > 0) {
+    return NextResponse.json({ success: true });
+  }
 
   if (!fullName || !phone || !email || !city) {
     return NextResponse.json(
@@ -37,6 +53,9 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+
+  const truncatedExperience =
+    experience && experience.length > 4000 ? experience.slice(0, 4000) : experience || null;
 
   if (!supabaseServer) {
     // Si Supabase n'est pas configuré, on log simplement la candidature côté serveur.
@@ -48,7 +67,7 @@ export async function POST(request: Request) {
       zone,
       hasCnaps: Boolean(hasCnaps),
       ssiapLevel: ssiapLevel || null,
-      hasExperience: Boolean(experience && experience.trim()),
+      hasExperience: Boolean(truncatedExperience),
     });
 
     return NextResponse.json({ success: true });
@@ -62,7 +81,7 @@ export async function POST(request: Request) {
     zone,
     has_cnaps: Boolean(hasCnaps),
     ssiap_level: ssiapLevel || null,
-    experience: experience || null,
+    experience: truncatedExperience,
   });
 
   if (error) {

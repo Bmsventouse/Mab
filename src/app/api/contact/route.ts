@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { companyName, contactName, email, phone, subject, message, date } = data as {
+  const { companyName, contactName, email, phone, subject, message, date, website } = data as {
     companyName?: string;
     contactName?: string;
     email?: string;
@@ -28,7 +28,13 @@ export async function POST(request: Request) {
     subject?: string;
     message?: string;
     date?: string;
+    website?: string;
   };
+
+  // Champ honeypot rempli -> on considère qu'il s'agit d'un bot, on répond OK sans rien faire.
+  if (website && website.trim().length > 0) {
+    return NextResponse.json({ success: true });
+  }
 
   if (!companyName || !contactName || !email || !phone) {
     return NextResponse.json(
@@ -36,6 +42,9 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+
+  const truncatedMessage =
+    message && message.length > 8000 ? message.slice(0, 8000) : message || '';
 
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587;
@@ -80,10 +89,17 @@ export async function POST(request: Request) {
     subject ? `Type de besoin : ${subject}` : null,
     '',
     'Message :',
-    message && message.trim() ? message : '(aucun message renseigné)',
+    truncatedMessage && truncatedMessage.trim()
+      ? truncatedMessage
+      : '(aucun message renseigné)',
   ]
     .filter(Boolean)
     .join('\n');
+
+  const safeHtmlMessage =
+    truncatedMessage && truncatedMessage.trim()
+      ? truncatedMessage.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br />')
+      : '(aucun message renseigné)';
 
   const htmlBody = `
     <p><strong>Société / organisation :</strong> ${companyName}</p>
@@ -93,7 +109,7 @@ export async function POST(request: Request) {
     ${date ? `<p><strong>Période / date souhaitée :</strong> ${date}</p>` : ''}
     ${subject ? `<p><strong>Type de besoin :</strong> ${subject}</p>` : ''}
     <p><strong>Message :</strong></p>
-    <p>${message && message.trim() ? message.replace(/\n/g, '<br />') : '(aucun message renseigné)'}</p>
+    <p>${safeHtmlMessage}</p>
   `;
 
   try {
