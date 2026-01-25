@@ -5,6 +5,8 @@ import { company } from '../../content/company';
 import { buildMetadata } from '../../lib/seo';
 import { Breadcrumbs } from '../../components/molecules/Breadcrumbs';
 import { buildBreadcrumbJsonLd } from '../../lib/breadcrumbs';
+import { Heading } from '../../components/atoms/Heading';
+import { Text } from '../../components/atoms/Text';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Galerie photo – Exemples de dispositifs de sécurité MAB SECURITE',
@@ -127,15 +129,15 @@ export default function GaleriePage() {
           />
           <header className="space-y-3">
             <p className="badge">Galerie photo</p>
-            <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
+            <Heading level={1} className="text-2xl sm:text-3xl">
               Exemples de contextes d&apos;intervention sécurisés par {company.name}
-            </h1>
-            <p className="max-w-2xl text-sm text-muted">
+            </Heading>
+            <Text className="max-w-2xl text-sm text-muted">
               Cette galerie présente des visuels illustrant les principaux contextes pour lesquels{' '}
               {company.name} conçoit et pilote des dispositifs de sécurité&nbsp;: chantiers BTP,
               entrepôts et plateformes logistiques, centres commerciaux et retail, événements
               professionnels et sites tertiaires ou administratifs.
-            </p>
+            </Text>
           </header>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
