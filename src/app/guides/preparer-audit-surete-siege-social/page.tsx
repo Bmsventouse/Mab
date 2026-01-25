@@ -81,24 +81,20 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 export default function PrepareAuditSureteSiegeSocialGuidePage() {
+  const structuredData = [
+    getAuditPreparationArticleJsonLd(),
+    getAuditPreparationFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour l'article de guide audit de sûreté
+        // JSON-LD combiné : article de guide audit de sûreté + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getAuditPreparationArticleJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ du guide audit de sûreté
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAuditPreparationFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <section className="section pb-0">
         <div className="section-inner max-w-3xl">

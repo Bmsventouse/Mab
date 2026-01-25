@@ -85,22 +85,18 @@ function getGardiennageIdfFaqJsonLd() {
 }
 
 export default function GardiennageIdfPage() {
+  const structuredData = [
+    getGardiennageIdfServiceJsonLd(),
+    getGardiennageIdfFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Gardiennage Île-de-France
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getGardiennageIdfServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Gardiennage Île-de-France
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getGardiennageIdfFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service Gardiennage Île-de-France + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[

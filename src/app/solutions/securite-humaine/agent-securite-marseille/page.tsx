@@ -85,26 +85,20 @@ function getAgentSecuriteMarseilleFaqJsonLd() {
 }
 
 export default function AgentSecuriteMarseillePage() {
+  const structuredData = [
+    getAgentSecuriteMarseilleServiceJsonLd(),
+    getAgentSecuriteMarseilleFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Agent de sécurité Marseille
+        // JSON-LD combiné : service Agent de sécurité Marseille + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getAgentSecuriteMarseilleServiceJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Agent de sécurité Marseille
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getAgentSecuriteMarseilleFaqJsonLd()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs
         items={[

@@ -64,16 +64,14 @@ function getNimesLocalBusinessJsonLd() {
 export default function SecuritePriveeNimesPage() {
   const keyServices = services;
 
+  const structuredData = [getNimesLocalBusinessJsonLd(), breadcrumbJsonLd];
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getNimesLocalBusinessJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : LocalBusiness Nîmes + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[

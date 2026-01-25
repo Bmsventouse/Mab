@@ -85,22 +85,18 @@ function getVideoSurveillanceFaqJsonLd() {
 }
 
 export default function VideoSurveillanceEntrepriseParisPage() {
+  const structuredData = [
+    getVideoSurveillanceServiceJsonLd(),
+    getVideoSurveillanceFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Vidéosurveillance d'entreprise à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoSurveillanceServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Vidéosurveillance d'entreprise à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoSurveillanceFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service vidéosurveillance + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[

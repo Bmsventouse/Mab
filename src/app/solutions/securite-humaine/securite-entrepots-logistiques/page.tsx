@@ -87,26 +87,20 @@ function getSecuriteEntrepotsLogistiquesFaqJsonLd() {
 }
 
 export default function SecuriteEntrepotsLogistiquesPage() {
+  const structuredData = [
+    getSecuriteEntrepotsLogistiquesServiceJsonLd(),
+    getSecuriteEntrepotsLogistiquesFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Sécurité entrepôts & plateformes logistiques
+        // JSON-LD combiné : service entrepôts & plateformes + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteEntrepotsLogistiquesServiceJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Sécurité entrepôts & plateformes logistiques
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteEntrepotsLogistiquesFaqJsonLd()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs
         items={[

@@ -80,24 +80,20 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 export default function SecuringNightConstructionSiteGuidePage() {
+  const structuredData = [
+    getSecuringNightSiteArticleJsonLd(),
+    getSecuringNightSiteFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le guide (HowTo)
+        // JSON-LD combiné : guide (HowTo) + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuringNightSiteArticleJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ du guide chantier de nuit
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getSecuringNightSiteFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <section className="section pb-0">
         <div className="section-inner max-w-3xl">

@@ -83,22 +83,18 @@ function getAuditSiegeSocialFaqJsonLd() {
 }
 
 export default function AuditSureteSiegeSocialParisPage() {
+  const structuredData = [
+    getAuditSiegeSocialServiceJsonLd(),
+    getAuditSiegeSocialFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Audit de sûreté de siège social à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAuditSiegeSocialServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Audit de sûreté de siège social à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAuditSiegeSocialFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service Audit de sûreté + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[

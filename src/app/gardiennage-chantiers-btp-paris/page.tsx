@@ -46,17 +46,52 @@ function getGardiennageChantierServiceJsonLd() {
 }
 
 export default function GardiennageChantiersBtpParisPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Comment éviter les vols sur mon chantier la nuit ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text:
+            "La mise en place d'un dispositif de gardiennage de chantier de nuit, combinant présence d'un agent de sécurité, rondes de sûreté à horaires variables, levées de doute sur alarme et contrôle des accès, permet de limiter fortement les intrusions et les vols de matériaux sur les chantiers BTP urbains.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Quel est le coût d'un agent de sécurité pour un chantier ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text:
+            "Le tarif d'un agent de sécurité pour un chantier dépend de l'amplitude horaire, du nombre de postes à couvrir, de la complexité des accès, du niveau de risque et de la durée de la mission. MAB SECURITE établit un devis de sécurité BTP sur mesure pour chaque site.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Comment sécuriser un chantier accessible avec plusieurs points d'entrée ?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text:
+            "La sécurisation d'un chantier multi-accès passe par une cartographie précise des zones sensibles, la définition de périmètres de contrôle (clôtures, portails, badges ou clés) et la mise en place d'une surveillance de chantier multi-accès combinant gardiennage humain, rondes de sûreté et vidéosurveillance autonome sur les secteurs les plus exposés.",
+        },
+      },
+    ],
+  };
+
+  const structuredData = [
+    getGardiennageChantierServiceJsonLd(),
+    breadcrumbJsonLd,
+    faqJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service de gardiennage de chantier
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getGardiennageChantierServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service gardiennage de chantier + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[
@@ -273,46 +308,6 @@ export default function GardiennageChantiersBtpParisPage() {
             secondaires.
           </p>
         </div>
-        <script
-          type="application/ld+json"
-          // JSON-LD pour la FAQ (FAQPage)
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: [
-                {
-                  '@type': 'Question',
-                  name: 'Comment éviter les vols sur mon chantier la nuit ?',
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      "La mise en place d'un dispositif de gardiennage de chantier de nuit, combinant présence d'un agent de sécurité, rondes de sûreté à horaires variables, levées de doute sur alarme et contrôle des accès, permet de limiter fortement les intrusions et les vols de matériaux sur les chantiers BTP urbains.",
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name: "Quel est le coût d'un agent de sécurité pour un chantier ?",
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      "Le tarif d'un agent de sécurité pour un chantier dépend de l'amplitude horaire, du nombre de postes à couvrir, de la complexité des accès, du niveau de risque et de la durée de la mission. MAB SECURITE établit un devis de sécurité BTP sur mesure pour chaque site.",
-                  },
-                },
-                {
-                  '@type': 'Question',
-                  name:
-                    "Comment sécuriser un chantier accessible avec plusieurs points d'entrée ?",
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text:
-                      "La sécurisation d'un chantier multi-accès passe par une cartographie précise des zones sensibles, la définition de périmètres de contrôle (clôtures, portails, badges ou clés) et la mise en place d'une surveillance de chantier multi-accès combinant gardiennage humain, rondes de sûreté et vidéosurveillance autonome sur les secteurs les plus exposés.",
-                  },
-                },
-              ],
-            }),
-          }}
-        />
       </section>
       </ServicePageTemplate>
     </>
