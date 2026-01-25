@@ -65,3 +65,12 @@
 - [ ] (P1) HTML lint : exécuter un lint HTML / audit manual (via DevTools ou un outil dédié) pour vérifier la structure des Hn, l’unicité du H1, l’absence de IDs dupliqués, et corriger les anomalies détectées.
 - [ ] (P1) Lighthouse/LHCI : lancer `npx lhci autorun` (lighthouserc.json) et viser des scores >= 90 sur Performance / Accessibilité / Best Practices / SEO ; ajuster les points identifiés (images, JS, contrastes).
 - [ ] (P1) SEO : tester les JSON-LD (Rich Results Test / Search Console) + vérifier les titles/canonicals sur un échantillon de pages (HOME, Prestations, Secteurs, Solutions clés, Locales, Guides, Légal) pour confirmer l’absence de conflit ou de duplication.
+
+---
+
+## Phase 2 – Raffinements proposés pour prochaines PR
+
+- [ ] (P2) UI secondaires : harmoniser complètement les pages “contenu” restantes (`/references`, `/a-propos`, `/galerie`) avec le design system (`Heading`, `Text`, `Button`) + ajout éventuel de `Breadcrumbs`/`BreadcrumbList` pour rester cohérent avec HOME/Prestations/Secteurs.
+- [ ] (P2) Maillage Guides ↔ Solutions : ajouter un bloc “Ressources / Guides” en bas des pages business stratégiques (gardiennage BTP Paris, gardiennage IDF, audit siège social, vidéosurveillance) renvoyant vers les guides existants ; et, dans les guides, ajouter 1–2 liens de plus vers les pages Solutions/Locales correspondantes.
+- [ ] (P2) Consentement & doc interne : documenter dans `docs/` le comportement du `ConsentProvider` et du lien “Gestion des cookies” (Footer), pour que toute nouvelle page conserve un point d’accès au paramétrage du consentement (utile pour futurs contributeurs).
+- [ ] (P2) Analyse Lighthouse ciblée : ouvrir une PR dédiée “Perf front” pour traiter les éventuels points remontés par LHCI (taille des images futures, éventuels scripts tiers supplémentaires, ajustements de la CSP si de nouveaux services sont intégrés).
