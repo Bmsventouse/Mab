@@ -87,26 +87,20 @@ function getSecuriteCentresCommerciauxFaqJsonLd() {
 }
 
 export default function SecuriteCentresCommerciauxPage() {
+  const structuredData = [
+    getSecuriteCentresCommerciauxServiceJsonLd(),
+    getSecuriteCentresCommerciauxFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Sécurité centres commerciaux & retail
+        // JSON-LD combiné : service centres commerciaux & retail + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteCentresCommerciauxServiceJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Sécurité centres commerciaux & retail
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteCentresCommerciauxFaqJsonLd()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs
         items={[

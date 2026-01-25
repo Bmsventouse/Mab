@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { CheckCircle2, Building2, Warehouse, ShieldCheck, Users } from 'lucide-react';
 import { company } from '../../content/company';
 import { buildMetadata } from '../../lib/seo';
+import { Breadcrumbs } from '../../components/molecules/Breadcrumbs';
+import { buildBreadcrumbJsonLd } from '../../lib/breadcrumbs';
+import { Heading } from '../../components/atoms/Heading';
+import { Text } from '../../components/atoms/Text';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Références & cas clients – Dispositifs types MAB SECURITE',
@@ -9,6 +13,11 @@ export const metadata: Metadata = buildMetadata({
     "Exemples de dispositifs types conçus par MAB SECURITE pour des chantiers BTP, sites logistiques, sièges sociaux tertiaires et événements professionnels. Illustrations des approches possibles en gardiennage, rondes de sûreté, sécurité incendie SSIAP et sécurité événementielle.",
   canonicalPath: '/references',
 });
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Accueil', path: '/' },
+  { name: 'Références', path: '/references' },
+]);
 
 interface CaseStudy {
   slug: string;
@@ -54,7 +63,8 @@ const caseStudies: CaseStudy[] = [
       'Surveillance ciblée de certaines zones de stockage à forte valeur',
       'Articulation avec la vidéosurveillance existante et le PC sécurité du client',
     ],
-    note: "Les amplitudes horaires et le nombre d'agents sont adaptés au profil d'activité (jour/nuit, 5j/7 ou 7j/7).",
+    note:
+      "Les amplitudes horaires et le nombre d'agents sont adaptés au profil d'activité (jour/nuit, 5j/7 ou 7j/7). Sur certains sites, la sécurisation logistique (ventousage, signalisation, affichage riverains) peut être organisée avec un partenaire spécialisé comme BMS Ventouse, en complément du gardiennage.",
   },
   {
     slug: 'siege-social-paris',
@@ -101,22 +111,34 @@ const iconByCategory: Record<string, typeof Building2> = {
 
 export default function ReferencesPage() {
   return (
-    <div className="section">
-      <div className="section-inner space-y-8">
-        <header className="space-y-3">
-          <p className="badge">Références &amp; cas clients</p>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Illustrations de dispositifs types pour vos sites
-          </h1>
-          <p className="max-w-3xl text-sm text-muted">
-            Les exemples ci-dessous illustrent des dispositifs types que {company.name}{' '}
-            peut concevoir et piloter pour différents environnements : chantiers BTP,
-            sites logistiques, immeubles tertiaires et événements professionnels. Ils
-            permettent de visualiser des combinaisons possibles de gardiennage, rondes de
-            sûreté, sécurité incendie et sécurité événementielle. Chaque mission réelle
-            fait l&apos;objet d&apos;un cadrage spécifique avec le client.
-          </p>
-        </header>
+    <>
+      <script
+        type="application/ld+json"
+        // JSON-LD pour le fil d'Ariane (BreadcrumbList) de la page Références
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="section">
+        <div className="section-inner space-y-8">
+          <header className="space-y-3">
+            <Breadcrumbs
+              items={[
+                { href: '/', label: 'Accueil' },
+                { href: '/references', label: 'Références' },
+              ]}
+            />
+            <p className="badge">Références &amp; cas clients</p>
+            <Heading level={1} className="text-2xl sm:text-3xl">
+              Illustrations de dispositifs types pour vos sites
+            </Heading>
+            <Text className="max-w-3xl text-sm text-muted">
+              Les exemples ci-dessous illustrent des dispositifs types que {company.name}{' '}
+              peut concevoir et piloter pour différents environnements : chantiers BTP,
+              sites logistiques, immeubles tertiaires et événements professionnels. Ils
+              permettent de visualiser des combinaisons possibles de gardiennage, rondes de
+              sûreté, sécurité incendie et sécurité événementielle. Chaque mission réelle
+              fait l&apos;objet d&apos;un cadrage spécifique avec le client.
+            </Text>
+          </header>
 
         <section className="grid gap-6 md:grid-cols-2">
           {caseStudies.map((cs) => {
@@ -129,15 +151,17 @@ export default function ReferencesPage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-base font-semibold text-slate-50">{cs.label}</h2>
-                    <p className="text-xs uppercase tracking-wide text-slate-400">
+                    <Heading level={2} className="text-base">
+                      {cs.label}
+                    </Heading>
+                    <Text className="text-xs uppercase tracking-wide text-slate-400">
                       {cs.category} · {cs.location}
-                    </p>
-                    <p className="text-sm text-muted">{cs.context}</p>
-                    <p className="mt-2 text-xs text-slate-300">
+                    </Text>
+                    <Text className="text-sm text-muted">{cs.context}</Text>
+                    <Text className="mt-2 text-xs text-slate-300">
                       <span className="font-semibold text-slate-100">Objectif :</span>{' '}
                       {cs.objective}
-                    </p>
+                    </Text>
                     <ul className="mt-2 space-y-1.5 text-xs text-slate-300">
                       {cs.devices.map((item) => (
                         <li key={item} className="flex gap-2">
@@ -147,9 +171,9 @@ export default function ReferencesPage() {
                       ))}
                     </ul>
                     {cs.note && (
-                      <p className="mt-2 text-[11px] text-slate-400">
+                      <Text className="mt-2 text-[11px] text-slate-400">
                         {cs.note}
-                      </p>
+                      </Text>
                     )}
                   </div>
                 </div>
@@ -159,23 +183,24 @@ export default function ReferencesPage() {
         </section>
 
         <section className="card-muted p-5 text-xs text-slate-300">
-          <p className="font-medium text-slate-100">
+          <Heading level={2} className="text-xs font-medium text-slate-100">
             Vous souhaitez discuter d&apos;un cas concret ou d&apos;un appel d&apos;offres&nbsp;?
-          </p>
-          <p className="mt-2">
+          </Heading>
+          <Text className="mt-2 text-xs text-slate-300">
             Ces exemples ne remplacent pas l&apos;étude de votre contexte réel. Pour un
             chantier précis, un site logistique, un siège social ou un événement,{' '}
             {company.name} analyse vos contraintes (horaires, flux, obligations
             réglementaires, marchés, conventions) et propose un dispositif adapté.
-          </p>
-          <p className="mt-2 text-[11px] text-slate-400">
+          </Text>
+          <Text className="mt-2 text-[11px] text-slate-400">
             Lorsque des missions sont réalisées dans le cadre de marchés publics ou de
             contrats privés pluriannuels, les références détaillées et attestations de
             capacité peuvent être communiquées aux acheteurs sur demande ou dans le cadre
             des dossiers de consultation.
-          </p>
+          </Text>
         </section>
       </div>
     </div>
+    </>
   );
 }

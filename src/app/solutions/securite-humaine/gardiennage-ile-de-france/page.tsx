@@ -85,22 +85,18 @@ function getGardiennageIdfFaqJsonLd() {
 }
 
 export default function GardiennageIdfPage() {
+  const structuredData = [
+    getGardiennageIdfServiceJsonLd(),
+    getGardiennageIdfFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Gardiennage Île-de-France
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getGardiennageIdfServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Gardiennage Île-de-France
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getGardiennageIdfFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service Gardiennage Île-de-France + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[
@@ -115,7 +111,7 @@ export default function GardiennageIdfPage() {
       <ServicePageTemplate
         h1="Gardiennage en Île-de-France : agents de sécurité et surveillance de sites"
         badge="Sécurité humaine · Île-de-France"
-        intro={`Cette page s’adresse aux entreprises, maîtres d’ouvrage et donneurs d’ordre implantés à Paris et en Île-de-France (75, 92, 93, 94, 95, 77, 78, 91) qui recherchent un dispositif de gardiennage pour leurs chantiers, sites tertiaires, entrepôts ou sites sensibles.`}
+        intro={`Cette page s’adresse aux entreprises, maîtres d’ouvrage et donneurs d’ordre implantés à Paris et en Île-de-France (75, 92, 93, 94, 95, 77, 78, 91) qui recherchent un dispositif de gardiennage fiable pour leurs chantiers, sites tertiaires, entrepôts ou sites sensibles.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -259,6 +255,56 @@ export default function GardiennageIdfPage() {
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
             >
               Contactez notre équipe gardiennage Île-de-France
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-6 space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-5 text-xs text-slate-300">
+          <p className="font-medium text-slate-100">
+            Guides et solutions pour sécuriser vos sites franciliens
+          </p>
+          <p>
+            Pour compléter votre réflexion sur le gardiennage de vos sites, vous pouvez consulter&nbsp;:
+          </p>
+          <ul className="ml-4 list-disc space-y-1.5">
+            <li>
+              la page{' '}
+              <Link
+                href="/gardiennage-chantiers-btp-paris"
+                className="underline-offset-2 hover:underline"
+              >
+                gardiennage de chantiers BTP à Paris
+              </Link>
+              , si vos enjeux portent aussi sur des opérations de construction en Île-de-France ;
+            </li>
+            <li>
+              le guide{' '}
+              <Link
+                href="/guides/securiser-chantier-btp-nuit"
+                className="underline-offset-2 hover:underline"
+              >
+                sécuriser un chantier BTP la nuit
+              </Link>
+              , pour disposer d&apos;une checklist opérationnelle dédiée aux périodes nocturnes ;
+            </li>
+            <li>
+              nos offres de{' '}
+              <Link
+                href="/solutions/securite-electronique/videosurveillance-entreprise-paris"
+                className="underline-offset-2 hover:underline"
+              >
+                vidéosurveillance d&apos;entreprise à Paris
+              </Link>
+              , afin d&apos;articuler gardiennage humain et moyens techniques sur vos sites
+              tertiaires et logistiques.
+            </li>
+          </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Parler de vos sites en Île-de-France avec MAB SECURITE
             </Link>
           </div>
         </section>

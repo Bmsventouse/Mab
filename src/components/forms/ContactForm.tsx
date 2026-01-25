@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loader2, Mail, Phone } from 'lucide-react';
 import { company, services } from '../../content/company';
 
@@ -41,8 +41,16 @@ export const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [hasTriedSubmit, setHasTriedSubmit] = useState(false);
 
-  const validate = (): boolean => {
+  const companyNameRef = useRef<HTMLInputElement | null>(null);
+  const contactNameRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const phoneRef = useRef<HTMLInputElement | null>(null);
+  const subjectRef = useRef<HTMLSelectElement | null>(null);
+  const consentRef = useRef<HTMLInputElement | null>(null);
+
+  const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
 
     if (!form.companyName.trim()) newErrors.companyName = 'Raison sociale requise.';
@@ -58,9 +66,38 @@ export const ContactForm = () => {
       newErrors.consent =
         'Vous devez accepter le traitement de vos données pour pouvoir envoyer ce formulaire.';
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
+
+  useEffect(() => {
+    if (!hasTriedSubmit) return;
+
+    const order: Array<keyof FormErrors> = [
+      'companyName',
+      'contactName',
+      'email',
+      'phone',
+      'subject',
+      'consent',
+    ];
+    const firstErrorKey = order.find((field) => errors[field]);
+
+    if (!firstErrorKey) return;
+
+    const refMap: Record<keyof FormErrors, React.RefObject<HTMLElement | HTMLInputElement>> = {
+      companyName: companyNameRef,
+      contactName: contactNameRef,
+      email: emailRef,
+      phone: phoneRef,
+      subject: subjectRef,
+      consent: consentRef,
+    };
+
+    const ref = refMap[firstErrorKey];
+    if (ref && ref.current) {
+      (ref.current as HTMLElement).focus();
+    }
+  }, [errors, hasTriedSubmit]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -81,8 +118,12 @@ export const ContactForm = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setSubmitError(null);
+    setHasTriedSubmit(true);
 
-    if (!validate()) {
+    const validationErrors = validate();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
       return;
     }
 
@@ -188,15 +229,24 @@ export const ContactForm = () => {
           <input
             type="text"
             name="companyName"
+            ref={companyNameRef}
             value={form.companyName}
             onChange={handleChange}
+            aria-invalid={!!errors.companyName}
+            aria-describedby={errors.companyName ? 'contact-companyName-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.companyName ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Nom de votre société ou structure"
           />
           {errors.companyName && (
-            <p className="mt-1 text-xs text-red-400">{errors.companyName}</p>
+            <p
+              id="contact-companyName-error"
+              className="mt-1 text-xs text-red-400"
+              role="alert"
+            >
+              {errors.companyName}
+            </p>
           )}
         </div>
 
@@ -207,15 +257,24 @@ export const ContactForm = () => {
           <input
             type="text"
             name="contactName"
+            ref={contactNameRef}
             value={form.contactName}
             onChange={handleChange}
+            aria-invalid={!!errors.contactName}
+            aria-describedby={errors.contactName ? 'contact-contactName-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.contactName ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Nom et prénom"
           />
           {errors.contactName && (
-            <p className="mt-1 text-xs text-red-400">{errors.contactName}</p>
+            <p
+              id="contact-contactName-error"
+              className="mt-1 text-xs text-red-400"
+              role="alert"
+            >
+              {errors.contactName}
+            </p>
           )}
         </div>
 
@@ -226,15 +285,20 @@ export const ContactForm = () => {
           <input
             type="email"
             name="email"
+            ref={emailRef}
             value={form.email}
             onChange={handleChange}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'contact-email-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.email ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="prenom.nom@entreprise.fr"
           />
           {errors.email && (
-            <p className="mt-1 text-xs text-red-400">{errors.email}</p>
+            <p id="contact-email-error" className="mt-1 text-xs text-red-400" role="alert">
+              {errors.email}
+            </p>
           )}
         </div>
 
@@ -245,15 +309,20 @@ export const ContactForm = () => {
           <input
             type="tel"
             name="phone"
+            ref={phoneRef}
             value={form.phone}
             onChange={handleChange}
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.phone ? 'border-red-500/70' : 'border-slate-700'
             }`}
             placeholder="Numéro joignable en journée"
           />
           {errors.phone && (
-            <p className="mt-1 text-xs text-red-400">{errors.phone}</p>
+            <p id="contact-phone-error" className="mt-1 text-xs text-red-400" role="alert">
+              {errors.phone}
+            </p>
           )}
         </div>
       </div>
@@ -265,8 +334,11 @@ export const ContactForm = () => {
           </label>
           <select
             name="subject"
+            ref={subjectRef}
             value={form.subject}
             onChange={handleChange}
+            aria-invalid={!!errors.subject}
+            aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
             className={`mt-1 w-full rounded-lg border bg-slate-900/60 px-3 py-2 text-sm text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 ${
               errors.subject ? 'border-red-500/70' : 'border-slate-700'
             }`}
@@ -280,7 +352,9 @@ export const ContactForm = () => {
             <option value="autre">Autre besoin de sécurité</option>
           </select>
           {errors.subject && (
-            <p className="mt-1 text-xs text-red-400">{errors.subject}</p>
+            <p id="contact-subject-error" className="mt-1 text-xs text-red-400" role="alert">
+              {errors.subject}
+            </p>
           )}
         </div>
 
@@ -318,8 +392,11 @@ export const ContactForm = () => {
           <input
             type="checkbox"
             name="consent"
+            ref={consentRef}
             checked={form.consent}
             onChange={handleChange}
+            aria-invalid={!!errors.consent}
+            aria-describedby={errors.consent ? 'contact-consent-error' : undefined}
             className="mt-0.5 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500"
           />
           <span>
@@ -330,12 +407,14 @@ export const ContactForm = () => {
           </span>
         </label>
         {errors.consent && (
-          <p className="text-xs text-red-400">{errors.consent}</p>
+          <p id="contact-consent-error" className="text-xs text-red-400" role="alert">
+            {errors.consent}
+          </p>
         )}
       </div>
 
       {submitError && (
-        <p className="mt-3 text-xs text-red-400">
+        <p className="mt-3 text-xs text-red-400" role="alert">
           {submitError}
         </p>
       )}

@@ -124,6 +124,18 @@ export function SiteFooter() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <p>Site vitrine institutionnel – Sécurité privée B2B.</p>
+            <p className="text-[11px] text-slate-500">
+              Site conçu &amp; optimisé par{' '}
+              <a
+                href="https://www.smarterlogicweb.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline-offset-2 hover:text-slate-200 hover:underline"
+              >
+                smarterlogicweb
+              </a>{' '}
+              – sites vitrines rapides &amp; orientés résultats pour artisans, PME et structures B2B.
+            </p>
             <CookiePreferencesLink className="text-[11px] text-slate-400 underline-offset-2 hover:text-slate-200 hover:underline" />
           </div>
         </div>

@@ -83,26 +83,20 @@ function getSecuriteEvenementielleCannesFaqJsonLd() {
 }
 
 export default function SecuriteEvenementielleCannesPage() {
+  const structuredData = [
+    getSecuriteEvenementielleCannesServiceJsonLd(),
+    getSecuriteEvenementielleCannesFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Sécurité événementielle Cannes
+        // JSON-LD combiné : service Sécurité événementielle Cannes + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteEvenementielleCannesServiceJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Sécurité événementielle Cannes
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSecuriteEvenementielleCannesFaqJsonLd()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs
         items={[

@@ -68,16 +68,14 @@ export default function SecuritePriveeMarseillePage() {
     ),
   );
 
+  const structuredData = [getMarseilleLocalBusinessJsonLd(), breadcrumbJsonLd];
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getMarseilleLocalBusinessJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : LocalBusiness Marseille + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[
