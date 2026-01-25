@@ -13,6 +13,28 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/guides/preparer-audit-surete-siege-social',
 });
 
+function getAuditPreparationArticleJsonLd() {
+  const baseUrl = company.contact.websiteUrl || 'https://www.mab-securite.fr';
+  const url = `${baseUrl.replace(/\/$/, '')}/guides/preparer-audit-surete-siege-social`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    name: 'Préparer un audit de sûreté de siège social : guide pour directions générales et services généraux',
+    headline:
+      'Préparer un audit de sûreté de siège social : guide pour directions générales et services généraux',
+    description:
+      "Guide pratique pour préparer un audit de sûreté de siège social : cadrage, collecte d'informations, parties prenantes, déroulé de la mission et exploitation du rapport.",
+    url,
+    publisher: {
+      '@type': 'Organization',
+      name: company.name,
+      url: baseUrl.replace(/\/$/, ''),
+    },
+    inLanguage: 'fr-FR',
+  };
+}
+
 function getAuditPreparationFaqJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -61,6 +83,13 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 export default function PrepareAuditSureteSiegeSocialGuidePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        // JSON-LD pour l'article de guide audit de sûreté
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getAuditPreparationArticleJsonLd()),
+        }}
+      />
       <script
         type="application/ld+json"
         // JSON-LD pour la FAQ du guide audit de sûreté
