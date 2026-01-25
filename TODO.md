@@ -70,7 +70,7 @@
 
 ## Phase 2 – Raffinements proposés pour prochaines PR
 
-- [ ] (P2) UI secondaires : harmoniser complètement les pages “contenu” restantes (`/references`, `/a-propos`, `/galerie`) avec le design system (`Heading`, `Text`, `Button`) + ajout éventuel de `Breadcrumbs`/`BreadcrumbList` pour rester cohérent avec HOME/Prestations/Secteurs.
-- [ ] (P2) Maillage Guides ↔ Solutions : ajouter un bloc “Ressources / Guides” en bas des pages business stratégiques (gardiennage BTP Paris, gardiennage IDF, audit siège social, vidéosurveillance) renvoyant vers les guides existants ; et, dans les guides, ajouter 1–2 liens de plus vers les pages Solutions/Locales correspondantes.
-- [ ] (P2) Consentement & doc interne : documenter dans `docs/` le comportement du `ConsentProvider` et du lien “Gestion des cookies” (Footer), pour que toute nouvelle page conserve un point d’accès au paramétrage du consentement (utile pour futurs contributeurs).
+- [x] (P2) UI secondaires : harmoniser complètement les pages “contenu” restantes (`/references`, `/a-propos`, `/galerie`) avec le design system (`Heading`, `Text`, `Button`) + ajout éventuel de `Breadcrumbs`/`BreadcrumbList` pour rester cohérent avec HOME/Prestations/Secteurs.
+- [x] (P2) Maillage Guides ↔ Solutions : ajouter un bloc “Ressources / Guides” en bas des pages business stratégiques (gardiennage BTP Paris, gardiennage IDF, audit siège social, vidéosurveillance) renvoyant vers les guides existants ; et, dans les guides, ajouter 1–2 liens de plus vers les pages Solutions/Locales correspondantes.
+- [x] (P2) Consentement & doc interne : documenter dans `docs/` le comportement du `ConsentProvider` et du lien “Gestion des cookies” (Footer), pour que toute nouvelle page conserve un point d’accès au paramétrage du consentement (utile pour futurs contributeurs).
 - [ ] (P2) Analyse Lighthouse ciblée : ouvrir une PR dédiée “Perf front” pour traiter les éventuels points remontés par LHCI (taille des images futures, éventuels scripts tiers supplémentaires, ajustements de la CSP si de nouveaux services sont intégrés).
