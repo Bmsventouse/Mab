@@ -111,7 +111,7 @@ export default function GardiennageIdfPage() {
       <ServicePageTemplate
         h1="Gardiennage en Île-de-France : agents de sécurité et surveillance de sites"
         badge="Sécurité humaine · Île-de-France"
-        intro={`Cette page s’adresse aux entreprises, maîtres d’ouvrage et donneurs d’ordre implantés à Paris et en Île-de-France (75, 92, 93, 94, 95, 77, 78, 91) qui recherchent un dispositif de gardiennage pour leurs chantiers, sites tertiaires, entrepôts ou sites sensibles.`}
+        intro={`Cette page s’adresse aux entreprises, maîtres d’ouvrage et donneurs d’ordre implantés à Paris et en Île-de-France (75, 92, 93, 94, 95, 77, 78, 91) qui recherchent un dispositif de gardiennage fiable pour leurs chantiers, sites tertiaires, entrepôts ou sites sensibles.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -299,6 +299,14 @@ export default function GardiennageIdfPage() {
               tertiaires et logistiques.
             </li>
           </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Parler de vos sites en Île-de-France avec MAB SECURITE
+            </Link>
+          </div>
         </section>
       </ServicePageTemplate>
     </>

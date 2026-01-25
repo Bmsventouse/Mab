@@ -111,7 +111,7 @@ export default function VideoSurveillanceEntrepriseParisPage() {
       <ServicePageTemplate
         h1="Vidéosurveillance d'entreprise à Paris : audit, conception et déploiement"
         badge="Sécurité électronique · Paris"
-        intro={`Cette page s’adresse aux directions immobilières, directions de la sûreté, DSI et responsables de sites basés à Paris ou en Île-de-France qui souhaitent mettre en place ou faire évoluer un dispositif de vidéosurveillance d’entreprise. L’objectif : renforcer la sûreté de vos bâtiments (sièges sociaux, sites tertiaires, entrepôts, parkings) en intégrant les contraintes réglementaires, opérationnelles et RGPD.`}
+        intro={`Cette page s’adresse aux directions immobilières, directions de la sûreté, DSI et responsables de sites basés à Paris ou en Île-de-France qui souhaitent mettre en place ou faire évoluer un dispositif de vidéosurveillance d’entreprise. L’objectif : renforcer la sûreté de vos bâtiments (sièges sociaux, sites tertiaires, entrepôts, parkings) tout en respectant les contraintes réglementaires, opérationnelles et RGPD.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -345,6 +345,14 @@ export default function VideoSurveillanceEntrepriseParisPage() {
               , pour articuler vidéosurveillance et présence d&apos;agents de sécurité.
             </li>
           </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Discuter d&apos;un projet vidéosurveillance à Paris
+            </Link>
+          </div>
         </section>
       </ServicePageTemplate>
     </>
