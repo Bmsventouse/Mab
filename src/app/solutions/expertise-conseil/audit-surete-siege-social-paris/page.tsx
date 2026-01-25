@@ -109,7 +109,7 @@ export default function AuditSureteSiegeSocialParisPage() {
       <ServicePageTemplate
         h1="Audit de sûreté de siège social à Paris : clarifier les risques et prioriser les actions"
         badge="Expertise & conseil · Paris"
-        intro={`Cette page s’adresse aux directions générales, directions immobilières, directions de la sûreté et services généraux qui pilotent un siège social à Paris ou en Île-de-France et souhaitent disposer d’un diagnostic structuré de leur niveau de sûreté. L’objectif : comprendre les risques, qualifier les scénarios critiques et disposer d’un plan d’actions concret pour renforcer la protection des équipes, des actifs et des informations sensibles.`}
+        intro={`Cette page s’adresse aux directions générales, directions immobilières, directions de la sûreté et services généraux qui pilotent un siège social à Paris ou en Île-de-France et souhaitent disposer d’un diagnostic clair de leur niveau de sûreté. L’objectif : comprendre les risques, qualifier les scénarios critiques et disposer d’un plan d’actions priorisé pour protéger les équipes, les actifs et les informations sensibles.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -340,6 +340,14 @@ export default function AuditSureteSiegeSocialParisPage() {
               sur site.
             </li>
           </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Planifier un audit de sûreté de siège social
+            </Link>
+          </div>
         </section>
       </ServicePageTemplate>
     </>

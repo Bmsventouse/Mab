@@ -106,7 +106,7 @@ export default function GardiennageChantiersBtpParisPage() {
       <ServicePageTemplate
         h1="Gardiennage de chantiers BTP à Paris et en Île-de-France"
         badge="Paris · BTP · Chantiers"
-        intro={`${company.name} accompagne les entreprises du BTP et les maîtres d'ouvrage dans la sécurisation de leurs chantiers en Île-de-France. Nos dispositifs de gardiennage de chantiers BTP combinent présence humaine, rondes de sûreté et levées de doute pour protéger vos matériels, vos installations et vos équipes, notamment en horaires de nuit et week-end.`}
+        intro={`${company.name} sécurise vos chantiers BTP en Île-de-France avec des dispositifs de gardiennage combinant présence humaine, rondes de sûreté et levées de doute pour protéger vos matériels, vos installations et vos équipes, notamment en horaires de nuit et week-end.`}
         sidebar={
           <>
             <h2 className="text-sm font-semibold text-slate-50">
@@ -347,6 +347,14 @@ export default function GardiennageChantiersBtpParisPage() {
             , si vous souhaitez articuler gardiennage humain et moyens techniques.
           </li>
         </ul>
+        <div className="pt-3">
+          <Link
+            href="/contact#formulaire-devis"
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+          >
+            Obtenir un devis gardiennage chantier BTP
+          </Link>
+        </div>
       </section>
       </ServicePageTemplate>
     </>
