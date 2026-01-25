@@ -85,26 +85,20 @@ function getAgentSecuriteNiceFaqJsonLd() {
 }
 
 export default function AgentSecuriteNicePage() {
+  const structuredData = [
+    getAgentSecuriteNiceServiceJsonLd(),
+    getAgentSecuriteNiceFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Agent de sécurité Nice
+        // JSON-LD combiné : service Agent de sécurité Nice + FAQ + fil d'Ariane (BreadcrumbList)
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getAgentSecuriteNiceServiceJsonLd()),
+          __html: JSON.stringify(structuredData),
         }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Agent de sécurité Nice
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getAgentSecuriteNiceFaqJsonLd()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs
         items={[

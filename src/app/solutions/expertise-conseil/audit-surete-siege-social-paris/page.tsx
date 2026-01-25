@@ -83,22 +83,18 @@ function getAuditSiegeSocialFaqJsonLd() {
 }
 
 export default function AuditSureteSiegeSocialParisPage() {
+  const structuredData = [
+    getAuditSiegeSocialServiceJsonLd(),
+    getAuditSiegeSocialFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Audit de sûreté de siège social à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAuditSiegeSocialServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Audit de sûreté de siège social à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAuditSiegeSocialFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service Audit de sûreté + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[
@@ -113,7 +109,7 @@ export default function AuditSureteSiegeSocialParisPage() {
       <ServicePageTemplate
         h1="Audit de sûreté de siège social à Paris : clarifier les risques et prioriser les actions"
         badge="Expertise & conseil · Paris"
-        intro={`Cette page s’adresse aux directions générales, directions immobilières, directions de la sûreté et services généraux qui pilotent un siège social à Paris ou en Île-de-France et souhaitent disposer d’un diagnostic structuré de leur niveau de sûreté. L’objectif : comprendre les risques, qualifier les scénarios critiques et disposer d’un plan d’actions concret pour renforcer la protection des équipes, des actifs et des informations sensibles.`}
+        intro={`Cette page s’adresse aux directions générales, directions immobilières, directions de la sûreté et services généraux qui pilotent un siège social à Paris ou en Île-de-France et souhaitent disposer d’un diagnostic clair de leur niveau de sûreté. L’objectif : comprendre les risques, qualifier les scénarios critiques et disposer d’un plan d’actions priorisé pour protéger les équipes, les actifs et les informations sensibles.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -299,6 +295,57 @@ export default function AuditSureteSiegeSocialParisPage() {
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
             >
               Contactez notre équipe pour un audit de sûreté de siège social
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-6 space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-5 text-xs text-slate-300">
+          <p className="font-medium text-slate-100">
+            Ressources complémentaires pour préparer votre audit de siège social
+          </p>
+          <p>
+            Pour structurer votre démarche en amont de la mission, vous pouvez vous appuyer sur&nbsp;:
+          </p>
+          <ul className="ml-4 list-disc space-y-1.5">
+            <li>
+              le guide{' '}
+              <Link
+                href="/guides/preparer-audit-surete-siege-social"
+                className="underline-offset-2 hover:underline"
+              >
+                préparer un audit de sûreté de siège social
+              </Link>
+              , qui détaille les étapes de cadrage, la mobilisation des parties prenantes et
+              l&apos;exploitation du rapport ;
+            </li>
+            <li>
+              notre page dédiée à la{' '}
+              <Link
+                href="/solutions/securite-electronique/videosurveillance-entreprise-paris"
+                className="underline-offset-2 hover:underline"
+              >
+                vidéosurveillance d&apos;entreprise à Paris
+              </Link>
+              , pour articuler l&apos;audit avec vos dispositifs techniques ;
+            </li>
+            <li>
+              les solutions de{' '}
+              <Link
+                href="/solutions/securite-humaine/gardiennage-ile-de-france"
+                className="underline-offset-2 hover:underline"
+              >
+                gardiennage en Île-de-France
+              </Link>
+              , lorsque vos enjeux portent aussi sur la présence d&apos;agents de sécurité
+              sur site.
+            </li>
+          </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Planifier un audit de sûreté de siège social
             </Link>
           </div>
         </section>

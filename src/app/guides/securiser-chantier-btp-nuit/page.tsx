@@ -13,6 +13,27 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/guides/securiser-chantier-btp-nuit',
 });
 
+function getSecuringNightSiteArticleJsonLd() {
+  const baseUrl = company.contact.websiteUrl || 'https://www.mab-securite.fr';
+  const url = `${baseUrl.replace(/\/$/, '')}/guides/securiser-chantier-btp-nuit`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'Sécuriser un chantier BTP la nuit : checklist opérationnelle',
+    headline: 'Sécuriser un chantier BTP la nuit : checklist opérationnelle',
+    description:
+      "Checklist pratique pour sécuriser un chantier BTP la nuit : analyse des risques, gardiennage, rondes de sûreté, vidéosurveillance et coordination avec les équipes travaux.",
+    url,
+    publisher: {
+      '@type': 'Organization',
+      name: company.name,
+      url: baseUrl.replace(/\/$/, ''),
+    },
+    inLanguage: 'fr-FR',
+  };
+}
+
 function getSecuringNightSiteFaqJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -59,17 +80,20 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 ]);
 
 export default function SecuringNightConstructionSiteGuidePage() {
+  const structuredData = [
+    getSecuringNightSiteArticleJsonLd(),
+    getSecuringNightSiteFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour la FAQ du guide chantier de nuit
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getSecuringNightSiteFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : guide (HowTo) + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
       />
       <section className="section pb-0">
         <div className="section-inner max-w-3xl">

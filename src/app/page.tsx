@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { company, engagements, services } from '../content/company';
 import { buildMetadata } from '../lib/seo';
+import { Heading } from '../components/atoms/Heading';
+import { Text } from '../components/atoms/Text';
+import { Button } from '../components/atoms/Button';
 
 export const metadata: Metadata = buildMetadata({
   title:
@@ -43,37 +46,32 @@ export default function HomePage() {
               Sécurité privée · B2B · Nîmes &amp; région
             </span>
             <div className="space-y-4">
-              <h1 className="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
+              <Heading level={1} className="text-balance">
                 Sécuriser durablement vos sites, vos équipes et vos publics.
-              </h1>
-              <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-                {company.name}, société de sécurité privée basée à Nîmes, conçoit et pilote
-                des dispositifs de sécurité pour les entreprises privées, les donneurs
-                d&apos;ordre publics et les organisateurs d&apos;événements. Notre
-                expérience de terrain et notre connaissance des appels d&apos;offres privés
-                et publics garantissent des interventions traçables, fiables et conformes
-                au cadre réglementaire. Nous intervenons notamment pour le{' '}
+              </Heading>
+              <Text className="max-w-xl sm:text-base">
+                {company.name}, société de sécurité privée basée à Nîmes, accompagne les
+                entreprises privées, les donneurs d&apos;ordre publics et les organisateurs
+                d&apos;événements. Nous intervenons notamment pour le{' '}
                 <strong>gardiennage de chantiers BTP en Île-de-France</strong>, la mise à
                 disposition d&apos;
                 <strong>agents de sécurité à Marseille, Montpellier et Nice</strong>, la{' '}
                 <strong>vidéosurveillance d&apos;entreprise à Paris</strong> et la{' '}
                 <strong>sécurité événementielle à Cannes</strong>.
-              </p>
+              </Text>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/contact#formulaire-devis"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
-              >
-                Demander un devis
-                <ArrowRight className="h-4 w-4" />
+              <Link href="/contact#formulaire-devis">
+                <Button className="inline-flex items-center gap-2">
+                  Demander un devis
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
               </Link>
-              <Link
-                href="/prestations"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm font-medium text-slate-100 transition hover:border-emerald-500"
-              >
-                Découvrir nos prestations
+              <Link href="/prestations">
+                <Button variant="secondary" className="inline-flex items-center gap-2">
+                  Découvrir nos prestations
+                </Button>
               </Link>
             </div>
 
@@ -152,14 +150,14 @@ export default function HomePage() {
         <div className="section-inner space-y-5">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-sm font-semibold text-slate-50 sm:text-base">
+              <Heading level={2} className="text-sm sm:text-base">
                 Pour quels types d&apos;organisations ?
-              </h2>
-              <p className="text-xs text-muted sm:text-sm">
+              </Heading>
+              <Text variant="muted" className="text-xs sm:text-sm">
                 {company.name} intervient pour des structures privées comme publiques,
                 dans le cadre de relations contractuelles récurrentes ou d&apos;appels
                 d&apos;offres.
-              </p>
+              </Text>
             </div>
           </div>
           <div className="grid gap-4 text-xs text-slate-300 md:grid-cols-3">
@@ -199,16 +197,16 @@ export default function HomePage() {
         <div className="section-inner space-y-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">
+              <Heading level={2} className="text-lg sm:text-xl">
                 Prestations clés pour les organisations professionnelles
-              </h2>
-              <p className="text-sm text-muted">
+              </Heading>
+              <Text variant="muted" className="text-sm">
                 Des solutions de sécurité structurées pour vos bâtiments, sites
                 opérationnels, événements et environnements sensibles, qu&apos;il s&apos;agisse
                 de <strong>gardiennage en Île-de-France</strong>, de sécurité BTP à Paris,
                 d&apos;<strong>agents de sécurité à Marseille ou Montpellier</strong>, ou de{' '}
                 <strong>sécurité événementielle à Cannes</strong>.
-              </p>
+              </Text>
             </div>
             <Link
               href="/prestations"
@@ -310,6 +308,23 @@ export default function HomePage() {
             </Link>
             .
           </p>
+
+          <div className="flex flex-wrap gap-3 pt-3">
+            <Link href="/contact#formulaire-devis">
+              <Button className="inline-flex items-center gap-2 text-xs sm:text-sm">
+                Parler de votre projet
+                <ArrowRight className="h-3 w-3" />
+              </Button>
+            </Link>
+            <Link href="/solutions">
+              <Button
+                variant="secondary"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm"
+              >
+                Voir toutes nos solutions
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -318,13 +333,13 @@ export default function HomePage() {
         <div className="section-inner space-y-4">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">
+              <Heading level={2} className="text-lg sm:text-xl">
                 Galerie photo
-              </h2>
-              <p className="text-xs text-muted sm:text-sm">
+              </Heading>
+              <Text variant="muted" className="text-xs sm:text-sm">
                 Exemples de dispositifs de sécurité déployés sur des chantiers BTP, sites
                 industriels, sites tertiaires et événements sécurisés par {company.name}.
-              </p>
+              </Text>
             </div>
             <Link
               href="/galerie"
@@ -360,23 +375,37 @@ export default function HomePage() {
       {/* Engagements */}
       <section className="section pb-16">
         <div className="section-inner space-y-6">
-          <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">
+          <Heading level={2} className="text-lg sm:text-xl">
             Nos engagements
-          </h2>
+          </Heading>
           <div className="grid gap-5 md:grid-cols-2">
             {engagements.map((item) => (
               <article key={item.title} className="card-muted p-5">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
                   <div>
-                    <h3 className="text-sm font-semibold text-slate-50">
+                    <Heading level={3} className="text-sm">
                       {item.title}
-                    </h3>
-                    <p className="mt-1 text-xs text-muted">{item.description}</p>
+                    </Heading>
+                    <Text variant="muted" className="mt-1 text-xs">
+                      {item.description}
+                    </Text>
                   </div>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="pt-2">
+            <Link href="/contact#formulaire-devis">
+              <Button
+                variant="secondary"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm"
+              >
+                Demander un devis sécurité
+                <ArrowRight className="h-3 w-3" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

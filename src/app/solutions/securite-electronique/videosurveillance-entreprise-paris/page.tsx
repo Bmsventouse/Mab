@@ -85,22 +85,18 @@ function getVideoSurveillanceFaqJsonLd() {
 }
 
 export default function VideoSurveillanceEntrepriseParisPage() {
+  const structuredData = [
+    getVideoSurveillanceServiceJsonLd(),
+    getVideoSurveillanceFaqJsonLd(),
+    breadcrumbJsonLd,
+  ];
+
   return (
     <>
       <script
         type="application/ld+json"
-        // JSON-LD pour le service Vidéosurveillance d'entreprise à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoSurveillanceServiceJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour la FAQ Vidéosurveillance d'entreprise à Paris
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getVideoSurveillanceFaqJsonLd()) }}
-      />
-      <script
-        type="application/ld+json"
-        // JSON-LD pour le fil d'Ariane (BreadcrumbList)
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        // JSON-LD combiné : service vidéosurveillance + FAQ + fil d'Ariane (BreadcrumbList)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Breadcrumbs
         items={[
@@ -115,7 +111,7 @@ export default function VideoSurveillanceEntrepriseParisPage() {
       <ServicePageTemplate
         h1="Vidéosurveillance d'entreprise à Paris : audit, conception et déploiement"
         badge="Sécurité électronique · Paris"
-        intro={`Cette page s’adresse aux directions immobilières, directions de la sûreté, DSI et responsables de sites basés à Paris ou en Île-de-France qui souhaitent mettre en place ou faire évoluer un dispositif de vidéosurveillance d’entreprise. L’objectif : renforcer la sûreté de vos bâtiments (sièges sociaux, sites tertiaires, entrepôts, parkings) en intégrant les contraintes réglementaires, opérationnelles et RGPD.`}
+        intro={`Cette page s’adresse aux directions immobilières, directions de la sûreté, DSI et responsables de sites basés à Paris ou en Île-de-France qui souhaitent mettre en place ou faire évoluer un dispositif de vidéosurveillance d’entreprise. L’objectif : renforcer la sûreté de vos bâtiments (sièges sociaux, sites tertiaires, entrepôts, parkings) tout en respectant les contraintes réglementaires, opérationnelles et RGPD.`}
         sidebar={
           <div className="space-y-3">
             <p className="font-medium text-slate-100">
@@ -306,6 +302,55 @@ export default function VideoSurveillanceEntrepriseParisPage() {
               className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400"
             >
               Contactez notre équipe vidéosurveillance à Paris
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-6 space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-5 text-xs text-slate-300">
+          <p className="font-medium text-slate-100">
+            Guides et ressources pour compléter votre projet de vidéosurveillance
+          </p>
+          <p>
+            Pour préparer ou compléter votre projet, vous pouvez également consulter&nbsp;:
+          </p>
+          <ul className="ml-4 list-disc space-y-1.5">
+            <li>
+              le guide{' '}
+              <Link
+                href="/guides/preparer-audit-surete-siege-social"
+                className="underline-offset-2 hover:underline"
+              >
+                préparer un audit de sûreté de siège social
+              </Link>
+              , utile si vos enjeux portent aussi sur la protection globale du siège ;
+            </li>
+            <li>
+              la page{' '}
+              <Link
+                href="/solutions/expertise-conseil/audit-surete-siege-social-paris"
+                className="underline-offset-2 hover:underline"
+              >
+                audit de sûreté de siège social à Paris
+              </Link>
+              , lorsque vous souhaitez cadrer en amont la stratégie de sûreté de vos sites ;
+            </li>
+            <li>
+              nos offres de{' '}
+              <Link
+                href="/solutions/securite-humaine/gardiennage-ile-de-france"
+                className="underline-offset-2 hover:underline"
+              >
+                gardiennage en Île-de-France
+              </Link>
+              , pour articuler vidéosurveillance et présence d&apos;agents de sécurité.
+            </li>
+          </ul>
+          <div className="pt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Discuter d&apos;un projet vidéosurveillance à Paris
             </Link>
           </div>
         </section>

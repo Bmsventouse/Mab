@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { Building2, Clapperboard, Landmark, Ticket } from 'lucide-react';
 import { company, sectors } from '../../content/company';
 import { buildMetadata } from '../../lib/seo';
+import { Heading } from '../../components/atoms/Heading';
+import { Text } from '../../components/atoms/Text';
+import { Breadcrumbs } from '../../components/molecules/Breadcrumbs';
+import { buildBreadcrumbJsonLd } from '../../lib/breadcrumbs';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Secteurs d’intervention – BTP, entreprises et acteurs publics',
@@ -10,6 +14,11 @@ export const metadata: Metadata = buildMetadata({
     "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Montpellier, Nîmes et dans leurs régions.",
   canonicalPath: '/secteurs',
 });
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Accueil', path: '/' },
+  { name: 'Secteurs', path: '/secteurs' },
+]);
 
 const iconMap: Record<string, typeof Building2> = {
   entreprises: Building2,
@@ -20,21 +29,33 @@ const iconMap: Record<string, typeof Building2> = {
 
 export default function SecteursPage() {
   return (
-    <div className="section">
-      <div className="section-inner space-y-8">
-        <header className="space-y-3">
-          <p className="badge">Secteurs</p>
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
-            Des dispositifs adaptés à vos environnements
-          </h1>
-          <p className="max-w-2xl text-sm text-muted">
-            {company.name} intervient dans différents environnements professionnels avec
-            un souci constant d&apos;adaptation aux contraintes de chaque métier&nbsp;:
-            continuité de service, gestion des flux, exigences réglementaires, enjeux
-            d&apos;image et de confidentialité, y compris dans le cadre de marchés publics
-            ou de conventions pluriannuelles.
-          </p>
-        </header>
+    <>
+      <script
+        type="application/ld+json"
+        // JSON-LD pour le fil d'Ariane (BreadcrumbList) des secteurs
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="section">
+        <div className="section-inner space-y-8">
+          <header className="space-y-3">
+            <Breadcrumbs
+              items={[
+                { href: '/', label: 'Accueil' },
+                { href: '/secteurs', label: 'Secteurs' },
+              ]}
+            />
+            <p className="badge">Secteurs</p>
+            <Heading level={1} className="text-2xl sm:text-3xl">
+              Des dispositifs adaptés à vos environnements
+            </Heading>
+            <Text variant="muted" className="max-w-2xl text-sm">
+              {company.name} intervient dans différents environnements professionnels avec
+              un objectif simple : réduire les risques concrets (intrusions, vols,
+              dégradations, incidents avec le public) sans bloquer votre activité. Les
+              dispositifs sont ajustés à vos flux, à vos horaires et à vos obligations
+              réglementaires.
+            </Text>
+          </header>
 
         <section className="grid gap-6 md:grid-cols-2">
           {sectors.map((sector) => {
@@ -47,17 +68,19 @@ export default function SecteursPage() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-base font-semibold text-slate-50">
+                    <Heading level={2} className="text-base">
                       {sector.name}
-                    </h2>
-                    <p className="text-sm text-muted">{sector.description}</p>
+                    </Heading>
+                    <Text variant="muted" className="text-sm">
+                      {sector.description}
+                    </Text>
                     <ul className="mt-2 space-y-1.5 text-xs text-slate-300">
                       {sector.examples.map((example) => (
                         <li key={example}>• {example}</li>
                       ))}
                     </ul>
                     {sector.slug === 'entreprises' && (
-                      <p className="mt-2 text-[11px] text-slate-400">
+                      <Text className="mt-2 text-[11px] text-slate-400">
                         Pour sécuriser vos entrepôts, plateformes logistiques et centres commerciaux,
                         vous pouvez consulter nos solutions dédiées&nbsp;:&nbsp;
                         <Link
@@ -74,7 +97,7 @@ export default function SecteursPage() {
                           sécurité centres commerciaux &amp; retail
                         </Link>
                         .
-                      </p>
+                      </Text>
                     )}
                     {sector.slug === 'evenementiel' && (
                       <p className="mt-2 text-[11px] text-slate-400">
@@ -183,8 +206,17 @@ export default function SecteursPage() {
             </Link>
             .
           </p>
+          <div className="mt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Discuter de votre contexte avec MAB SECURITE
+            </Link>
+          </div>
         </section>
       </div>
     </div>
+    </>
   );
 }

@@ -1,7 +1,24 @@
 import { NextResponse } from 'next/server';
 import { supabaseServer } from '../../../lib/supabase';
+import { rateLimitByIp } from '../../../lib/rate-limit';
 
 export async function POST(request: Request) {
+  const rateLimit = rateLimitByIp(request, 'agents', {
+    windowMs: 60_000,
+    max: 5,
+  });
+
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          'Trop de tentatives en peu de temps. Merci de réessayer dans quelques instants.',
+      },
+      { status: 429 },
+    );
+  }
+
   let data: unknown;
 
   try {
@@ -47,7 +64,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
-  if (!fullName || !phone || !email || !city) {
+  const trimmedFullName = fullName?.trim() ?? '';
+  const trimmedEmail = email?.trim() ?? '';
+  const trimmedPhone = phone?.trim() ?? '';
+  const trimmedCity = city?.trim() ?? '';
+
+  const emailIsValid =
+    trimmedEmail.length > 3 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail);
+  const phoneDigits = trimmedPhone.replace(/[^\d+]/g, '');
+  const phoneIsValid = phoneDigits.length >= 6 && phoneDigits.length <= 20;
+
+  if (
+    !trimmedFullName ||
+    !trimmedEmail ||
+    !trimmedPhone ||
+    !trimmedCity ||
+    !emailIsValid ||
+    !phoneIsValid
+  ) {
     return NextResponse.json(
       { success: false, message: 'Certains champs obligatoires sont manquants.' },
       { status: 400 },
@@ -60,10 +94,10 @@ export async function POST(request: Request) {
   if (!supabaseServer) {
     // Si Supabase n'est pas configuré, on log simplement la candidature côté serveur.
     console.info('[agents] Candidature agent reçue (Supabase non configuré)', {
-      fullName,
-      phone,
-      email,
-      city,
+      fullName: trimmedFullName,
+      phone: trimmedPhone,
+      email: trimmedEmail,
+      city: trimmedCity,
       zone,
       hasCnaps: Boolean(hasCnaps),
       ssiapLevel: ssiapLevel || null,
@@ -74,10 +108,10 @@ export async function POST(request: Request) {
   }
 
   const { error } = await supabaseServer.from('agent_applications').insert({
-    full_name: fullName,
-    phone,
-    email,
-    city,
+    full_name: trimmedFullName,
+    phone: trimmedPhone,
+    email: trimmedEmail,
+    city: trimmedCity,
     zone,
     has_cnaps: Boolean(hasCnaps),
     ssiap_level: ssiapLevel || null,
