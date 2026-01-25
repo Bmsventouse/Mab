@@ -7,8 +7,6 @@ import { Heading } from '../../components/atoms/Heading';
 import { Text } from '../../components/atoms/Text';
 import { Breadcrumbs } from '../../components/molecules/Breadcrumbs';
 import { buildBreadcrumbJsonLd } from '../../lib/breadcrumbs';
-import { Heading } from '../../components/atoms/Heading';
-import { Text } from '../../components/atoms/Text';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Secteurs d’intervention – BTP, entreprises et acteurs publics',
