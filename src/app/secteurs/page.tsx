@@ -50,10 +50,10 @@ export default function SecteursPage() {
             </Heading>
             <Text variant="muted" className="max-w-2xl text-sm">
               {company.name} intervient dans différents environnements professionnels avec
-              un souci constant d&apos;adaptation aux contraintes de chaque métier&nbsp;:
-              continuité de service, gestion des flux, exigences réglementaires, enjeux
-              d&apos;image et de confidentialité, y compris dans le cadre de marchés publics
-              ou de conventions pluriannuelles.
+              un objectif simple : réduire les risques concrets (intrusions, vols,
+              dégradations, incidents avec le public) sans bloquer votre activité. Les
+              dispositifs sont ajustés à vos flux, à vos horaires et à vos obligations
+              réglementaires.
             </Text>
           </header>
 
@@ -206,6 +206,14 @@ export default function SecteursPage() {
             </Link>
             .
           </p>
+          <div className="mt-3">
+            <Link
+              href="/contact#formulaire-devis"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950"
+            >
+              Discuter de votre contexte avec MAB SECURITE
+            </Link>
+          </div>
         </section>
       </div>
     </div>

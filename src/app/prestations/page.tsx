@@ -42,18 +42,17 @@ export default function PrestationsPage() {
       <ServicePageTemplate
         h1="Prestations de sécurité privée pour les organisations professionnelles"
         badge="Prestations"
-        intro={`${company.name} conçoit et pilote des dispositifs de sécurité adaptés aux contraintes des entreprises privées, des collectivités et des établissements publics. Chaque mission est cadrée en amont afin d'assurer un niveau de sécurité cohérent avec vos enjeux, vos obligations réglementaires et, le cas échéant, les exigences de vos appels d'offres privés ou publics et de vos cahiers des charges.`}
+        intro={`${company.name} conçoit et pilote des dispositifs de sécurité pour protéger vos équipes, vos sites et vos activités. L'objectif : réduire les vols, intrusions et incidents tout en maintenant la continuité de service et en respectant vos contraintes opérationnelles et réglementaires.`}
         sidebar={
           <div className="space-y-3">
             <Heading level={3} className="text-sm">
-              Besoin d’une approche globale de la sécurité de vos sites&nbsp;?
+              Ce que vous gagnez en travaillant avec {company.name}
             </Heading>
-            <Text className="text-xs text-slate-300">
-              Nous construisons des dispositifs combinant gardiennage, rondes de sûreté et
-              sécurité événementielle, en articulation avec vos procédures internes (plans
-              de prévention, consignes d&apos;accès, gestion des visiteurs, prestataires et
-              sous-traitants).
-            </Text>
+            <ul className="space-y-1.5 text-xs text-slate-300">
+              <li>• Un interlocuteur unique pour l&apos;ensemble de vos sites.</li>
+              <li>• Des dispositifs dimensionnés à vos risques réels, pas à des grilles génériques.</li>
+              <li>• Des interventions traçables et documentées (consignes, main courante, reporting).</li>
+            </ul>
           </div>
         }
       >
@@ -184,6 +183,18 @@ export default function PrestationsPage() {
               </Link>
               .
             </p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <Link href="/contact#formulaire-devis">
+                <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-slate-950 shadow-soft transition hover:bg-emerald-400">
+                  Parler de mes besoins avec MAB SECURITE
+                </span>
+              </Link>
+              <Link href="/solutions">
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/70 bg-slate-950/60 px-4 py-2 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500 hover:text-slate-950">
+                  Voir toutes nos solutions en détail
+                </span>
+              </Link>
+            </div>
           </section>
         </section>
       </ServicePageTemplate>
