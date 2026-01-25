@@ -264,6 +264,35 @@ export default function SecuriteEntrepotsLogistiquesPage() {
             </Link>
           </div>
         </section>
+
+        <section className="mt-6 space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-5 text-xs text-slate-300">
+          <p className="font-medium text-slate-100">
+            Partenariat logistique &amp; ventousage pour vos sites
+          </p>
+          <p>
+            Sur certains sites logistiques, la sécurité des flux passe aussi par la
+            maîtrise du stationnement, des zones de chargement et des neutralisations
+            temporaires de voirie. Lorsque cela est pertinent, {company.name} peut
+            s&apos;appuyer sur un partenaire spécialisé comme{' '}
+            <a
+              href="https://bmsventouse.fr"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-2 hover:underline"
+            >
+              BMS Ventouse
+            </a>{' '}
+            pour organiser le ventousage, l&apos;affichage riverains et la signalisation
+            temporaire autour de vos entrepôts et plateformes.
+          </p>
+          <p className="text-[11px] text-slate-400">
+            Ce partenariat permet d&apos;articuler gardiennage humain, rondes de sûreté et
+            sécurisation logistique (stationnement réservé, barriérage, signalisation) dans
+            un dispositif cohérent, sans surcoût d&apos;agence pour le client. Les
+            interventions de BMS Ventouse sont réalisées dans un cadre défini et validé
+            avec vos équipes.
+          </p>
+        </section>
       </ServicePageTemplate>
     </>
   );

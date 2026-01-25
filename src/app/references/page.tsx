@@ -63,7 +63,8 @@ const caseStudies: CaseStudy[] = [
       'Surveillance ciblée de certaines zones de stockage à forte valeur',
       'Articulation avec la vidéosurveillance existante et le PC sécurité du client',
     ],
-    note: "Les amplitudes horaires et le nombre d'agents sont adaptés au profil d'activité (jour/nuit, 5j/7 ou 7j/7).",
+    note:
+      "Les amplitudes horaires et le nombre d'agents sont adaptés au profil d'activité (jour/nuit, 5j/7 ou 7j/7). Sur certains sites, la sécurisation logistique (ventousage, signalisation, affichage riverains) peut être organisée avec un partenaire spécialisé comme BMS Ventouse, en complément du gardiennage.",
   },
   {
     slug: 'siege-social-paris',
