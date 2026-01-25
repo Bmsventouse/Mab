@@ -5,6 +5,10 @@ import { company, sectors } from '../../content/company';
 import { buildMetadata } from '../../lib/seo';
 import { Heading } from '../../components/atoms/Heading';
 import { Text } from '../../components/atoms/Text';
+import { Breadcrumbs } from '../../components/molecules/Breadcrumbs';
+import { buildBreadcrumbJsonLd } from '../../lib/breadcrumbs';
+import { Heading } from '../../components/atoms/Heading';
+import { Text } from '../../components/atoms/Text';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Secteurs d’intervention – BTP, entreprises et acteurs publics',
@@ -12,6 +16,11 @@ export const metadata: Metadata = buildMetadata({
     "Secteurs accompagnés par MAB SECURITE : entreprises du BTP, sièges sociaux, sites industriels et logistiques, collectivités, acteurs publics et métiers de l'événementiel (y compris tournages et plateaux techniques) à Paris, Marseille, Montpellier, Nîmes et dans leurs régions.",
   canonicalPath: '/secteurs',
 });
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Accueil', path: '/' },
+  { name: 'Secteurs', path: '/secteurs' },
+]);
 
 const iconMap: Record<string, typeof Building2> = {
   entreprises: Building2,
@@ -22,21 +31,33 @@ const iconMap: Record<string, typeof Building2> = {
 
 export default function SecteursPage() {
   return (
-    <div className="section">
-      <div className="section-inner space-y-8">
-        <header className="space-y-3">
-          <p className="badge">Secteurs</p>
-          <Heading level={1} className="text-2xl sm:text-3xl">
-            Des dispositifs adaptés à vos environnements
-          </Heading>
-          <Text variant="muted" className="max-w-2xl text-sm">
-            {company.name} intervient dans différents environnements professionnels avec
-            un souci constant d&apos;adaptation aux contraintes de chaque métier&nbsp;:
-            continuité de service, gestion des flux, exigences réglementaires, enjeux
-            d&apos;image et de confidentialité, y compris dans le cadre de marchés publics
-            ou de conventions pluriannuelles.
-          </Text>
-        </header>
+    <>
+      <script
+        type="application/ld+json"
+        // JSON-LD pour le fil d'Ariane (BreadcrumbList) des secteurs
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="section">
+        <div className="section-inner space-y-8">
+          <header className="space-y-3">
+            <Breadcrumbs
+              items={[
+                { href: '/', label: 'Accueil' },
+                { href: '/secteurs', label: 'Secteurs' },
+              ]}
+            />
+            <p className="badge">Secteurs</p>
+            <Heading level={1} className="text-2xl sm:text-3xl">
+              Des dispositifs adaptés à vos environnements
+            </Heading>
+            <Text variant="muted" className="max-w-2xl text-sm">
+              {company.name} intervient dans différents environnements professionnels avec
+              un souci constant d&apos;adaptation aux contraintes de chaque métier&nbsp;:
+              continuité de service, gestion des flux, exigences réglementaires, enjeux
+              d&apos;image et de confidentialité, y compris dans le cadre de marchés publics
+              ou de conventions pluriannuelles.
+            </Text>
+          </header>
 
         <section className="grid gap-6 md:grid-cols-2">
           {sectors.map((sector) => {
@@ -190,5 +211,6 @@ export default function SecteursPage() {
         </section>
       </div>
     </div>
+    </>
   );
 }
