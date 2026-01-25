@@ -4,6 +4,8 @@ import { CheckCircle2 } from 'lucide-react';
 import { company, services } from '../../content/company';
 import { ServicePageTemplate } from '../../components/templates/ServicePageTemplate';
 import { buildMetadata } from '../../lib/seo';
+import { Heading } from '../../components/atoms/Heading';
+import { Text } from '../../components/atoms/Text';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Prestations de sécurité privée – Gardiennage BTP & sites professionnels',
@@ -20,15 +22,15 @@ export default function PrestationsPage() {
       intro={`${company.name} conçoit et pilote des dispositifs de sécurité adaptés aux contraintes des entreprises privées, des collectivités et des établissements publics. Chaque mission est cadrée en amont afin d'assurer un niveau de sécurité cohérent avec vos enjeux, vos obligations réglementaires et, le cas échéant, les exigences de vos appels d'offres privés ou publics et de vos cahiers des charges.`}
       sidebar={
         <div className="space-y-3">
-          <p className="font-medium text-slate-100">
+          <Heading level={3} className="text-sm">
             Besoin d’une approche globale de la sécurité de vos sites&nbsp;?
-          </p>
-          <p className="text-slate-300">
+          </Heading>
+          <Text className="text-xs text-slate-300">
             Nous construisons des dispositifs combinant gardiennage, rondes de sûreté et
             sécurité événementielle, en articulation avec vos procédures internes (plans
             de prévention, consignes d&apos;accès, gestion des visiteurs, prestataires et
             sous-traitants).
-          </p>
+          </Text>
         </div>
       }
     >
@@ -36,12 +38,16 @@ export default function PrestationsPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           {services.map((service) => (
             <article key={service.slug} className="card p-6 text-sm">
-              <h2 className="text-base font-semibold text-slate-50">{service.name}</h2>
-              <p className="mt-2 text-sm text-muted">{service.description}</p>
+              <Heading level={2} className="text-base">
+                {service.name}
+              </Heading>
+              <Text variant="muted" className="mt-2 text-sm">
+                {service.description}
+              </Text>
               <div className="mt-4 space-y-1.5 text-xs text-slate-400">
-                <p className="font-medium text-slate-200">
+                <Text className="font-medium text-slate-200">
                   Exemples de situations prises en charge :
-                </p>
+                </Text>
               </div>
               <ul className="mt-2 space-y-2 text-xs text-slate-300">
                 {service.highlights.map((item) => (
